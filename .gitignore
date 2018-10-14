@@ -1,0 +1,6 @@
+*.suo
+*.csproj.user
+*.vbproj.user
+*.ipch
+*sdf
+*.exe

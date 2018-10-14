@@ -118,7 +118,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExplicitScheme.cpp" />
+    <ClCompile Include="ImplicitScheme.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="Scheme.cpp" />
+    <ClCompile Include="vector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ExplicitScheme.h" />
+    <ClInclude Include="ImplicitScheme.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="Scheme.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
