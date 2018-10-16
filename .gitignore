@@ -2,3 +2,11 @@
 
 ImplicitAndExplicitScheme/ImplicitAndExplicitScheme.sdf
 ImplicitAndExplicitScheme/ImplicitAndExplicitScheme.v12.suo
+=======
+*.suo
+*.csproj.user
+*.vbproj.user
+*.ipch
+*sdf
+*.exe
+>>>>>>> master
