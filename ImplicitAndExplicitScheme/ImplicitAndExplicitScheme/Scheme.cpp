@@ -1,4 +1,5 @@
 #include "Scheme.h"
+#include <math.h>
 
 Scheme::Scheme()
 {
@@ -7,10 +8,20 @@ Scheme::Scheme()
 
 void Scheme::InitialCondition()
 {
-	for (int i = 0; i < (*this).matrix.getNcols(); i++)
+	const double PI = atan(1) * 4;
+	for (int i = 0; i <= 10; i++)
 	{
-		(*this).matrix[][]
+		this->matrix[0][i] = 0;
 	}
+	for (int x = 10; x <= 22; x++)
+	{
+		this->matrix[0][x] = 100*(sin(PI*((((double)x * 5) - 50) / 60)));
+	}
+	for (int k = 22; k <= 80; k++)
+	{
+		this->matrix[0][k] = 0;
+	}
+
 }
 
 void Scheme::BoundryCondition()

@@ -1,1 +1,4 @@
-﻿
+﻿  Scheme.cpp
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(51): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(52): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  ImplicitAndExplicitScheme.vcxproj -> C:\Users\klaud\Documents\GitExtnsion\ImplicitAndExplicitSchemes\ImplicitAndExplicitScheme\Debug\ImplicitAndExplicitScheme.exe
