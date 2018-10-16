@@ -7,10 +7,18 @@ Scheme::Scheme()
 
 void Scheme::InitialCondition()
 {
-	//todo
+	for (int i = 0; i < (*this).matrix.getNcols(); i++)
+	{
+		(*this).matrix[][]
+	}
 }
 
 void Scheme::BoundryCondition()
+{
+	//todo
+}
+
+void Scheme::AnalyticalSolution()
 {
 	//todo
 }
@@ -19,18 +27,14 @@ void Scheme::BoundryCondition()
 // values like t, x etc. I got it from other labs to test my solution
 // we have to change it -> get values, variables from project exercise
 // this is something like template
-void Scheme::ComputeSizeOfMatrix(double deltaT, double t, double x, double u, double r)
+void Scheme::ComputeSizeOfMatrix(double deltaT)
 {
-	double deltaX;
+	double deltaX = 5.0; //5 meters
 	int sizeT, sizeX;
+	double x = 400; //from excercise; domain is xE[0;400] meters
+	double u = 250; //value from excercise 250 m/s
+	double t = 0.5; //from excercise t goes from 0.0 to 0.5sec
 
-	u = 0.01; //value from excercise
-	deltaT = 0.2; //constant value to ease!
-	t = 10; //from excercise t=1.2, 5.2, 10
-	x = 1; //from excercise; domain is xE[0;1]
-
-	//compute delta X
-	deltaX = sqrt((u*deltaT) / r);
 
 	//compute sizeX and sizeT, this is need to loops in functions
 	sizeX = (x / deltaX) + 1;

@@ -14,7 +14,6 @@ public:
 	//override methods from Scheme class
 	virtual void PrintResult();
 	virtual void SaveResultIntoFiles();
-	virtual void AnalyticalSolution();
 
 	//methods for implicit schemes
 	void ImplicitUpWind();

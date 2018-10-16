@@ -1,0 +1,8 @@
+﻿La génération a démarré 10/16/2018 7:00:39 PM.
+     1>Projet "D:\Documents\e.combourieu\Documents\Cranfield\Git\ImplicitAndExplicitSchemes\ImplicitAndExplicitScheme\ImplicitAndExplicitScheme\ImplicitAndExplicitScheme.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Platform.targets(64,5): error MSB8020: The build tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, please install v141 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Upgrade Solution...".
+     1>Génération du projet "D:\Documents\e.combourieu\Documents\Cranfield\Git\ImplicitAndExplicitSchemes\ImplicitAndExplicitScheme\ImplicitAndExplicitScheme\ImplicitAndExplicitScheme.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:00.10

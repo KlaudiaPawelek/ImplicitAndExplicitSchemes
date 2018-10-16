@@ -20,11 +20,6 @@ void ExplicitScheme::SaveResultIntoFiles()
 	//todo
 }
 
-void ExplicitScheme::AnalyticalSolution()
-{
-	//todo
-}
-
 
 void ExplicitScheme::ExplicitUpWind()
 {

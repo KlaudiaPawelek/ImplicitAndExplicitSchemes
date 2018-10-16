@@ -20,13 +20,14 @@ public:
 	//this is only idea, how to use some elements from C++ to our project
 	virtual void PrintResult() = 0;
 	virtual void SaveResultIntoFiles() = 0;
-	virtual void AnalyticalSolution() = 0;
+
 	
 	//some methods, which can be implemented in this 'mother' class
 	//because for implicit and explicit scheme there are the same
 	void InitialCondition();
+	void AnalyticalSolution();
 	void BoundryCondition();
-	void ComputeSizeOfMatrix(double deltaT, double t, double x, double u, double r);
+	void ComputeSizeOfMatrix(double deltaT);
 	virtual void Norms();
 
 	//accessor

@@ -21,11 +21,6 @@ void ImplicitScheme::SaveResultIntoFiles()
 	//todo
 }
 
-void ImplicitScheme::AnalyticalSolution()
-{
-	//todo
-}
-
 void ImplicitScheme::ImplicitUpWind()
 {
 	//todo
