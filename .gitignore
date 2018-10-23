@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-ImplicitAndExplicitScheme/ImplicitAndExplicitScheme.sdf
-ImplicitAndExplicitScheme/ImplicitAndExplicitScheme.v12.suo
-=======
+*.sdf
 *.suo
 *.csproj.user
 *.vbproj.user
@@ -10,22 +6,8 @@ ImplicitAndExplicitScheme/ImplicitAndExplicitScheme.v12.suo
 *sdf
 *.exe
 *.opendb
->>>>>>> master
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/Implicit.18F25EAC.tlog/CL.command.1.tlog
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/Implicit.18F25EAC.tlog/CL.read.1.tlog
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/Implicit.18F25EAC.tlog/CL.write.1.tlog
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/ImplicitAndExplicitScheme.log
-/ImplicitAndExplicitScheme/.vs/ImplicitAndExplicitScheme/v15/.suo
-/ImplicitAndExplicitScheme/.vs/ImplicitAndExplicitScheme/v15/Browse.VC.db
-/ImplicitAndExplicitScheme/Debug/ImplicitAndExplicitScheme.ilk
-/ImplicitAndExplicitScheme/Debug/ImplicitAndExplicitScheme.pdb
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/ExplicitScheme.obj
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/Implicit.18F25EAC.tlog/CL.command.1.tlog
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/Implicit.18F25EAC.tlog/CL.read.1.tlog
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/vector.obj
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/vc141.pdb
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/vc141.idb
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/Scheme.obj
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/matrix.obj
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/main.obj
-/ImplicitAndExplicitScheme/ImplicitAndExplicitScheme/Debug/ImplicitScheme.obj
+*.tlog
+*.log
+*.db
+*.pdb
+
