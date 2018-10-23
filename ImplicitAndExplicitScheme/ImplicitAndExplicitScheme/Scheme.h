@@ -46,7 +46,7 @@ public:
 	//accessor
 	Matrix GetMatrix();
 
-	//special function useful in command line, which is used only inside of this class
+	//special function useful in command line, which is visible only inside of this class
 	friend int IsDouble(string input);
 
 	//virtual destructor, this is necessary 

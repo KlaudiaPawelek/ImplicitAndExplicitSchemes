@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-	//At the end of our project, I will try to create short menu in console.
+	//At the end of our project, maybe I will try to create short menu in console :D
 
 	//--------------------- Explicit Scheme --------------------- //
 	ExplicitScheme eS;
