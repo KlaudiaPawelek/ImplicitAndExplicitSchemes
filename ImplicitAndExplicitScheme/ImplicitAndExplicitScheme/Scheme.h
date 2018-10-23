@@ -1,14 +1,26 @@
-#include <iostream>
 #include "matrix.h"
 #include "vector.h"
+#include <math.h>
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+using namespace std;
 #pragma once
 
+//this is abstrac class
 class Scheme 
 {
 protected:
-	Matrix matrix;
+	Matrix matrix, analyticalSolution;
 	int sizeOfMatrix, sizeT, sizeX;
 	double deltaT, deltaX;
+
+	//constant values
+	const double PI = atan(1) * 4;
+	const double u = 250; //value from excercise 250 m/s
+
 public:
 	
 	//default constructor
@@ -27,11 +39,15 @@ public:
 	void InitialCondition();
 	void AnalyticalSolution();
 	void BoundryCondition();
-	void ComputeSizeOfMatrix(double deltaT);
+	void InsertDeltaT();
+	void ComputeSizeOfMatrix();
 	virtual void Norms();
 
 	//accessor
 	Matrix GetMatrix();
+
+	//special function useful in command line, which is used only inside of this class
+	friend int IsDouble(string input);
 
 	//virtual destructor, this is necessary 
 	virtual ~Scheme() {}

@@ -17,10 +17,9 @@ public:
 	virtual void SaveResultIntoFiles();
 
 	//methods for explicit schemes
-	void ExplicitUpWind();
+	void ExplicitUpWindFTBS();
 	void ExplicitLaxWandroff();
 
-	
 	//default destructor
 	~ExplicitScheme();
 };

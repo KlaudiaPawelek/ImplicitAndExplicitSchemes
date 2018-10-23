@@ -237,7 +237,7 @@ std::ostream& operator<<(std::ostream& os, const Matrix& m) {
 
 	// test to see whether there are any elements
     if (m.getNrows() > 0) {
-        os << "The matrix elements are" << std::endl;
+        os << "The matrix elements are: " << std::endl;
         for (int i=0; i<m.getNrows();i++) {
 			for (int j=0;j<m.getNcols();j++) {
 				os << m[i][j]  << " ";

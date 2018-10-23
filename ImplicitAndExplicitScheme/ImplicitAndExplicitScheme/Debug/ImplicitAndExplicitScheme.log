@@ -1,4 +1,5 @@
 ﻿  Scheme.cpp
-c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(51): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(52): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(77): warning C4018: '<': signed/unsigned mismatch
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(116): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(117): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   ImplicitAndExplicitScheme.vcxproj -> C:\Users\klaud\Documents\GitExtnsion\ImplicitAndExplicitSchemes\ImplicitAndExplicitScheme\Debug\ImplicitAndExplicitScheme.exe

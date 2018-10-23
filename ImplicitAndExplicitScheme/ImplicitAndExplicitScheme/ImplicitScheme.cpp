@@ -2,7 +2,9 @@
 #include "matrix.h"
 #include "vector.h"
 #include <iostream>
-
+#include <fstream>
+#include <iomanip>
+#include <string>
 using namespace std;
 
 ImplicitScheme::ImplicitScheme()
@@ -13,19 +15,31 @@ ImplicitScheme::ImplicitScheme()
 
 void ImplicitScheme::PrintResult()
 {
-	//todo
+	
 }
 
 void ImplicitScheme::SaveResultIntoFiles()
 {
-	//todo
+	ofstream f;
+		//f.open("ImplicitUpWindFTBS.txt");
+		f.open("ImplicitFTCS.txt");
+	for (int t = 0; t < this->sizeT; t++)
+	{
+		for (int x = 0; x < this->sizeX; x++)
+		{
+			f << fixed << setprecision(5) << this->matrix[t][x] << " ";
+		}
+		f << endl;
+	}
 }
 
-void ImplicitScheme::ImplicitUpWind()
+//Implicit UpWind FTBS (Forward time, Backward space)
+void ImplicitScheme::ImplicitUpWindFTBS()
 {
 	//todo
 }
 
+//Implicit FTCS(Forward time, Central space)
 void ImplicitScheme::ImplicitFTCS()
 {
 	//todo

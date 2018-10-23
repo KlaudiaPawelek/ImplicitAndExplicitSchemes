@@ -16,7 +16,7 @@ public:
 	virtual void SaveResultIntoFiles();
 
 	//methods for implicit schemes
-	void ImplicitUpWind();
+	void ImplicitUpWindFTBS();
 	void ImplicitFTCS();
 
 	//default destructor
