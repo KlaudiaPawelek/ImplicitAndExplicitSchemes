@@ -32,7 +32,6 @@ public:
 	//this is only idea, how to use some elements from C++ to our project
 	virtual void PrintResult() = 0;
 	virtual void SaveResultIntoFiles() = 0;
-
 	
 	//some methods, which can be implemented in this 'mother' class
 	//because for implicit and explicit scheme there are the same
@@ -41,8 +40,7 @@ public:
 	void BoundryCondition();
 	void InsertDeltaT();
 	void ComputeSizeOfMatrix();
-	virtual void Norms();
-
+	
 	//accessor
 	Matrix GetMatrix();
 

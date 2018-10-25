@@ -15,7 +15,8 @@ ImplicitScheme::ImplicitScheme()
 
 void ImplicitScheme::PrintResult()
 {
-	
+	cout << "IMPLICIT" << endl;
+	cout << this->matrix;
 }
 
 void ImplicitScheme::SaveResultIntoFiles()

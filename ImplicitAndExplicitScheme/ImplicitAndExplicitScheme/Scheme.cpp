@@ -121,11 +121,6 @@ void Scheme::ComputeSizeOfMatrix()
 	this->matrix = m;
 }
 
-void Scheme::Norms()
-{
-	//todo
-}
-
 Matrix Scheme::GetMatrix()
 {
 	return this->matrix;

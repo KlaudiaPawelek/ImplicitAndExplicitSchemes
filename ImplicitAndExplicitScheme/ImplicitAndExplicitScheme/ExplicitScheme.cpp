@@ -14,7 +14,8 @@ ExplicitScheme::ExplicitScheme()
 
 void ExplicitScheme::PrintResult()
 {
-	//todo
+	cout << "EXPLICIT" << endl;
+	cout << this->matrix;
 }
 
 void ExplicitScheme::SaveResultIntoFiles()

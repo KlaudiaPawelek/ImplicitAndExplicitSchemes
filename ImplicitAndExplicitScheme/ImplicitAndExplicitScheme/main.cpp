@@ -20,7 +20,7 @@ int main()
 	eS.BoundryCondition();
 	eS.ExplicitUpWindFTBS();
 	//eS.ExplicitLaxWandroff();
-	cout << eS.GetMatrix();
+	eS.PrintResult();
 	//eS.SaveResultIntoFiles();
 	
 	//--------------------- Implicit Scheme --------------------- //
@@ -32,7 +32,7 @@ int main()
 	iS.BoundryCondition();
 	//iS.ImplicitUpWindFTBS();
 	//iS.ImplicitFTCS();
-	cout << iS.GetMatrix();
+	iS.PrintResult();
 	iS.SaveResultIntoFiles();*/
 
 	system("pause");
