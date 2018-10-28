@@ -13,11 +13,10 @@ public:
 
 	//override methods from Scheme class
 	virtual void PrintResult();
-	virtual void SaveResultIntoFiles();
 
 	//methods for implicit schemes
-	void ImplicitUpWindFTBS();
-	void ImplicitFTCS();
+	string ImplicitUpWindFTBS();
+	string ImplicitFTCS();
 
 	//default destructor
 	~ImplicitScheme();

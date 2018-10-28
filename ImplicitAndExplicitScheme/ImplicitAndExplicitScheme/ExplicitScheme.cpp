@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-
 using namespace std;
 
 ExplicitScheme::ExplicitScheme()
@@ -18,23 +17,8 @@ void ExplicitScheme::PrintResult()
 	cout << this->matrix;
 }
 
-void ExplicitScheme::SaveResultIntoFiles()
-{
-	ofstream f;
-	f.open("ExplicitUpWindFTBS.txt");
-	//f.open("ExplicitLaxWandroff.txt");
-	for (int t = 0; t < this->sizeT; t++)
-	{
-		for (int x = 0; x < this->sizeX; x++)
-		{
-			f << fixed << setprecision(5) << this->matrix[t][x] << " ";
-		}
-		f << endl;
-	}
-}
-
 //Explicit Upwind FTBS (Forward time, Backward space)
-void ExplicitScheme::ExplicitUpWindFTBS()
+string ExplicitScheme::ExplicitUpWindFTBS()
 {
 	for (int t = 1; t < this->sizeT; t++)
 	{
@@ -43,12 +27,12 @@ void ExplicitScheme::ExplicitUpWindFTBS()
 			this->matrix[t][x] = (1 - ((this->u*this->deltaT) / this->deltaX))*this->matrix[t - 1][x] + ((this->u*this->deltaT) / this->deltaX)*this->matrix[t - 1][x - 1];
 		}
 	}
-
+	return __func__; //return name of method -> useful for method SaveResultIntoFiles
 }
 
 //Explicit Lax-Wandroff
 //This scheme is unstable for our equation!
-void ExplicitScheme::ExplicitLaxWandroff()
+string ExplicitScheme::ExplicitLaxWandroff()
 {
 	for (int t = 1; t < this->sizeT - 1; t++)
 	{
@@ -57,6 +41,7 @@ void ExplicitScheme::ExplicitLaxWandroff()
 			this->matrix[t][x] = (-1)*((this->u*this->deltaT) / (2 * this->deltaX))*(this->matrix[t - 1][x + 1] - this->matrix[t - 1][x - 1]) + this->matrix[t - 1][x];
 		}
 	}
+	return __func__; //return name of method -> useful for method SaveResultIntoFiles
 }
 
 ExplicitScheme::~ExplicitScheme()

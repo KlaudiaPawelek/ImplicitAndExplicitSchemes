@@ -7,27 +7,40 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-	//At the end of our project, maybe I will try to create short menu in console :D
+	//Important variable to saving results into different files
+	string schemeName = " ";
+	double deltaT = 0.0;
 
 	//--------------------- Explicit Scheme --------------------- //
-	ExplicitScheme eS;
+	ExplicitScheme eS, eS2; //first object for UpWind, second for Lax
+	//UpWindFTBS
 	eS.InsertDeltaT(); 
-	eS.ComputeSizeOfMatrix(); //parameter: delta T
-	cout << "Size of matrix: \n" << " -columns: " << eS.GetMatrix().getNcols() << "\n -rows: " << eS.GetMatrix().getNrows() << endl;
+	eS.ComputeSizeOfMatrix(); 
 	eS.InitialCondition();
 	eS.BoundryCondition();
-	eS.ExplicitUpWindFTBS();
-	//eS.ExplicitLaxWandroff();
+	schemeName = eS.ExplicitUpWindFTBS();
+	deltaT = eS.GetDeltaT();
+	eS.SaveResultIntoFiles(deltaT,schemeName);
 	eS.PrintResult();
-	//eS.SaveResultIntoFiles();
-	
+	eS.~ExplicitScheme();
+
+	//Lax-Wandroff
+	eS2.InsertDeltaT();
+	eS2.ComputeSizeOfMatrix(); 
+	eS2.InitialCondition();
+	eS2.BoundryCondition();
+	schemeName = eS2.ExplicitLaxWandroff();
+	deltaT = eS2.GetDeltaT();
+	eS2.SaveResultIntoFiles(deltaT, schemeName);
+	eS2.PrintResult();
+	eS2.~ExplicitScheme();
+
 	//--------------------- Implicit Scheme --------------------- //
 	/*ImplicitScheme iS;
 	iS.InsertDeltaT();
-	iS.ComputeSizeOfMatrix(); //parameter: delta T
-	cout << "Size of matrix: \n" << " -columns: " << iS.GetMatrix().getNcols() << "\n -rows: " << iS.GetMatrix().getNrows() << endl;
+	iS.ComputeSizeOfMatrix();
 	iS.InitialCondition();
 	iS.BoundryCondition();
 	//iS.ImplicitUpWindFTBS();

@@ -5,6 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <chrono>
+#include <thread>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,24 +18,10 @@ Scheme::Scheme()
 	//default constructor
 }
 
+//compute initial condition
 void Scheme::InitialCondition()
 {
-	
-	//for (int x = 0; x <= 10; x++)
-	//{
-	//	this->matrix[0][x] = 0;
-	//}
-	//for (int x = 10; x <= 22; x++)
-	//{
-	//	this->matrix[0][x] = 100*(sin(PI*((((double)x * 5) - 50) / 60)));
-	//}
-	//for (int x = 22; x <this->sizeX; x++)
-	//{
-	//	this->matrix[0][x] = 0;
-	//}
 
-	//other version of Initial Condition
-	//with one loop and three conditons, maybe this is better solution?
 	for (int x = 0; x < this->sizeX; x++)
 	{
 		if (x >= 0 && x <= 10)
@@ -48,6 +39,7 @@ void Scheme::InitialCondition()
 	}
 }
 
+//compute boundry condition
 void Scheme::BoundryCondition()
 {
 	for (int t = 0; t < this->sizeT; t++)
@@ -57,6 +49,7 @@ void Scheme::BoundryCondition()
 	}
 }
 
+//compute analytical solution
 void Scheme::AnalyticalSolution()
 {
 	for (int x = 0; x < this->sizeX; x++)
@@ -102,8 +95,6 @@ void Scheme::InsertDeltaT()
 	this->deltaT = stod(tmpDeltaT);
 }
 
-
-
 // compute size of matrix and create it
 void Scheme::ComputeSizeOfMatrix()
 {
@@ -119,11 +110,37 @@ void Scheme::ComputeSizeOfMatrix()
 	//create&return Matrix with proper size filled by zeros
 	Matrix m(this->sizeT, this->sizeX);
 	this->matrix = m;
+
+	cout << "Size of matrix: \n" << " -columns: " << this->matrix.getNcols() << "\n -rows: " << this->matrix.getNrows() << endl;
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 }
 
+//save results into files with different names
+void Scheme::SaveResultIntoFiles(double deltaT, string schemeName)
+{
+	string fileName = schemeName + "_" + to_string(deltaT);
+	ofstream f;
+	f.open(fileName + ".txt");
+	for (int t = 0; t < this->sizeT; t++)
+	{
+		for (int x = 0; x < this->sizeX; x++)
+		{
+			f << fixed << setprecision(5) << this->matrix[t][x] << " ";
+		}
+		f << endl;
+	}
+}
+
+//accessor
 Matrix Scheme::GetMatrix()
 {
 	return this->matrix;
+}
+
+//accessor
+double Scheme::GetDeltaT()
+{
+	return this->deltaT;
 }
 
 

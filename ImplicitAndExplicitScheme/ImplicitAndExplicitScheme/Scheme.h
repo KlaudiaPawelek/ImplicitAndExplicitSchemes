@@ -9,7 +9,7 @@
 using namespace std;
 #pragma once
 
-//this is abstrac class
+//this is abstract class
 class Scheme 
 {
 protected:
@@ -26,12 +26,9 @@ public:
 	//default constructor
 	Scheme();
 
-	//pure virtual methods (like template)
-	//these classes must be implemented in ImplicitScheme class and ExplicitScheme class
-	//probably these classes will be different in implicit and explicit
-	//this is only idea, how to use some elements from C++ to our project
+	//pure virtual method => so this is abstract class
+	//this is not the best, but we can show, that we understand abstract class in c++ bla bla bla
 	virtual void PrintResult() = 0;
-	virtual void SaveResultIntoFiles() = 0;
 	
 	//some methods, which can be implemented in this 'mother' class
 	//because for implicit and explicit scheme there are the same
@@ -40,9 +37,11 @@ public:
 	void BoundryCondition();
 	void InsertDeltaT();
 	void ComputeSizeOfMatrix();
+	void SaveResultIntoFiles(double deltaT, string schemeName);
 	
 	//accessor
 	Matrix GetMatrix();
+	double GetDeltaT();
 
 	//special function useful in command line, which is visible only inside of this class
 	friend int IsDouble(string input);
