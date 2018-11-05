@@ -59,11 +59,17 @@ void Scheme::BoundryCondition()
 
 void Scheme::AnalyticalSolution()
 {
-	for (int x = 0; x < this->sizeX; x++)
+	double T;
+	for (int i = 0; i < this->sizeT; i++)
 	{
-		for (int t = 0; t < this->sizeT; t++)
+		T = i * deltaT;
+		for (int x = 0; x < this->sizeX; x++)
 		{
-			//to do
+			double Y = 5 * x;
+			if (Y <= 110 + (250 * T )&& Y >= 50 + 250 * T)
+			{
+				this->analyticalSolution[i][x] = 100 * (sin((this->PI)*((Y - 50 - (250 * T)) / 60)));
+			}
 		}
 	}
 }
@@ -119,6 +125,7 @@ void Scheme::ComputeSizeOfMatrix()
 	//create&return Matrix with proper size filled by zeros
 	Matrix m(this->sizeT, this->sizeX);
 	this->matrix = m;
+	this->analyticalSolution = m;
 }
 
 Matrix Scheme::GetMatrix()

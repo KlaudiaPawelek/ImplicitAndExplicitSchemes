@@ -14,15 +14,17 @@ ExplicitScheme::ExplicitScheme()
 
 void ExplicitScheme::PrintResult()
 {
-	cout << "EXPLICIT" << endl;
-	cout << this->matrix;
+	//cout << "EXPLICIT :" << endl;
+	//cout << this->matrix;
+	cout << "ANALYTICAL :" << endl;
+	cout << this->analyticalSolution;
 }
 
 void ExplicitScheme::SaveResultIntoFiles()
 {
 	ofstream f;
-	f.open("ExplicitUpWindFTBS.txt");
-	//f.open("ExplicitLaxWandroff.txt");
+	//f.open("ExplicitUpWindFTBS.txt");
+	f.open("ExplicitLaxWandroff.txt");
 	for (int t = 0; t < this->sizeT; t++)
 	{
 		for (int x = 0; x < this->sizeX; x++)

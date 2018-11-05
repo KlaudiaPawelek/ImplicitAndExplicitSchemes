@@ -7,6 +7,11 @@
 class ImplicitScheme :
 	public Scheme
 {
+
+protected:
+
+	vector<double> A, B, C;
+
 public:
 	//default constructor
 	ImplicitScheme();
@@ -16,6 +21,9 @@ public:
 	virtual void SaveResultIntoFiles();
 
 	//methods for implicit schemes
+	//void createThomasMatrix();
+	vector<double> ThomasAlgoFTCS(vector<double>& D);
+	void ThomasAlgorithm();
 	void ImplicitUpWindFTBS();
 	void ImplicitFTCS();
 
