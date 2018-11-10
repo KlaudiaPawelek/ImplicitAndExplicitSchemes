@@ -12,14 +12,10 @@ int main(int argc, char* argv[])
 	//Important variable to saving results into different files
 	string schemeName = " ";
 	double deltaT = 0.0;
-
+	//Scheme *eS = new ExplicitScheme; other way??
 	//--------------------- Explicit Scheme --------------------- //
 	ExplicitScheme eS, eS2; //first object for UpWind, second for Lax
 	//UpWindFTBS
-	eS.InsertDeltaT(); 
-	eS.ComputeSizeOfMatrix(); 
-	eS.InitialCondition();
-	eS.BoundryCondition();
 	schemeName = eS.ExplicitUpWindFTBS();
 	deltaT = eS.GetDeltaT();
 	eS.SaveResultIntoFiles(deltaT,schemeName);
@@ -27,10 +23,6 @@ int main(int argc, char* argv[])
 	eS.~ExplicitScheme();
 
 	//Lax-Wandroff
-	eS2.InsertDeltaT();
-	eS2.ComputeSizeOfMatrix(); 
-	eS2.InitialCondition();
-	eS2.BoundryCondition();
 	schemeName = eS2.ExplicitLaxWandroff();
 	deltaT = eS2.GetDeltaT();
 	eS2.SaveResultIntoFiles(deltaT, schemeName);

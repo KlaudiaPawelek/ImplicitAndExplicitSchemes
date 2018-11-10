@@ -20,6 +20,11 @@ void ExplicitScheme::PrintResult()
 //Explicit Upwind FTBS (Forward time, Backward space)
 string ExplicitScheme::ExplicitUpWindFTBS()
 {
+	InsertDeltaT();
+	ComputeSizeOfMatrix();
+	InitialCondition();
+	BoundryCondition();
+
 	for (int t = 1; t < this->sizeT; t++)
 	{
 		for (int x = 1; x < this->sizeX; x++)
@@ -34,6 +39,11 @@ string ExplicitScheme::ExplicitUpWindFTBS()
 //This scheme is unstable for our equation!
 string ExplicitScheme::ExplicitLaxWandroff()
 {
+	InsertDeltaT();
+	ComputeSizeOfMatrix();
+	InitialCondition();
+	BoundryCondition();
+
 	for (int t = 1; t < this->sizeT - 1; t++)
 	{
 		for (int x = 1; x < this->sizeX - 1; x++)
