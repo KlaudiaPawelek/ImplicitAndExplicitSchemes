@@ -48,7 +48,7 @@ string ExplicitScheme::ExplicitLaxWandroff()
 	{
 		for (int x = 1; x < this->sizeX - 1; x++)
 		{
-			this->matrix[t][x] = (-1)*((this->u*this->deltaT) / (2 * this->deltaX))*(this->matrix[t - 1][x + 1] - this->matrix[t - 1][x - 1]) + this->matrix[t - 1][x];
+			this->matrix[t][x] = (-1)*((this->u*this->deltaT) / (2 * this->deltaX))*(this->matrix[t - 1][x + 1] - this->matrix[t - 1][x - 1]) + this->matrix[t - 1][x] + ((pow(this->u, 2)*pow(this->deltaT, 2)) /(2* pow(this->deltaX, 2)))*(this->matrix[t - 1][x + 1] - 2 * this->matrix[t - 1][x] + this->matrix[t - 1][x - 1]);
 		}
 	}
 	return __func__; //return name of method -> useful for method SaveResultIntoFiles
