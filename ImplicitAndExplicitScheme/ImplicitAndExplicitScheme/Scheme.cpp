@@ -18,6 +18,22 @@ Scheme::Scheme()
 	//default constructor
 }
 
+void Scheme::PrintResult()
+{
+	int step = ((this->sizeT - 1) / 0.5)*0.1;
+	for (int i = 0; i < this->sizeT; i = i + step)
+	{
+		cout << "[" << i * this->deltaT << "]";
+		for (int j = 0; j < this->sizeX; j++)
+		{
+			cout << " " << this->matrix[i][j];
+		}
+
+		cout << "\n";
+	}
+	cout << "\n";
+}
+
 //compute initial condition
 void Scheme::InitialCondition()
 {
@@ -118,17 +134,26 @@ void Scheme::ComputeSizeOfMatrix()
 //save results into files with different names
 void Scheme::SaveResultIntoFiles(double deltaT, string schemeName)
 {
-	string fileName = schemeName + "_" + to_string(deltaT);
-	ofstream f;
-	f.open(fileName + ".txt");
-	for (int t = 0; t < this->sizeT; t++)
+	try
 	{
-		for (int x = 0; x < this->sizeX; x++)
+		string fileName = schemeName + "_" + to_string(deltaT);
+		ofstream f;
+		f.open(fileName + ".txt");
+		for (int t = 0; t < this->sizeT; t++)
 		{
-			f << fixed << setprecision(5) << this->matrix[t][x] << " ";
+			for (int x = 0; x < this->sizeX; x++)
+			{
+				f << fixed << setprecision(5) << this->matrix[t][x] << " ";
+			}
+			f << endl;
 		}
-		f << endl;
+		cout << schemeName << " - results have been saved as: " << fileName << " in project folder.\n\n";
 	}
+	catch (const std::exception&)
+	{
+		cout << schemeName << " - file with results have not been saved. Something went wrong!";
+	}
+
 }
 
 //accessor

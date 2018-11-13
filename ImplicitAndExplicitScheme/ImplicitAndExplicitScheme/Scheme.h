@@ -25,10 +25,6 @@ public:
 	//default constructor
 	Scheme();
 
-	//pure virtual method => so this is abstract class
-	//this is not the best, but we can show, that we understand abstract class in c++ bla bla bla
-	virtual void PrintResult() = 0;
-
 	//some methods, which can be implemented in this 'mother' class
 	//because for implicit and explicit scheme there are the same
 protected:
@@ -40,6 +36,7 @@ protected:
 public:
 	void SaveResultIntoFiles(double deltaT, string schemeName);
 	void AnalyticalSolution();
+	void PrintResult();
 	//accessor
 	Matrix GetMatrix();
 	double GetDeltaT();

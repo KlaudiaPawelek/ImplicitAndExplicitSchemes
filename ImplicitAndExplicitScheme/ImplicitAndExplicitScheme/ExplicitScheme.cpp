@@ -11,11 +11,6 @@ ExplicitScheme::ExplicitScheme()
 	//default constructor
 }
 
-void ExplicitScheme::PrintResult()
-{
-	cout << "EXPLICIT" << endl;
-	cout << this->matrix;
-}
 
 //Explicit Upwind FTBS (Forward time, Backward space)
 string ExplicitScheme::ExplicitUpWindFTBS()

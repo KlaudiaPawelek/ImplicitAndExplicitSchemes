@@ -11,9 +11,6 @@ public:
 	//default constructor
 	ExplicitScheme();
 
-	//override methods from Scheme class
-	virtual void PrintResult();
-
 	//methods for explicit schemes
 	string ExplicitUpWindFTBS();
 	string ExplicitLaxWandroff();
