@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 	eS2.~ExplicitScheme();*/
 
 	//--------------------- Implicit Scheme --------------------- //
-	/*ImplicitScheme iS, iS2; //first object for UpWind, second for FTCS
+	ImplicitScheme iS, iS2; //first object for UpWind, second for FTCS
 	schemeName = iS.ImplicitUpWindFTBS();
 	deltaT = iS.GetDeltaT();
 	iS.SaveResultIntoFiles(deltaT, schemeName);
@@ -41,15 +41,16 @@ int main(int argc, char* argv[])
 	deltaT = iS2.GetDeltaT();
 	iS2.SaveResultIntoFiles(deltaT, schemeName);
 	iS2.PrintResult();
-	iS2.~ImplicitScheme();*/
+	iS2.~ImplicitScheme();
+	
 
 	//--------------------- Analytical Solution ----------------- //
-	Scheme s;
+	/*Scheme s;
 	schemeName = s.AnalyticalSolution();
 	deltaT = s.GetDeltaT();
 	s.SaveResultIntoFiles(deltaT, schemeName);
 	s.PrintResult();
-	s.~Scheme();
+	s.~Scheme();*/
 
 	system("pause");
 	return 0;
