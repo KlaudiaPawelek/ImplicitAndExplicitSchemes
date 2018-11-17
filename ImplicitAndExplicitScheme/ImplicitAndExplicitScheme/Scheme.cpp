@@ -21,8 +21,10 @@ Scheme::Scheme()
 void Scheme::PrintResult()
 {
 	int step = ((this->sizeT - 1) / 0.5)*0.1;
+	cout << "Steps [from 0.0 sec to 0.5 sec] \n";
 	for (int i = 0; i < this->sizeT; i = i + step)
 	{
+		cout << "\n";
 		cout << "[" << i * this->deltaT << "]";
 		for (int j = 0; j < this->sizeX; j++)
 		{
@@ -30,6 +32,7 @@ void Scheme::PrintResult()
 		}
 
 		cout << "\n";
+		this_thread::sleep_for(chrono::milliseconds(1000));
 	}
 	cout << "\n";
 }
@@ -113,11 +116,11 @@ int IsDouble(string input)
 void Scheme::InsertDeltaT()
 {
 	string tmpDeltaT;
-	cout << "Insert value of deltaT [0.01, 0.02, 0.005]: ";
+	cout << "Insert value of deltaT [examples: 0.01, 0.02, 0.005]: ";
 	getline(cin, tmpDeltaT);
 	while (!IsDouble(tmpDeltaT) || tmpDeltaT == "")
 	{
-		cout << "Wrong input! Please input an double value from excercise: ";
+		cout << "Wrong input! Please input a double value: ";
 		getline(cin, tmpDeltaT);
 	}
 	
@@ -141,7 +144,7 @@ void Scheme::ComputeSizeOfMatrix()
 	this->matrix = m;
 
 	cout << "Size of matrix: \n" << " -columns: " << this->matrix.getNcols() << "\n -rows: " << this->matrix.getNrows() << endl;
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	this_thread::sleep_for(chrono::milliseconds(1000));
 }
 
 //save results into files with different names

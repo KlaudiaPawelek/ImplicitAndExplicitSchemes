@@ -31,7 +31,6 @@ string ExplicitScheme::ExplicitUpWindFTBS()
 }
 
 //Explicit Lax-Wandroff
-//This scheme is unstable for our equation!
 string ExplicitScheme::ExplicitLaxWandroff()
 {
 	InsertDeltaT();

@@ -8,10 +8,18 @@
 
 
 /**
-	Class from C++ lab. In my opinion, we can use some methods.
-	Of course, some of these methods can be deleted in the future.
-	Now, this is oryginal class from C++ lab, so comments are oryginal too! We can change it too.
-**/
+*  A vector class for data storage of a 1D array of doubles
+*  \n The implementation is derived from the standard container vector std::vector
+*  \n We use private inheritance to base our vector upon the library version whilst
+*  \nallowing usto expose only those base class functions we wish to use - in this
+*  \ncase the array access operator []
+*
+* The Vector class provides:
+* \n-basic constructors for creating vector obcjet from other vector object,
+or by creating empty vector of a given size,
+* \n-input and oput operation via >> and << operators using keyboard or file
+* \n-basic operations like access via [] operator, assignment and comparision
+*/
 class Vector : private std::vector<double> {
 	typedef std::vector<double> vec;
 public:

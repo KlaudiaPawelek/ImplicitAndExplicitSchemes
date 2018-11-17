@@ -1,2 +1,12 @@
-﻿  ImplicitScheme.cpp
+﻿  ExplicitScheme.cpp
+  ImplicitScheme.cpp
+  main.cpp
+  matrix.cpp
+  Scheme.cpp
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(139): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\klaud\documents\gitextnsion\implicitandexplicitschemes\implicitandexplicitscheme\implicitandexplicitscheme\scheme.cpp(140): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  vector.cpp
+  Generating Code...
   ImplicitAndExplicitScheme.vcxproj -> C:\Users\klaud\Documents\GitExtnsion\ImplicitAndExplicitSchemes\ImplicitAndExplicitScheme\Debug\ImplicitAndExplicitScheme.exe
