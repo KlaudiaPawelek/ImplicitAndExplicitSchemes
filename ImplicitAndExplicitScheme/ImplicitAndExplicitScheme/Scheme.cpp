@@ -66,15 +66,28 @@ void Scheme::BoundryCondition()
 }
 
 //compute analytical solution
-void Scheme::AnalyticalSolution()
+string Scheme::AnalyticalSolution()
 {
-	for (int x = 0; x < this->sizeX; x++)
+	InsertDeltaT();
+	ComputeSizeOfMatrix();
+	InitialCondition();
+	BoundryCondition();
+
+	double T;
+	for (int i = 0; i < this->sizeT; i++)
 	{
-		for (int t = 0; t < this->sizeT; t++)
+		T = i * deltaT;
+		for (int x = 0; x < this->sizeX; x++)
 		{
-			//to do
+			double Y = 5 * x;
+			if (Y <= 110 + (250 * T) && Y >= 50 + 250 * T)
+			{
+				this->matrix[i][x] = 100 * (sin((this->PI)*((Y - 50 - (250 * T)) / 60)));
+			}
 		}
 	}
+
+	return __func__;
 }
 
 //method used in InsertDeltaT
@@ -147,11 +160,11 @@ void Scheme::SaveResultIntoFiles(double deltaT, string schemeName)
 			}
 			f << endl;
 		}
-		cout << schemeName << " - results have been saved as: " << fileName << " in project folder.\n\n";
+		cout <<"\n"<< schemeName << " - results have been saved as: " << fileName << " in project folder.\n\n";
 	}
 	catch (const std::exception&)
 	{
-		cout << schemeName << " - file with results have not been saved. Something went wrong!";
+		cout <<"\n" << schemeName << " - file with results have not been saved. Something went wrong!";
 	}
 
 }

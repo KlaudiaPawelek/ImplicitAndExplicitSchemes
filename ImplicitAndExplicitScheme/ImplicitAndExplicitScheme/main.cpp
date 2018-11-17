@@ -12,11 +12,11 @@ int main(int argc, char* argv[])
 	//Important variable to saving results into different files
 	string schemeName = " ";
 	double deltaT = 0.0;
-	//Scheme *eS = new ExplicitScheme; other way??
+	
 	//--------------------- Explicit Scheme --------------------- //
 	ExplicitScheme eS, eS2; //first object for UpWind, second for Lax
 	//UpWindFTBS
-	schemeName = eS.ExplicitUpWindFTBS();
+	/*schemeName = eS.ExplicitUpWindFTBS();
 	deltaT = eS.GetDeltaT();
 	eS.SaveResultIntoFiles(deltaT,schemeName);
 	eS.PrintResult();
@@ -27,18 +27,29 @@ int main(int argc, char* argv[])
 	deltaT = eS2.GetDeltaT();
 	eS2.SaveResultIntoFiles(deltaT, schemeName);
 	eS2.PrintResult();
-	eS2.~ExplicitScheme();
+	eS2.~ExplicitScheme();*/
 
 	//--------------------- Implicit Scheme --------------------- //
-	/*ImplicitScheme iS;
-	iS.InsertDeltaT();
-	iS.ComputeSizeOfMatrix();
-	iS.InitialCondition();
-	iS.BoundryCondition();
-	//iS.ImplicitUpWindFTBS();
-	//iS.ImplicitFTCS();
+	/*ImplicitScheme iS, iS2; //first object for UpWind, second for FTCS
+	schemeName = iS.ImplicitUpWindFTBS();
+	deltaT = iS.GetDeltaT();
+	iS.SaveResultIntoFiles(deltaT, schemeName);
 	iS.PrintResult();
-	iS.SaveResultIntoFiles();*/
+	iS.~ImplicitScheme();
+	
+	schemeName = iS2.ImplicitFTCS();
+	deltaT = iS2.GetDeltaT();
+	iS2.SaveResultIntoFiles(deltaT, schemeName);
+	iS2.PrintResult();
+	iS2.~ImplicitScheme();*/
+
+	//--------------------- Analytical Solution ----------------- //
+	Scheme s;
+	schemeName = s.AnalyticalSolution();
+	deltaT = s.GetDeltaT();
+	s.SaveResultIntoFiles(deltaT, schemeName);
+	s.PrintResult();
+	s.~Scheme();
 
 	system("pause");
 	return 0;

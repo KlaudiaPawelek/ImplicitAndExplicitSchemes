@@ -13,7 +13,7 @@ using namespace std;
 class Scheme 
 {
 protected: 
-	Matrix matrix, analyticalSolution; //AGGREGATION
+	Matrix matrix; //AGGREGATION
 	int sizeOfMatrix, sizeT, sizeX;
 	double deltaT, deltaX;
 
@@ -35,7 +35,7 @@ protected:
 
 public:
 	void SaveResultIntoFiles(double deltaT, string schemeName);
-	void AnalyticalSolution();
+	string AnalyticalSolution();
 	void PrintResult();
 	//accessor
 	Matrix GetMatrix();
@@ -45,6 +45,6 @@ public:
 	friend int IsDouble(string input);
 
 	//virtual destructor, this is necessary 
-	virtual ~Scheme() {}
+	~Scheme() {}
 };
 

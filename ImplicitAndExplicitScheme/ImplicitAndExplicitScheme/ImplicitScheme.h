@@ -7,12 +7,15 @@
 class ImplicitScheme :
 	public Scheme
 {
+
+protected:
+	vector<double> A, B, C, D;
+	vector<double> ThomasAlgoFTCS();
+	vector<double> ThomasAlgoUpWindFTBS();
+
 public:
 	//default constructor
 	ImplicitScheme();
-
-	//override methods from Scheme class
-	virtual void PrintResult();
 
 	//methods for implicit schemes
 	string ImplicitUpWindFTBS();
