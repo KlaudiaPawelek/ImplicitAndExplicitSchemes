@@ -80,16 +80,12 @@ string Scheme::AnalyticalSolution()
 	for (int i = 0; i < this->sizeT; i++)
 	{
 		T = i * deltaT;
-	for (int i = 0; i < this->sizeT; i++)
-	{
-		T = i * deltaT;
 		for (int x = 0; x < this->sizeX; x++)
 		{
 			double Y = 5 * x;
 			if (Y <= 110 + (250 * T) && Y >= 50 + 250 * T)
 			{
 				this->matrix[i][x] = 100 * (sin((this->PI)*((Y - 50 - (250 * T)) / 60)));
-			}
 			}
 		}
 	}

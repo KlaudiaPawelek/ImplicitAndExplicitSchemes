@@ -1,0 +1,118 @@
+#include<iostream>
+#include "matrix.h" //class from C++ lab
+#include "vector.h" //class from C++ lab
+#include "Scheme.h" //mother class
+#include "ExplicitScheme.h" //inherited class
+#include "ImplicitScheme.h" //inherited class
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	//Variables for SaveResultIntoFiles method
+	//name of file - type of scheme
+	string schemeName = " ";
+	//name of file - deltaT
+	double deltaT = 0.0;
+
+<<<<<<< HEAD
+	//objects ExplicitScheme, ImplicitScheme and Scheme classes
+	ExplicitScheme eS, eS2;
+	ImplicitScheme iS, iS2;
+	Scheme s;
+	
+	//parsing arguments from console
+	string arg;
+	for (int i = 1; i < argc; i++)
+	{
+		arg += argv[i];
+	}
+
+	//********************* Run program with arguments ***********//
+=======
+	//--------------------- Explicit Scheme --------------------- //
+/*	ExplicitScheme eS;
+	eS.InsertDeltaT();
+	eS.ComputeSizeOfMatrix(); //parameter: delta T
+	cout << "Size of matrix: \n" << " -columns: " << eS.GetMatrix().getNcols() << "\n -rows: " << eS.GetMatrix().getNrows() << endl;
+	//eS.InitialCondition();
+	//eS.BoundryCondition();
+	//eS.ExplicitUpWindFTBS();
+	//eS.ExplicitLaxWandroff();
+	//eS.PrintResult();
+	//eS.SaveResultIntoFiles();
+	eS.AnalyticalSolution();
+	eS.PrintResult();			*/
+>>>>>>> d1bd68a63986af63cdd3ac9c2a28e9b4c665fb3b
+	
+	//--------------------- Explicit Scheme --------------------- //
+	if(arg=="-exUpWind")
+	{
+		//UpWindFTBS
+		cout << "EXPLICIT SCHEME - UP WIND, FTBS \n";
+		schemeName = eS.ExplicitUpWindFTBS();
+		deltaT = eS.GetDeltaT();
+		eS.PrintResult();
+		eS.SaveResultIntoFiles(deltaT,schemeName);
+		eS.~ExplicitScheme();
+	}
+	else if (arg == "-exLaxWandroff")
+	{
+		//Lax-Wandroff
+		cout << "EXPLICIT SCHEME - LAX-WANDROFF \n";
+		schemeName = eS2.ExplicitLaxWandroff();
+		deltaT = eS2.GetDeltaT();
+		eS2.PrintResult();
+		eS2.SaveResultIntoFiles(deltaT, schemeName);
+		eS2.~ExplicitScheme();
+	}
+	//--------------------- Implicit Scheme --------------------- //
+<<<<<<< HEAD
+	else if (arg == "-imUpWind")
+	{
+		//UpWind FTBS
+		cout << "IMPLICIT SCHEME - UP WIND, FTBS \n";
+		schemeName = iS.ImplicitUpWindFTBS();
+		deltaT = iS.GetDeltaT();
+		iS.PrintResult();
+		iS.SaveResultIntoFiles(deltaT, schemeName);
+		iS.~ImplicitScheme();
+	} 
+	else if (arg == "-imFTCS")
+	{
+		//FTCS
+		cout << "IMPLICIT SCHEME - FTCS \n";
+		schemeName = iS2.ImplicitFTCS();
+		deltaT = iS2.GetDeltaT();
+		iS2.PrintResult();
+		iS2.SaveResultIntoFiles(deltaT, schemeName);
+		iS2.~ImplicitScheme();
+	}
+	//--------------------- Analytical Solution ----------------- //
+	else if (arg == "-analytical")
+	{
+		cout << "ANALYTICAL SOLUTION \n";
+		schemeName = s.AnalyticalSolution();
+		deltaT = s.GetDeltaT();
+		s.PrintResult();
+		s.SaveResultIntoFiles(deltaT, schemeName);
+		s.~Scheme();
+	}
+=======
+	ImplicitScheme iS;
+	iS.InsertDeltaT();
+	iS.ComputeSizeOfMatrix(); //parameter: delta T
+	cout << "Size of matrix: \n" << " -columns: " << iS.GetMatrix().getNcols() << "\n -rows: " << iS.GetMatrix().getNrows() << endl;
+	iS.InitialCondition();
+	iS.BoundryCondition();
+	//iS.ImplicitUpWindFTBS();
+	iS.ImplicitFTCS();
+	//iS.AnalyticalSolution();
+	iS.PrintResult();
+	//iS.SaveResultIntoFiles();
+>>>>>>> d1bd68a63986af63cdd3ac9c2a28e9b4c665fb3b
+
+	system("pause");
+	return 0;
+}
+

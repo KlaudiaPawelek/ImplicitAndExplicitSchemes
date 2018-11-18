@@ -1,0 +1,41 @@
+#pragma once
+#include "Scheme.h"
+#include "matrix.h"
+#include "vector.h"
+
+//inherited class, with overrided methods
+class ImplicitScheme :
+	public Scheme
+{
+
+<<<<<<< HEAD
+private:
+	vector<double> A, B, C, D;
+	vector<double> ThomasAlgoFTCS();
+	vector<double> ThomasAlgoUpWindFTBS();
+=======
+protected:
+
+	vector<double> A, B, C;
+>>>>>>> d1bd68a63986af63cdd3ac9c2a28e9b4c665fb3b
+
+public:
+	//default constructor
+	ImplicitScheme();
+
+	//methods for implicit schemes
+<<<<<<< HEAD
+	string ImplicitUpWindFTBS();
+	string ImplicitFTCS();
+=======
+	//void createThomasMatrix();
+	vector<double> ThomasAlgoFTCS(vector<double>& D);
+	void ThomasAlgorithm();
+	void ImplicitUpWindFTBS();
+	void ImplicitFTCS();
+>>>>>>> d1bd68a63986af63cdd3ac9c2a28e9b4c665fb3b
+
+	//default destructor
+	~ImplicitScheme();
+};
+
