@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include <iterator>
 using namespace std;
 
 ImplicitScheme::ImplicitScheme()

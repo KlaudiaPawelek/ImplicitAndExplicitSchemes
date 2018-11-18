@@ -57,6 +57,7 @@ int main(int argc, char* argv[])
 		cout << "IMPLICIT SCHEME - UP WIND, FTBS \n";
 		schemeName = iS.ImplicitUpWindFTBS();
 		deltaT = iS.GetDeltaT();
+	//iS.AnalyticalSolution();
 		iS.PrintResult();
 		iS.SaveResultIntoFiles(deltaT, schemeName);
 		iS.~ImplicitScheme();
