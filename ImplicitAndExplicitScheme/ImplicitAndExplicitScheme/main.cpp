@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 		eS2.~ExplicitScheme();
 	}
 	//--------------------- Implicit Scheme --------------------- //
-	else if (arg == "imUpWind")
+	else if (arg == "-imUpWind")
 	{
 		//UpWind FTBS
 		cout << "IMPLICIT SCHEME - UP WIND, FTBS \n";

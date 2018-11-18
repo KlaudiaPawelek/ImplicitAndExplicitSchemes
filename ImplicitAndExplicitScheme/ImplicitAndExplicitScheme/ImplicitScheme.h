@@ -8,7 +8,7 @@ class ImplicitScheme :
 	public Scheme
 {
 
-protected:
+private:
 	vector<double> A, B, C, D;
 	vector<double> ThomasAlgoFTCS();
 	vector<double> ThomasAlgoUpWindFTBS();
