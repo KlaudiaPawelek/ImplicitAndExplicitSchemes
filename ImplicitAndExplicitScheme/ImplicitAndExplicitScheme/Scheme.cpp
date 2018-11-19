@@ -69,10 +69,17 @@ void Scheme::BoundryCondition()
 }
 
 //compute analytical solution
-string Scheme::AnalyticalSolution()
+string Scheme::AnalyticalSolution(double defaultDeltaT)
 {
-	InsertDeltaT();
-	ComputeSizeOfMatrix();
+	if (defaultDeltaT == 0)
+	{
+		InsertDeltaT();
+	}
+	else
+	{
+		this->deltaT = defaultDeltaT;
+	}
+	ComputeSizeOfMatrix(0);
 	InitialCondition();
 	BoundryCondition();
 
@@ -91,6 +98,17 @@ string Scheme::AnalyticalSolution()
 	}
 
 	return __func__;
+}
+
+void Scheme::ComputeNorms(Matrix m1, Matrix m2)
+{
+	Matrix result = Matrix(m1.getNrows(), m2.getNcols());
+	result = m1 - m2;
+	cout << "--NORMS--";
+	cout<<"\n One norm: "<<result.one_norm();
+	cout<<"\n Second norm: "<<result.two_norm();
+	cout<<"\n Uniform norm: "<<result.uniform_norm();
+	cout << "\n";
 }
 
 //method used in InsertDeltaT
@@ -128,7 +146,7 @@ void Scheme::InsertDeltaT()
 }
 
 // compute size of matrix and create it
-void Scheme::ComputeSizeOfMatrix()
+void Scheme::ComputeSizeOfMatrix(bool ifPrinted)
 {
 	//from excercise
 	this->deltaX = 5.0;		//5 meters 
@@ -143,7 +161,10 @@ void Scheme::ComputeSizeOfMatrix()
 	Matrix m(this->sizeT, this->sizeX);
 	this->matrix = m;
 
-	cout << "Size of matrix: \n" << " -columns: " << this->matrix.getNcols() << "\n -rows: " << this->matrix.getNrows() << endl;
+	if (ifPrinted == 1)
+	{
+		cout << "Size of matrix: \n" << " -columns: " << this->matrix.getNcols() << "\n -rows: " << this->matrix.getNrows() << endl;
+	}
 	this_thread::sleep_for(chrono::milliseconds(1000));
 }
 

@@ -31,11 +31,12 @@ protected:
 	void InitialCondition();
 	void BoundryCondition();
 	void InsertDeltaT();
-	void ComputeSizeOfMatrix();
+	void ComputeSizeOfMatrix(bool ifPrinted = 1);
 
 public:
 	void SaveResultIntoFiles(double deltaT, string schemeName);
-	string AnalyticalSolution();
+	string AnalyticalSolution(double defaultDeltaT = 0);
+	void ComputeNorms(Matrix m1, Matrix m2);
 	void PrintResult();
 	//accessor
 	Matrix GetMatrix();

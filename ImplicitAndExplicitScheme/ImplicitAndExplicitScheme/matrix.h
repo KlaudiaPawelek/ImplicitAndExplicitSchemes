@@ -80,6 +80,14 @@ public:
 	bool operator==(const Matrix& m  /**< Matrix&. Matrix to compare to */
 		) const; // overloaded comparison operator
 
+	/**
+	*Overloaded subtraction operator
+	* returns Matrix
+	* @see operator-(Matrix m)
+	* @return Matrix
+	*/
+	Matrix operator-(Matrix m);
+
 
 	// NORMS
 	/**

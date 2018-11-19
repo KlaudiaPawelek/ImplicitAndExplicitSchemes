@@ -186,6 +186,20 @@ bool Matrix::operator==(const Matrix& a) const {
 	return true;
 }
 
+//Overloaded operator -
+Matrix Matrix::operator-(Matrix m)
+{
+	Matrix result((*this).getNrows(), (*this).getNcols());
+	for (int i = 0; i < (*this).size(); i++)
+	{
+		for (int j = 0; j < (*this)[0].size(); j++)
+		{
+			result[i][j] = (*this)[i][j] - m[i][j];
+		}
+	}
+	return result;
+}
+
 
 // OTHER METHODS
 //Transpose of the matrix
