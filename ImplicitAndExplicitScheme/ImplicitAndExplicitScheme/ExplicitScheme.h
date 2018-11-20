@@ -1,21 +1,41 @@
-#pragma once
-#include "Scheme.h"
-#include "matrix.h"
-#include "vector.h"
+#ifndef EXPLICITSCHEME_H	//include guard
+#define EXPLICITSCHEME_H
 
-//inherited class, with overrided methods
+#include "Scheme.h"			//Mother class
+#include <iostream>			//generic IO
+#include <string>			//for string methods
+
+#pragma once
+/**
+* Inherited class, which includes implicit schemes like Up Wind Forward-Time Backward-Space and Forward-Time Central-Space.
+* Additionally, class includes private method with Thomas Algorithm.
+**/
 class ExplicitScheme :
 	public Scheme
 {
 public:
-	//default constructor
+	/**
+	* Default, empty constructor for ExplicitScheme class.
+	**/
 	ExplicitScheme();
 
-	//methods for explicit schemes
+	/**
+	* Public method, which solves the difference using explicit scheme Up Wind Forward-Time Backward-Space
+	* @return string - name of method for saving result into files with proper name
+	* @see SaveResultIntoFiles(double deltaT, string schemeName)
+	**/
 	string ExplicitUpWindFTBS();
+	/**
+	* Public method, which solves the difference using explicit scheme Lax-Wandroff
+	* @return string - name of method for saving result into files with proper name
+	* @see SaveResultIntoFiles(double deltaT, string schemeName)
+	**/
 	string ExplicitLaxWandroff();
 
-	//default destructor
+	/**
+	*Default, empty destructor for ExplicitScheme class.
+	**/
 	~ExplicitScheme();
 };
 
+#endif

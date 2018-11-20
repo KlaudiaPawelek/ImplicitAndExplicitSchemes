@@ -1,20 +1,10 @@
 #include "ImplicitScheme.h"
-#include "matrix.h"
-#include "vector.h"
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-#include <string>
-#include <iterator>
 using namespace std;
 
-ImplicitScheme::ImplicitScheme()
-{
-	//default constructor
-}
+// Default, empty constructor
+ImplicitScheme::ImplicitScheme(){ }
 
-
-// Method used to calculate the solution in both schemes
+//Implementation of Thomas algorithm used in method string ImplicitScheme::ImplicitUpWindFTCS()
 vector<double> ImplicitScheme::ThomasAlgoFTCS()
 { 
 	//The following algorithm was made considering A the sub-diagonal, B the main diagonal, C the top/upper diagonal
@@ -55,8 +45,10 @@ vector<double> ImplicitScheme::ThomasAlgoFTCS()
 
 }
 
+//Implementation of Thomas algorithm used in method string ImplicitScheme::ImplicitUpWindFTBS()
 vector<double> ImplicitScheme::ThomasAlgoUpWindFTBS()
 {
+	//The following algorithm was made considering A the sub-diagonal, B the main diagonal, C the top/upper diagonal
 	double alpha, m;
 	this->A.resize(this->sizeX);
 	this->B.resize(this->sizeX);
@@ -93,48 +85,54 @@ vector<double> ImplicitScheme::ThomasAlgoUpWindFTBS()
 	return X;
 }
 
-//Implicit UpWind FTBS (Forward time, Backward space)
+//Implicit UpWind Forward time Backward space
 string ImplicitScheme::ImplicitUpWindFTBS()
 {
-	InsertDeltaT();
-	ComputeSizeOfMatrix();
-	InitialCondition();
-	BoundryCondition();
+	//------------------------ Preparig matrix ------------------------------------------//
+	InsertDeltaT();			// insert deltaT in the console by user, from Scheme class
+	ComputeSizeOfMatrix();	// compute size of matrix, from Scheme class
+	InitialCondition();		// initial condition, from Scheme class
+	BoundryCondition();		// boundry condition, from Scheme class
+	//----------------------------------------------------------------------------------//
 
+	//-------------------------Implicit scheme------------------------------------------//
 	this->D = (*this).matrix[0];
 	vector<double> tmp(this->sizeX);
 
 	for (int i = 1; i < this->sizeT; i++)
 	{
-		tmp = ThomasAlgoUpWindFTBS(); //we create the vector containing values of the next time step
+		tmp = ThomasAlgoUpWindFTBS();	//create the vector containing values of the next time step
 		this->matrix[i] = tmp;
-		this->D = tmp; //we prepare the calculus of the following time step
+		this->D = tmp;					//prepare the calculus of the following time step
 	}
-	return __func__; //return name of method -> useful for method SaveResultIntoFiles
+	//----------------------------------------------------------------------------------//
+
+	return __func__;					//return name of method -> useful for method SaveResultIntoFiles
 }
 
-//Implicit FTCS(Forward time, Central space)
+//Implicit Forward time, Central space
 string ImplicitScheme::ImplicitFTCS()
 {
-	InsertDeltaT();
-	ComputeSizeOfMatrix();
-	InitialCondition();
-	BoundryCondition();
+	//------------------------ Preparig matrix ------------------------------------------//
+	InsertDeltaT();			// insert deltaT in the console by user, from Scheme class
+	ComputeSizeOfMatrix();	// compute size of matrix, from Scheme class
+	InitialCondition();		// initial condition, from Scheme class
+	BoundryCondition();		// boundry condition, from Scheme class
+	//----------------------------------------------------------------------------------//
 
+	//-------------------------Implicit scheme------------------------------------------//
 	this->D = (*this).matrix[0];
 	vector<double> tmp(this->sizeX);
 
 	for (int i = 1; i < this->sizeT; i++)
 	{
-		tmp = ThomasAlgoFTCS(); //we create the vector containing values of the next time step
+		tmp = ThomasAlgoFTCS();		//create the vector containing values of the next time step
 		this->matrix[i] = tmp;
-		this->D = tmp; //we prepare the calculus of the following time step
+		this->D = tmp;				//prepare the calculus of the following time step
 		
 	}
-	return __func__; //return name of method -> useful for method SaveResultIntoFiles
+	return __func__;				//return name of method -> useful for method SaveResultIntoFiles
 }
 
-ImplicitScheme::~ImplicitScheme()
-{
-	// default destructor
-}
+// Default, empty destructor
+ImplicitScheme::~ImplicitScheme(){ }

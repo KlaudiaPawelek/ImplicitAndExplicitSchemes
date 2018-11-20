@@ -1,0 +1,75 @@
+\hypertarget{class_implicit_scheme}{}\section{Implicit\+Scheme Class Reference}
+\label{class_implicit_scheme}\index{Implicit\+Scheme@{Implicit\+Scheme}}
+
+
+{\ttfamily \#include $<$Implicit\+Scheme.\+h$>$}
+
+Inheritance diagram for Implicit\+Scheme\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_implicit_scheme}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_implicit_scheme_a7bb3a64ab8d7ca0b58ed4ba9817b8c12}{Implicit\+Scheme}} ()
+\item 
+string \mbox{\hyperlink{class_implicit_scheme_ab8311a005d69690622e0ddaa0dcff94d}{Implicit\+Up\+Wind\+F\+T\+BS}} ()
+\item 
+string \mbox{\hyperlink{class_implicit_scheme_afd2b8e73e914a04c326b8cba0d5810ce}{Implicit\+F\+T\+CS}} ()
+\item 
+\mbox{\hyperlink{class_implicit_scheme_aca61347d2335e248678f7f3060785762}{$\sim$\+Implicit\+Scheme}} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Inherited class, which includes implicit schemes like Up Wind Forward-\/\+Time Backward-\/\+Space and Forward-\/\+Time Central-\/\+Space. Additionally, class includes private method with Thomas Algorithm. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_implicit_scheme_a7bb3a64ab8d7ca0b58ed4ba9817b8c12}\label{class_implicit_scheme_a7bb3a64ab8d7ca0b58ed4ba9817b8c12}} 
+\index{Implicit\+Scheme@{Implicit\+Scheme}!Implicit\+Scheme@{Implicit\+Scheme}}
+\index{Implicit\+Scheme@{Implicit\+Scheme}!Implicit\+Scheme@{Implicit\+Scheme}}
+\subsubsection{\texorpdfstring{Implicit\+Scheme()}{ImplicitScheme()}}
+{\footnotesize\ttfamily Implicit\+Scheme\+::\+Implicit\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default, empty constructor for \mbox{\hyperlink{class_implicit_scheme}{Implicit\+Scheme}} class. \mbox{\Hypertarget{class_implicit_scheme_aca61347d2335e248678f7f3060785762}\label{class_implicit_scheme_aca61347d2335e248678f7f3060785762}} 
+\index{Implicit\+Scheme@{Implicit\+Scheme}!````~Implicit\+Scheme@{$\sim$\+Implicit\+Scheme}}
+\index{````~Implicit\+Scheme@{$\sim$\+Implicit\+Scheme}!Implicit\+Scheme@{Implicit\+Scheme}}
+\subsubsection{\texorpdfstring{$\sim$\+Implicit\+Scheme()}{~ImplicitScheme()}}
+{\footnotesize\ttfamily Implicit\+Scheme\+::$\sim$\+Implicit\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default, empty destructor for \mbox{\hyperlink{class_implicit_scheme}{Implicit\+Scheme}} class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_implicit_scheme_afd2b8e73e914a04c326b8cba0d5810ce}\label{class_implicit_scheme_afd2b8e73e914a04c326b8cba0d5810ce}} 
+\index{Implicit\+Scheme@{Implicit\+Scheme}!Implicit\+F\+T\+CS@{Implicit\+F\+T\+CS}}
+\index{Implicit\+F\+T\+CS@{Implicit\+F\+T\+CS}!Implicit\+Scheme@{Implicit\+Scheme}}
+\subsubsection{\texorpdfstring{Implicit\+F\+T\+C\+S()}{ImplicitFTCS()}}
+{\footnotesize\ttfamily string Implicit\+Scheme\+::\+Implicit\+F\+T\+CS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Public method, which solves the difference using implicit scheme Forward-\/\+Time Central-\/\+Space \begin{DoxyReturn}{Returns}
+string -\/ name of method for saving result into files with proper name 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}{Save\+Result\+Into\+Files(double delta\+T, string scheme\+Name)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_implicit_scheme_ab8311a005d69690622e0ddaa0dcff94d}\label{class_implicit_scheme_ab8311a005d69690622e0ddaa0dcff94d}} 
+\index{Implicit\+Scheme@{Implicit\+Scheme}!Implicit\+Up\+Wind\+F\+T\+BS@{Implicit\+Up\+Wind\+F\+T\+BS}}
+\index{Implicit\+Up\+Wind\+F\+T\+BS@{Implicit\+Up\+Wind\+F\+T\+BS}!Implicit\+Scheme@{Implicit\+Scheme}}
+\subsubsection{\texorpdfstring{Implicit\+Up\+Wind\+F\+T\+B\+S()}{ImplicitUpWindFTBS()}}
+{\footnotesize\ttfamily string Implicit\+Scheme\+::\+Implicit\+Up\+Wind\+F\+T\+BS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Public method, which solves the difference using implicit scheme Forward-\/\+Time Backward-\/\+Space \begin{DoxyReturn}{Returns}
+string -\/ name of method for saving result into files with proper name 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}{Save\+Result\+Into\+Files(double delta\+T, string scheme\+Name)}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_implicit_scheme_8h}{Implicit\+Scheme.\+h}}\item 
+\mbox{\hyperlink{_implicit_scheme_8cpp}{Implicit\+Scheme.\+cpp}}\end{DoxyCompactItemize}

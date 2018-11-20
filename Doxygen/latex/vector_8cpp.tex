@@ -1,0 +1,119 @@
+\hypertarget{vector_8cpp}{}\section{vector.\+cpp File Reference}
+\label{vector_8cpp}\index{vector.\+cpp@{vector.\+cpp}}
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{vector_8cpp_ac198cff0f4196c66649278458eebf227}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\item 
+std\+::ifstream \& \mbox{\hyperlink{vector_8cpp_ab6009b37fac65598b3db164dc4f19fed}{operator$>$$>$}} (std\+::ifstream \&ifs, \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\item 
+std\+::ostream \& \mbox{\hyperlink{vector_8cpp_ac254b27efeb8486ee2f67821e3a21a60}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\item 
+std\+::ofstream \& \mbox{\hyperlink{vector_8cpp_a8e755f5550c983df730602890058d990}{operator$<$$<$}} (std\+::ofstream \&ofs, const \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{vector_8cpp_ac254b27efeb8486ee2f67821e3a21a60}\label{vector_8cpp_ac254b27efeb8486ee2f67821e3a21a60}} 
+\index{vector.\+cpp@{vector.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vector.\+cpp@{vector.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+Overloaded ifstream $<$$<$ operator. Display output. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vector_8cpp_ac198cff0f4196c66649278458eebf227}{operator$>$$>$(std\+::istream\& is, Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_ab6009b37fac65598b3db164dc4f19fed}{operator$>$$>$(std\+::ifstream\& ifs, Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_a8e755f5550c983df730602890058d990}{operator$<$$<$(std\+::ofstream\& ofs, const Vector\& v)}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\&. the output stream object os 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & output file stream \\
+\hline
+{\em v} & vector to read from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8cpp_a8e755f5550c983df730602890058d990}\label{vector_8cpp_a8e755f5550c983df730602890058d990}} 
+\index{vector.\+cpp@{vector.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vector.\+cpp@{vector.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ofstream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+Overloaded ofstream $<$$<$ operator. File output. the file output operator is compatible with file input operator, ie. everything written can be read later. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vector_8cpp_ac198cff0f4196c66649278458eebf227}{operator$>$$>$(std\+::istream\& is, Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_ab6009b37fac65598b3db164dc4f19fed}{operator$>$$>$(std\+::ifstream\& ifs, Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_ac254b27efeb8486ee2f67821e3a21a60}{operator$<$$<$(std\+::ostream\& os, const Vector\& v)}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::ofstream\&. the output ofstream object ofs 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & outputfile stream. With opened file \\
+\hline
+{\em v} & \mbox{\hyperlink{class_vector}{Vector}}\&. vector to read from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8cpp_ac198cff0f4196c66649278458eebf227}\label{vector_8cpp_ac198cff0f4196c66649278458eebf227}} 
+\index{vector.\+cpp@{vector.\+cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!vector.\+cpp@{vector.\+cpp}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+Overloaded istream $>$$>$ operator. Keyboard input if vector has size user will be asked to input only vector values if vector was not initialized user can choose vector size and input it values \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vector_8cpp_ab6009b37fac65598b3db164dc4f19fed}{operator$>$$>$(std\+::ifstream\& ifs, Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_ac254b27efeb8486ee2f67821e3a21a60}{operator$<$$<$(std\+::ostream\& os, const Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_a8e755f5550c983df730602890058d990}{operator$<$$<$(std\+::ofstream\& ofs, const Vector\& v)}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::istream\&. the input stream object is 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & (\char`\"{}read error -\/ negative vector size\char`\"{}); \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em is} & keyboard input straem. For user input \\
+\hline
+{\em v} & \mbox{\hyperlink{class_vector}{Vector}}\&. vector to write to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8cpp_ab6009b37fac65598b3db164dc4f19fed}\label{vector_8cpp_ab6009b37fac65598b3db164dc4f19fed}} 
+\index{vector.\+cpp@{vector.\+cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!vector.\+cpp@{vector.\+cpp}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ifstream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{ifs,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+Overloaded ifstream $>$$>$ operator. File input the file output operator is compatible with file input operator, ie. everything written can be read later. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vector_8cpp_ac198cff0f4196c66649278458eebf227}{operator$>$$>$(std\+::istream\& is, Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_ac254b27efeb8486ee2f67821e3a21a60}{operator$<$$<$(std\+::ostream\& os, const Vector\& v)}} 
+
+\mbox{\hyperlink{vector_8cpp_a8e755f5550c983df730602890058d990}{operator$<$$<$(std\+::ofstream\& ofs, const Vector\& v)}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+ifstream\&. the input ifstream object ifs 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & (\char`\"{}file read error -\/ negative vector size\char`\"{}); \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em ifs} & input file straem. With opened matrix file \\
+\hline
+{\em v} & \mbox{\hyperlink{class_vector}{Vector}}\&. vector to write to \\
+\hline
+\end{DoxyParams}

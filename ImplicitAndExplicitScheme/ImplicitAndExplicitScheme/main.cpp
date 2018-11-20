@@ -1,6 +1,5 @@
 #include<iostream>
 #include "matrix.h" //class from C++ lab
-#include "vector.h" //class from C++ lab
 #include "Scheme.h" //mother class
 #include "ExplicitScheme.h" //inherited class
 #include "ImplicitScheme.h" //inherited class
@@ -28,7 +27,7 @@ int main(int argc, char* argv[])
 	}
 
 	//********************* Run program with arguments ***********//
-	//arg = "-exLaxWandroff"; //<-use only, when you want to debug 
+	arg = "-exLaxWandroff"; //<-use only, when you want to debug 
 	//--------------------- Explicit Scheme --------------------- //
 	if(arg=="-exUpWind")
 	{

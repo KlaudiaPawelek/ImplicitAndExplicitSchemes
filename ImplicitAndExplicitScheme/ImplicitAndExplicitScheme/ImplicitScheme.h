@@ -1,27 +1,71 @@
-#pragma once
-#include "Scheme.h"
-#include "matrix.h"
-#include "vector.h"
+#ifndef IMPLICITSCHEME_H	//include guard
+#define IMPLICITSCHEME_H
 
-//inherited class, with overrided methods
+#include "Scheme.h"			//Mother class
+#include <iostream>			//generic IO
+#include <string>			//for string methods
+
+#pragma once
+
+/**
+* Inherited class, which includes implicit schemes like Up Wind Forward-Time Backward-Space and Forward-Time Central-Space.
+* Additionally, class includes private method with Thomas Algorithm.
+**/
 class ImplicitScheme :
 	public Scheme
 {
 
 private:
-	vector<double> A, B, C, D;
+	/**
+	* Private vector of double imortant for Thomas algorithm.
+	**/
+	vector<double> A;
+	/**
+	* Private vector of double imortant for Thomas algorithm.
+	**/
+	vector<double> B;
+	/**
+	* Private vector of double imortant for Thomas algorithm.
+	**/
+	vector<double> C; 
+	/**
+	* Private vector of double imortant for Thomas algorithm.
+	**/
+	vector<double> D;
+
+private:
+	/**
+	* Private method, which includes Thomas algorithm important for Implicit schemes.
+	* @see ImplicitUpWindFTBS()
+	* @see ImplicitFTCS()
+	* @return vector<double>
+	**/
 	vector<double> ThomasAlgoFTCS();
 	vector<double> ThomasAlgoUpWindFTBS();
 
 public:
-	//default constructor
+	/**
+	* Default, empty constructor for ImplicitScheme class.
+	**/
 	ImplicitScheme();
 
-	//methods for implicit schemes
+	/**
+	* Public method, which solves the difference using implicit scheme Forward-Time Backward-Space
+	* @return string - name of method for saving result into files with proper name
+	* @see SaveResultIntoFiles(double deltaT, string schemeName)
+	**/
 	string ImplicitUpWindFTBS();
+	/**
+	* Public method, which solves the difference using implicit scheme Forward-Time Central-Space
+	* @return string - name of method for saving result into files with proper name
+	* @see SaveResultIntoFiles(double deltaT, string schemeName)
+	**/
 	string ImplicitFTCS();
 
-	//default destructor
+	/**
+	*Default, empty destructor for ImplicitScheme class.
+	**/
 	~ImplicitScheme();
 };
 
+#endif

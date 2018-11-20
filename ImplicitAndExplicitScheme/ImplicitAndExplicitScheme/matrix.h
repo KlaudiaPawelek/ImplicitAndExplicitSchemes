@@ -1,26 +1,24 @@
-#ifndef MATRIX_H  //include guard
+#ifndef MATRIX_H	//include guard
 #define MATRIX_H
 
-#include <iostream>  //generic IO
-#include <fstream>   //file IO
-#include <stdexcept> //provides exceptions
-#include "vector.h"  //we use Vector in Matrix code
-
+#include <iostream>	//generic IO
+#include <fstream>	//file IO
+#include <stdexcept>//provides exceptions
+#include <vector>	//vector class is used in Matrix class
 
 /**
-	Class from C++ lab. In my opinion, we can use some methods.
-	Of course, some of these methods can be deleted in the future.
-	Now, this is oryginal class from C++ lab, so comments are oryginal too! We can change it too.
+	Matrix class, which use vector container for Standard Template Library.
+	Important class for Scheme, ExplicitScheme and ImplicitScheme classes.
 **/
-class Matrix : private std::vector<std::vector<double> > {
-	typedef std::vector<std::vector<double> > vec;
+class Matrix : private std::vector<std::vector<double>> {
+	typedef std::vector<std::vector<double>> vec;
 public:
 	using vec::operator[];  // make the array access operator public within Matrix
 
 	// CONSTRUCTORS
 
 	/**
-	* Default constructor.  Intialize an empty Matrix object
+	* Default constructor. Intialize an empty Matrix object
 	* @see Matrix(int Nrows, int Ncols)
 	* @see Matrix(const Matrix& m)
 	*/
@@ -133,23 +131,6 @@ public:
 	//
 	Matrix operator*(const Matrix & a /**< Matrix. matrix to multiply by */
 		) const;
-
-	/**
-	* Overloaded *operator that returns a Vector.
-	* It Performs matrix by vector multiplication.
-	* @see operator*(const Matrix & a)const
-	* @exception std::out_of_range ("Matrix access error")
-	* matrix has a zero size
-	* @exception std::out_of_range ("Vector access error")
-	* vector has a zero size
-	* @exception std::out_of_range ("uncompatible matrix-vector sizes")
-	* Number of columns in matrix do not match the vector size
-	* @return Vector. matrix-vector product
-	*/
-	//
-	Vector operator*(const Vector & v /**< Vector. Vector to multiply by */
-		) const;
-
 
 	/**
 	* public method that returns the transpose of the matrix.

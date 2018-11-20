@@ -1,0 +1,75 @@
+\hypertarget{class_explicit_scheme}{}\section{Explicit\+Scheme Class Reference}
+\label{class_explicit_scheme}\index{Explicit\+Scheme@{Explicit\+Scheme}}
+
+
+{\ttfamily \#include $<$Explicit\+Scheme.\+h$>$}
+
+Inheritance diagram for Explicit\+Scheme\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_explicit_scheme}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_explicit_scheme_ae63cfb8d333897b625dd17dc2acb4c46}{Explicit\+Scheme}} ()
+\item 
+string \mbox{\hyperlink{class_explicit_scheme_a52c0d19315a6014f43a9d007c70582d6}{Explicit\+Up\+Wind\+F\+T\+BS}} ()
+\item 
+string \mbox{\hyperlink{class_explicit_scheme_a2698e08e62763c56b972b478d665c34c}{Explicit\+Lax\+Wandroff}} ()
+\item 
+\mbox{\hyperlink{class_explicit_scheme_a5eee023f6f9d09609066a50dd620b49a}{$\sim$\+Explicit\+Scheme}} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Inherited class, which includes implicit schemes like Up Wind Forward-\/\+Time Backward-\/\+Space and Forward-\/\+Time Central-\/\+Space. Additionally, class includes private method with Thomas Algorithm. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_explicit_scheme_ae63cfb8d333897b625dd17dc2acb4c46}\label{class_explicit_scheme_ae63cfb8d333897b625dd17dc2acb4c46}} 
+\index{Explicit\+Scheme@{Explicit\+Scheme}!Explicit\+Scheme@{Explicit\+Scheme}}
+\index{Explicit\+Scheme@{Explicit\+Scheme}!Explicit\+Scheme@{Explicit\+Scheme}}
+\subsubsection{\texorpdfstring{Explicit\+Scheme()}{ExplicitScheme()}}
+{\footnotesize\ttfamily Explicit\+Scheme\+::\+Explicit\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default, empty constructor for \mbox{\hyperlink{class_explicit_scheme}{Explicit\+Scheme}} class. \mbox{\Hypertarget{class_explicit_scheme_a5eee023f6f9d09609066a50dd620b49a}\label{class_explicit_scheme_a5eee023f6f9d09609066a50dd620b49a}} 
+\index{Explicit\+Scheme@{Explicit\+Scheme}!````~Explicit\+Scheme@{$\sim$\+Explicit\+Scheme}}
+\index{````~Explicit\+Scheme@{$\sim$\+Explicit\+Scheme}!Explicit\+Scheme@{Explicit\+Scheme}}
+\subsubsection{\texorpdfstring{$\sim$\+Explicit\+Scheme()}{~ExplicitScheme()}}
+{\footnotesize\ttfamily Explicit\+Scheme\+::$\sim$\+Explicit\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default, empty destructor for \mbox{\hyperlink{class_explicit_scheme}{Explicit\+Scheme}} class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_explicit_scheme_a2698e08e62763c56b972b478d665c34c}\label{class_explicit_scheme_a2698e08e62763c56b972b478d665c34c}} 
+\index{Explicit\+Scheme@{Explicit\+Scheme}!Explicit\+Lax\+Wandroff@{Explicit\+Lax\+Wandroff}}
+\index{Explicit\+Lax\+Wandroff@{Explicit\+Lax\+Wandroff}!Explicit\+Scheme@{Explicit\+Scheme}}
+\subsubsection{\texorpdfstring{Explicit\+Lax\+Wandroff()}{ExplicitLaxWandroff()}}
+{\footnotesize\ttfamily string Explicit\+Scheme\+::\+Explicit\+Lax\+Wandroff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Public method, which solves the difference using explicit scheme Lax-\/\+Wandroff \begin{DoxyReturn}{Returns}
+string -\/ name of method for saving result into files with proper name 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}{Save\+Result\+Into\+Files(double delta\+T, string scheme\+Name)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_explicit_scheme_a52c0d19315a6014f43a9d007c70582d6}\label{class_explicit_scheme_a52c0d19315a6014f43a9d007c70582d6}} 
+\index{Explicit\+Scheme@{Explicit\+Scheme}!Explicit\+Up\+Wind\+F\+T\+BS@{Explicit\+Up\+Wind\+F\+T\+BS}}
+\index{Explicit\+Up\+Wind\+F\+T\+BS@{Explicit\+Up\+Wind\+F\+T\+BS}!Explicit\+Scheme@{Explicit\+Scheme}}
+\subsubsection{\texorpdfstring{Explicit\+Up\+Wind\+F\+T\+B\+S()}{ExplicitUpWindFTBS()}}
+{\footnotesize\ttfamily string Explicit\+Scheme\+::\+Explicit\+Up\+Wind\+F\+T\+BS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Public method, which solves the difference using explicit scheme Up Wind Forward-\/\+Time Backward-\/\+Space \begin{DoxyReturn}{Returns}
+string -\/ name of method for saving result into files with proper name 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}{Save\+Result\+Into\+Files(double delta\+T, string scheme\+Name)}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_explicit_scheme_8h}{Explicit\+Scheme.\+h}}\item 
+\mbox{\hyperlink{_explicit_scheme_8cpp}{Explicit\+Scheme.\+cpp}}\end{DoxyCompactItemize}

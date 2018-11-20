@@ -1,0 +1,336 @@
+\hypertarget{class_scheme}{}\section{Scheme Class Reference}
+\label{class_scheme}\index{Scheme@{Scheme}}
+
+
+{\ttfamily \#include $<$Scheme.\+h$>$}
+
+Inheritance diagram for Scheme\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_scheme}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scheme_aa0b319a6594176dea40ca78562401b53}{Scheme}} ()
+\item 
+void \mbox{\hyperlink{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}{Save\+Result\+Into\+Files}} (double \mbox{\hyperlink{class_scheme_aaaf978f98d30bd96ea56a9387d1b2c5a}{deltaT}}, string scheme\+Name)
+\item 
+string \mbox{\hyperlink{class_scheme_a7d3e9f8133a955517471eb7a6fea355f}{Analytical\+Solution}} (double default\+DeltaT=0)
+\item 
+void \mbox{\hyperlink{class_scheme_ae098876d0287ac2bf5220608db2a8468}{Compute\+Norms}} (\mbox{\hyperlink{class_matrix}{Matrix}} m1, \mbox{\hyperlink{class_matrix}{Matrix}} m2)
+\item 
+void \mbox{\hyperlink{class_scheme_ae26048cf5128c6ea6e698a7036f2cc42}{Print\+Result}} ()
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \mbox{\hyperlink{class_scheme_a14c333d182a6b4e94aa2a346000257ea}{Get\+Matrix}} ()
+\item 
+double \mbox{\hyperlink{class_scheme_af05aa7671d5c080c0cca501cb6717cd0}{Get\+DeltaT}} ()
+\item 
+\mbox{\hyperlink{class_scheme_af8f283786d3b27d97c55d92b9ae8b20b}{$\sim$\+Scheme}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_scheme_ad3546cda995629a2792629a072760ad2}{Initial\+Condition}} ()
+\item 
+void \mbox{\hyperlink{class_scheme_a36885039937c25f13c8daea654e37b97}{Boundry\+Condition}} ()
+\item 
+void \mbox{\hyperlink{class_scheme_ac5803e4951dc125b274f543d5037c21d}{Insert\+DeltaT}} ()
+\item 
+void \mbox{\hyperlink{class_scheme_a0364e328d78e84be15d293a66d946008}{Compute\+Size\+Of\+Matrix}} (bool if\+Printed=1)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \mbox{\hyperlink{class_scheme_a0e1fb8cb7e062d3f49715445a884f0e8}{matrix}}
+\item 
+int \mbox{\hyperlink{class_scheme_aaa37febfb3b695d7637210b6ffdcd9ad}{size\+Of\+Matrix}}
+\item 
+int \mbox{\hyperlink{class_scheme_a04f4e41aaa2bffd82b9027550f8374f0}{sizeT}}
+\item 
+int \mbox{\hyperlink{class_scheme_a34d6e438fa45638221f250c9aa7acde1}{sizeX}}
+\item 
+double \mbox{\hyperlink{class_scheme_aaaf978f98d30bd96ea56a9387d1b2c5a}{deltaT}}
+\item 
+double \mbox{\hyperlink{class_scheme_a7491f0ce42370ab44134bf82bd0079a7}{deltaX}}
+\item 
+const double \mbox{\hyperlink{class_scheme_a1a21e7fac3843f2d64c49597c668ce56}{PI}} = atan(1) $\ast$ 4
+\item 
+const double \mbox{\hyperlink{class_scheme_a512873bf3cd534832300046f1a1792a3}{u}} = 250
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_scheme_ad9aa7a2eac63a3a91e6efc3d8a8093cd}{Is\+Double}} (string input)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_scheme}{Scheme}} class is mother/core class for \mbox{\hyperlink{class_explicit_scheme}{Explicit\+Scheme}} and \mbox{\hyperlink{class_implicit_scheme}{Implicit\+Scheme}} classes. This class includes common elements for inheritance classes like\+: computing initial condition, boundry condition and others. Additionally, \mbox{\hyperlink{class_scheme}{Scheme}} class includes methods responsible for printing results in the console, saving results into text files. Objects are protected, because they can be used only in mother class and inheritance classes. Class includes only one default constructor and one default destructor. The \mbox{\hyperlink{class_scheme}{Scheme}} class includes protected and public methods. Some accessors and one friend method are available. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scheme_aa0b319a6594176dea40ca78562401b53}\label{class_scheme_aa0b319a6594176dea40ca78562401b53}} 
+\index{Scheme@{Scheme}!Scheme@{Scheme}}
+\index{Scheme@{Scheme}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Scheme()}{Scheme()}}
+{\footnotesize\ttfamily Scheme\+::\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default, empty constructor for \mbox{\hyperlink{class_scheme}{Scheme}} class. \mbox{\Hypertarget{class_scheme_af8f283786d3b27d97c55d92b9ae8b20b}\label{class_scheme_af8f283786d3b27d97c55d92b9ae8b20b}} 
+\index{Scheme@{Scheme}!````~Scheme@{$\sim$\+Scheme}}
+\index{````~Scheme@{$\sim$\+Scheme}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{$\sim$\+Scheme()}{~Scheme()}}
+{\footnotesize\ttfamily Scheme\+::$\sim$\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor for \mbox{\hyperlink{class_scheme}{Scheme}} class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scheme_a7d3e9f8133a955517471eb7a6fea355f}\label{class_scheme_a7d3e9f8133a955517471eb7a6fea355f}} 
+\index{Scheme@{Scheme}!Analytical\+Solution@{Analytical\+Solution}}
+\index{Analytical\+Solution@{Analytical\+Solution}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Analytical\+Solution()}{AnalyticalSolution()}}
+{\footnotesize\ttfamily string Scheme\+::\+Analytical\+Solution (\begin{DoxyParamCaption}\item[{double}]{default\+DeltaT = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Solve analytical solution of given problem. 
+\begin{DoxyParams}{Parameters}
+{\em double} & default\+DeltaT -\/ parameter with default value 0, so user will not be asked about value of deltaT in console \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_ac5803e4951dc125b274f543d5037c21d}{Insert\+Delta\+T()}}; 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_a36885039937c25f13c8daea654e37b97}\label{class_scheme_a36885039937c25f13c8daea654e37b97}} 
+\index{Scheme@{Scheme}!Boundry\+Condition@{Boundry\+Condition}}
+\index{Boundry\+Condition@{Boundry\+Condition}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Boundry\+Condition()}{BoundryCondition()}}
+{\footnotesize\ttfamily void Scheme\+::\+Boundry\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Compute boundry condition for each type of scheme. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_matrix}{Matrix}} \mbox{\hyperlink{class_scheme_a0e1fb8cb7e062d3f49715445a884f0e8}{matrix}} 
+
+\mbox{\hyperlink{class_explicit_scheme}{Explicit\+Scheme}} 
+
+\mbox{\hyperlink{class_implicit_scheme}{Implicit\+Scheme}} 
+
+\mbox{\hyperlink{class_scheme_a7d3e9f8133a955517471eb7a6fea355f}{Analytical\+Solution}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_ae098876d0287ac2bf5220608db2a8468}\label{class_scheme_ae098876d0287ac2bf5220608db2a8468}} 
+\index{Scheme@{Scheme}!Compute\+Norms@{Compute\+Norms}}
+\index{Compute\+Norms@{Compute\+Norms}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Compute\+Norms()}{ComputeNorms()}}
+{\footnotesize\ttfamily void Scheme\+::\+Compute\+Norms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{m1,  }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{m2 }\end{DoxyParamCaption})}
+
+Printing results from one norm, two norm and uniform norm, which are declared in \mbox{\hyperlink{class_matrix}{Matrix}} class. Norm is computed from matrix = m1 -\/ m2 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_matrix}{Matrix}}} & m1 -\/ analytical solution \\
+\hline
+{\em \mbox{\hyperlink{class_matrix}{Matrix}}} & m2 -\/ scheme solution \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+double one\+\_\+norm() const; 
+
+double two\+\_\+norm() const; 
+
+double uniform\+\_\+norm() const; 
+
+\mbox{\hyperlink{class_matrix}{Matrix}} operator-\/(\+Matrix m); 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_a0364e328d78e84be15d293a66d946008}\label{class_scheme_a0364e328d78e84be15d293a66d946008}} 
+\index{Scheme@{Scheme}!Compute\+Size\+Of\+Matrix@{Compute\+Size\+Of\+Matrix}}
+\index{Compute\+Size\+Of\+Matrix@{Compute\+Size\+Of\+Matrix}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Compute\+Size\+Of\+Matrix()}{ComputeSizeOfMatrix()}}
+{\footnotesize\ttfamily void Scheme\+::\+Compute\+Size\+Of\+Matrix (\begin{DoxyParamCaption}\item[{bool}]{if\+Printed = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Compute size of matrix depend of deltaT defined by user. 
+\begin{DoxyParams}{Parameters}
+{\em bool} & if\+Printed = 1, size of matrix will be display in the console \\
+\hline
+{\em bool} & if\+Printed = 0, size of matrix won\textquotesingle{}t be display in the console \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_implicit_scheme_ab8311a005d69690622e0ddaa0dcff94d}{Implicit\+Scheme\+::\+Implicit\+Up\+Wind\+F\+T\+B\+S()}} 
+
+\mbox{\hyperlink{class_implicit_scheme_afd2b8e73e914a04c326b8cba0d5810ce}{Implicit\+Scheme\+::\+Implicit\+F\+T\+C\+S()}} 
+
+\mbox{\hyperlink{class_explicit_scheme_a52c0d19315a6014f43a9d007c70582d6}{Explicit\+Scheme\+::\+Explicit\+Up\+Wind\+F\+T\+B\+S()}} 
+
+\mbox{\hyperlink{class_explicit_scheme_a2698e08e62763c56b972b478d665c34c}{Explicit\+Scheme\+::\+Explicit\+Lax\+Wandroff()}} 
+
+\mbox{\hyperlink{class_scheme_a7d3e9f8133a955517471eb7a6fea355f}{Analytical\+Solution}}(double default\+DeltaT = 0) 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_scheme_af05aa7671d5c080c0cca501cb6717cd0}\label{class_scheme_af05aa7671d5c080c0cca501cb6717cd0}} 
+\index{Scheme@{Scheme}!Get\+DeltaT@{Get\+DeltaT}}
+\index{Get\+DeltaT@{Get\+DeltaT}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Get\+Delta\+T()}{GetDeltaT()}}
+{\footnotesize\ttfamily double Scheme\+::\+Get\+DeltaT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor\+: get double deltaT. \begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_a14c333d182a6b4e94aa2a346000257ea}\label{class_scheme_a14c333d182a6b4e94aa2a346000257ea}} 
+\index{Scheme@{Scheme}!Get\+Matrix@{Get\+Matrix}}
+\index{Get\+Matrix@{Get\+Matrix}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Get\+Matrix()}{GetMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix}{Matrix}} Scheme\+::\+Get\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor\+: get \mbox{\hyperlink{class_matrix}{Matrix}} matrix. \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_ad3546cda995629a2792629a072760ad2}\label{class_scheme_ad3546cda995629a2792629a072760ad2}} 
+\index{Scheme@{Scheme}!Initial\+Condition@{Initial\+Condition}}
+\index{Initial\+Condition@{Initial\+Condition}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Initial\+Condition()}{InitialCondition()}}
+{\footnotesize\ttfamily void Scheme\+::\+Initial\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Compute initial condition for each type of scheme. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_matrix}{Matrix}} \mbox{\hyperlink{class_scheme_a0e1fb8cb7e062d3f49715445a884f0e8}{matrix}} 
+
+\mbox{\hyperlink{class_explicit_scheme}{Explicit\+Scheme}} 
+
+\mbox{\hyperlink{class_implicit_scheme}{Implicit\+Scheme}} 
+
+\mbox{\hyperlink{class_scheme_a7d3e9f8133a955517471eb7a6fea355f}{Analytical\+Solution}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_ac5803e4951dc125b274f543d5037c21d}\label{class_scheme_ac5803e4951dc125b274f543d5037c21d}} 
+\index{Scheme@{Scheme}!Insert\+DeltaT@{Insert\+DeltaT}}
+\index{Insert\+DeltaT@{Insert\+DeltaT}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Insert\+Delta\+T()}{InsertDeltaT()}}
+{\footnotesize\ttfamily void Scheme\+::\+Insert\+DeltaT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+User can define value of deltaT in console. \begin{DoxySeeAlso}{See also}
+double \mbox{\hyperlink{class_scheme_aaaf978f98d30bd96ea56a9387d1b2c5a}{deltaT}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_ae26048cf5128c6ea6e698a7036f2cc42}\label{class_scheme_ae26048cf5128c6ea6e698a7036f2cc42}} 
+\index{Scheme@{Scheme}!Print\+Result@{Print\+Result}}
+\index{Print\+Result@{Print\+Result}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Print\+Result()}{PrintResult()}}
+{\footnotesize\ttfamily void Scheme\+::\+Print\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Print only five rows of result. Use overloaded operator $<$$<$ from \mbox{\hyperlink{class_matrix}{Matrix}} class \begin{DoxySeeAlso}{See also}
+friend std\+::ostream\& operator$<$$<$(std\+::ostream\& os,const Vector\& v); 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}\label{class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a}} 
+\index{Scheme@{Scheme}!Save\+Result\+Into\+Files@{Save\+Result\+Into\+Files}}
+\index{Save\+Result\+Into\+Files@{Save\+Result\+Into\+Files}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Save\+Result\+Into\+Files()}{SaveResultIntoFiles()}}
+{\footnotesize\ttfamily void Scheme\+::\+Save\+Result\+Into\+Files (\begin{DoxyParamCaption}\item[{double}]{deltaT,  }\item[{string}]{scheme\+Name }\end{DoxyParamCaption})}
+
+Save matrix into the text file. 
+\begin{DoxyParams}{Parameters}
+{\em double} & deltaT \\
+\hline
+{\em string} & scheme\+Name \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em message} & about \char`\"{}file with results have not been saved. Something went wrong!\char`\"{}, when file has not been created/saved correctly \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_scheme_ad9aa7a2eac63a3a91e6efc3d8a8093cd}\label{class_scheme_ad9aa7a2eac63a3a91e6efc3d8a8093cd}} 
+\index{Scheme@{Scheme}!Is\+Double@{Is\+Double}}
+\index{Is\+Double@{Is\+Double}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{Is\+Double}{IsDouble}}
+{\footnotesize\ttfamily bool Is\+Double (\begin{DoxyParamCaption}\item[{string}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+The method verifies correctness of deltaT inserted by user in the console. Friend method visible only inside of \mbox{\hyperlink{class_scheme}{Scheme}} class. Return boolean value inside of the \mbox{\hyperlink{class_scheme_ac5803e4951dc125b274f543d5037c21d}{Insert\+Delta\+T()}} method. 
+\begin{DoxyParams}{Parameters}
+{\em string} & input \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_ac5803e4951dc125b274f543d5037c21d}{Insert\+Delta\+T()}} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_scheme_aaaf978f98d30bd96ea56a9387d1b2c5a}\label{class_scheme_aaaf978f98d30bd96ea56a9387d1b2c5a}} 
+\index{Scheme@{Scheme}!deltaT@{deltaT}}
+\index{deltaT@{deltaT}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{deltaT}{deltaT}}
+{\footnotesize\ttfamily double Scheme\+::deltaT\hspace{0.3cm}{\ttfamily [protected]}}
+
+Values important for calculation. Mainly defined by user in the console. \begin{DoxySeeAlso}{See also}
+void \mbox{\hyperlink{class_scheme_ad3546cda995629a2792629a072760ad2}{Initial\+Condition()}} 
+
+void \mbox{\hyperlink{class_scheme_a36885039937c25f13c8daea654e37b97}{Boundry\+Condition()}} 
+
+void \mbox{\hyperlink{class_scheme_ac5803e4951dc125b274f543d5037c21d}{Insert\+Delta\+T()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_scheme_a7491f0ce42370ab44134bf82bd0079a7}\label{class_scheme_a7491f0ce42370ab44134bf82bd0079a7}} 
+\index{Scheme@{Scheme}!deltaX@{deltaX}}
+\index{deltaX@{deltaX}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{deltaX}{deltaX}}
+{\footnotesize\ttfamily double Scheme\+::deltaX\hspace{0.3cm}{\ttfamily [protected]}}
+
+Value defined in Compute\+Size\+Of\+Matrix method. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_scheme_a0364e328d78e84be15d293a66d946008}{Compute\+Size\+Of\+Matrix}}(bool if\+Printed = 1) 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_scheme_a0e1fb8cb7e062d3f49715445a884f0e8}\label{class_scheme_a0e1fb8cb7e062d3f49715445a884f0e8}} 
+\index{Scheme@{Scheme}!matrix@{matrix}}
+\index{matrix@{matrix}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix}{Matrix}} Scheme\+::matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+Aggregation\+: object from class \mbox{\hyperlink{class_matrix}{Matrix}}. \mbox{\Hypertarget{class_scheme_a1a21e7fac3843f2d64c49597c668ce56}\label{class_scheme_a1a21e7fac3843f2d64c49597c668ce56}} 
+\index{Scheme@{Scheme}!PI@{PI}}
+\index{PI@{PI}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily const double Scheme\+::\+PI = atan(1) $\ast$ 4\hspace{0.3cm}{\ttfamily [protected]}}
+
+Constant double value PI = atan(1) $\ast$ 4 \mbox{\Hypertarget{class_scheme_aaa37febfb3b695d7637210b6ffdcd9ad}\label{class_scheme_aaa37febfb3b695d7637210b6ffdcd9ad}} 
+\index{Scheme@{Scheme}!size\+Of\+Matrix@{size\+Of\+Matrix}}
+\index{size\+Of\+Matrix@{size\+Of\+Matrix}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{size\+Of\+Matrix}{sizeOfMatrix}}
+{\footnotesize\ttfamily int Scheme\+::size\+Of\+Matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+Size of matrix. \mbox{\Hypertarget{class_scheme_a04f4e41aaa2bffd82b9027550f8374f0}\label{class_scheme_a04f4e41aaa2bffd82b9027550f8374f0}} 
+\index{Scheme@{Scheme}!sizeT@{sizeT}}
+\index{sizeT@{sizeT}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{sizeT}{sizeT}}
+{\footnotesize\ttfamily int Scheme\+::sizeT\hspace{0.3cm}{\ttfamily [protected]}}
+
+Size of rows in matrix. \mbox{\Hypertarget{class_scheme_a34d6e438fa45638221f250c9aa7acde1}\label{class_scheme_a34d6e438fa45638221f250c9aa7acde1}} 
+\index{Scheme@{Scheme}!sizeX@{sizeX}}
+\index{sizeX@{sizeX}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{sizeX}{sizeX}}
+{\footnotesize\ttfamily int Scheme\+::sizeX\hspace{0.3cm}{\ttfamily [protected]}}
+
+Size of columns in matrix. \mbox{\Hypertarget{class_scheme_a512873bf3cd534832300046f1a1792a3}\label{class_scheme_a512873bf3cd534832300046f1a1792a3}} 
+\index{Scheme@{Scheme}!u@{u}}
+\index{u@{u}!Scheme@{Scheme}}
+\subsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily const double Scheme\+::u = 250\hspace{0.3cm}{\ttfamily [protected]}}
+
+Constant double value from excercise 250 m/s 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_scheme_8h}{Scheme.\+h}}\item 
+\mbox{\hyperlink{_scheme_8cpp}{Scheme.\+cpp}}\end{DoxyCompactItemize}

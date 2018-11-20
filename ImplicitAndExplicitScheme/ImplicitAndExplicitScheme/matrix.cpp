@@ -143,29 +143,6 @@ Matrix Matrix::operator*(const Matrix& a) const {
 }
 
 
-//Operator* multiplication of a matrix by a vector
-Vector Matrix::operator*(const Vector& v) const {
-	int nrows = getNrows();
-	int ncols = getNcols();
-
-	// catch invalid matrix, vector
-	if (nrows <= 0 || ncols <=0 ) { throw std::out_of_range("Matrix access error"); }
-	if (v.getSize() <= 0) { throw std::out_of_range("Vector access error"); }
-
-	//if the matrix sizes do not match
-	if (ncols != v.getSize()) throw std::out_of_range("matrix sizes do not match");
-
-	// matrix to store the multiplication
-	Vector res(nrows);
-
-	// perform the multiplication
-	for (int i = 0;i<nrows;i++)
-		for (int j = 0;j<ncols;j++) res[i] += ((*this)[i][j] * v[j]);
-
-	// return the result
-	return res;
-}
-
 
 //Operator== comparison function, returns true if the given matrices are the same
 

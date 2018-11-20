@@ -1,24 +1,21 @@
 #include "ExplicitScheme.h"
-#include "matrix.h"
-#include "vector.h"
-#include <iostream>
-#include <fstream>
-#include <iomanip>
 using namespace std;
 
-ExplicitScheme::ExplicitScheme()
-{
-	//default constructor
-}
+// Default, empty constructor
+ExplicitScheme::ExplicitScheme(){ }
 
 
-//Explicit Upwind FTBS (Forward time, Backward space)
+//Explicit Upwind Forward time, Backward space
 string ExplicitScheme::ExplicitUpWindFTBS()
 {
-	InsertDeltaT();
-	ComputeSizeOfMatrix();
-	InitialCondition();
-	BoundryCondition();
+	//------------------------ Preparig matrix ------------------------------------------//
+	InsertDeltaT();			// insert deltaT in the console by user, from Scheme class
+	ComputeSizeOfMatrix();	// compute size of matrix, from Scheme class
+	InitialCondition();		// initial condition, from Scheme class
+	BoundryCondition();		// boundry condition, from Scheme class
+	//----------------------------------------------------------------------------------//
+
+	//-------------------------Explicit scheme------------------------------------------//
 
 	for (int t = 1; t < this->sizeT; t++)
 	{
@@ -27,17 +24,20 @@ string ExplicitScheme::ExplicitUpWindFTBS()
 			this->matrix[t][x] = (1 - ((this->u*this->deltaT) / this->deltaX))*this->matrix[t - 1][x] + ((this->u*this->deltaT) / this->deltaX)*this->matrix[t - 1][x - 1];
 		}
 	}
-	return __func__; //return name of method -> useful for method SaveResultIntoFiles
+	return __func__;		//return name of method -> useful for method SaveResultIntoFiles
 }
 
 //Explicit Lax-Wandroff
 string ExplicitScheme::ExplicitLaxWandroff()
 {
-	InsertDeltaT();
-	ComputeSizeOfMatrix();
-	InitialCondition();
-	BoundryCondition();
+	//------------------------ Preparig matrix ------------------------------------------//
+	InsertDeltaT();			// insert deltaT in the console by user, from Scheme class
+	ComputeSizeOfMatrix();	// compute size of matrix, from Scheme class
+	InitialCondition();		// initial condition, from Scheme class
+	BoundryCondition();		// boundry condition, from Scheme class
+	//----------------------------------------------------------------------------------//
 
+	//-------------------------Explicit scheme------------------------------------------//
 	for (int t = 1; t < this->sizeT; t++)
 	{
 		for (int x = 1; x < this->sizeX - 1; x++)
@@ -45,10 +45,8 @@ string ExplicitScheme::ExplicitLaxWandroff()
 			this->matrix[t][x] = (-1)*((this->u*this->deltaT) / (2 * this->deltaX))*(this->matrix[t - 1][x + 1] - this->matrix[t - 1][x - 1]) + this->matrix[t - 1][x] + ((pow(this->u, 2)*pow(this->deltaT, 2)) /(2* pow(this->deltaX, 2)))*(this->matrix[t - 1][x + 1] - 2 * this->matrix[t - 1][x] + this->matrix[t - 1][x - 1]);
 		}
 	}
-	return __func__; //return name of method -> useful for method SaveResultIntoFiles
+	return __func__;		//return name of method -> useful for method SaveResultIntoFiles
 }
 
-ExplicitScheme::~ExplicitScheme()
-{
-	//default destructor
-}
+// Default, empty destructor
+ExplicitScheme::~ExplicitScheme(){ }
