@@ -19,7 +19,7 @@ string ExplicitScheme::ExplicitUpWindFTBS()
 
 	for (int t = 1; t < this->sizeT; t++)
 	{
-		for (int x = 1; x < this->sizeX; x++)
+		for (int x = 1; x < this->sizeX-1; x++)
 		{
 			this->matrix[t][x] = (1 - ((this->u*this->deltaT) / this->deltaX))*this->matrix[t - 1][x] + ((this->u*this->deltaT) / this->deltaX)*this->matrix[t - 1][x - 1];
 		}

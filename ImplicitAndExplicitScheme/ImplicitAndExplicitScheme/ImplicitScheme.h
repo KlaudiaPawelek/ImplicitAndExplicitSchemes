@@ -40,8 +40,7 @@ private:
 	* @see ImplicitFTCS()
 	* @return vector<double>
 	**/
-	vector<double> ThomasAlgoFTCS();
-	vector<double> ThomasAlgoUpWindFTBS();
+	vector<double> ThomasAlgorithm(double parameter, double parameter2, bool version);
 
 public:
 	/**

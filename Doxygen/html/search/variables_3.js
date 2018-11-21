@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sizeofmatrix',['sizeOfMatrix',['../class_scheme.html#aaa37febfb3b695d7637210b6ffdcd9ad',1,'Scheme']]],
-  ['sizet',['sizeT',['../class_scheme.html#a04f4e41aaa2bffd82b9027550f8374f0',1,'Scheme']]],
-  ['sizex',['sizeX',['../class_scheme.html#a34d6e438fa45638221f250c9aa7acde1',1,'Scheme']]]
+  ['d',['D',['../class_implicit_scheme.html#a30dad74ec599966b5ba7965f382d28cb',1,'ImplicitScheme']]],
+  ['deltat',['deltaT',['../class_scheme.html#aaaf978f98d30bd96ea56a9387d1b2c5a',1,'Scheme']]],
+  ['deltax',['deltaX',['../class_scheme.html#a7491f0ce42370ab44134bf82bd0079a7',1,'Scheme']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['u',['u',['../class_scheme.html#a512873bf3cd534832300046f1a1792a3',1,'Scheme']]]
+  ['matrix',['matrix',['../class_scheme.html#a0e1fb8cb7e062d3f49715445a884f0e8',1,'Scheme']]]
 ];
