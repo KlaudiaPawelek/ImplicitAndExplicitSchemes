@@ -1,0 +1,7 @@
+<map id="Scheme::ComputeNorms" name="Scheme::ComputeNorms">
+<area shape="rect" id="node2" href="$class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="413,54,533,81"/>
+<area shape="rect" id="node3" href="$class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="415,105,532,132"/>
+<area shape="rect" id="node4" href="$class_matrix.html#af4d468252f3ecbbcaa5726c76e332b4c" title="Matrix::one_norm" alt="" coords="232,29,355,56"/>
+<area shape="rect" id="node5" href="$class_matrix.html#aac496af05ec7aa26afc2b9c6d0ab8b66" title="Matrix::two_norm" alt="" coords="232,80,355,106"/>
+<area shape="rect" id="node6" href="$class_matrix.html#a43066c7fe6418aad40170b85415063e8" title="Matrix::uniform_norm" alt="" coords="221,130,365,157"/>
+</map>

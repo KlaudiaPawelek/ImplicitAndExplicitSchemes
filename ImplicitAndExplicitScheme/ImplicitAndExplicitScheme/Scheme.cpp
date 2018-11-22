@@ -203,9 +203,11 @@ void Scheme::SaveResultIntoFiles(double deltaT, string schemeName)
 		}
 		cout <<"\n"<< schemeName << " - results have been saved as: " << fileName << " in project folder.\n\n";
 	}
-	catch (const std::exception&)
+	catch (const std::exception& e)
 	{
-		cout <<"\n" << schemeName << " - file with results have not been saved. Something went wrong!";
+		std::cerr << "std::exception caught" << std::endl;
+		std::cerr << "Type: " << typeid(e).name() << std::endl;
+		std::cerr << "What: " << e.what() << std::endl;
 	}
 
 }

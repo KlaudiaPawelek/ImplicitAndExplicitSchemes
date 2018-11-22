@@ -24,18 +24,18 @@ vector<double> ImplicitScheme::ThomasAlgorithm(double parameter, double paramete
 	{
 		for (int x = 0; x < this->sizeX - 1; x++)
 		{
-			this->A[x + 1] = parameter * alpha;		
+			this->A[x + 1] = parameter * alpha;		//-1
 			this->B[x] = 1 + alpha;				
-			this->C[x] = parameter2;				
+			this->C[x] = parameter2;				//0		
 		}
 	}
 	else if (version == 0) //for FTCS method
 	{
 		for (int x = 0; x < this->sizeX - 1; x++)
 		{
-			this->A[x + 1] = parameter * alpha;		
+			this->A[x + 1] = parameter * alpha;	//-0.5	
 			this->B[x] = 1;
-			this->C[x] = parameter2*alpha;				
+			this->C[x] = parameter2*alpha;		//0.5				
 		}
 	}
 

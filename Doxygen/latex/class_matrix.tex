@@ -4,12 +4,14 @@
 
 {\ttfamily \#include $<$matrix.\+h$>$}
 
-Inheritance diagram for Matrix\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{class_matrix}
-\end{center}
-\end{figure}
+
+
+Inheritance diagram for Matrix\+:
+% FIG 0
+
+
+Collaboration diagram for Matrix\+:
+% FIG 1
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,6 +83,8 @@ Default constructor. Intialize an empty \mbox{\hyperlink{class_matrix}{Matrix}} 
 
 \mbox{\hyperlink{class_matrix_a765f4dcb51b6829311cc3e7576388423}{Matrix(const Matrix\& m)}} 
 \end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 2
 \mbox{\Hypertarget{class_matrix_a135a15de1126d735bb95fcc839d739d7}\label{class_matrix_a135a15de1126d735bb95fcc839d739d7}} 
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
@@ -120,6 +124,8 @@ Copy constructor. build a matrix from another matrix \begin{DoxySeeAlso}{See als
 {\em m} & \mbox{\hyperlink{class_matrix}{Matrix}}\&. matrix to copy from \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
 
 
 \subsection{Member Function Documentation}
@@ -135,6 +141,8 @@ int \mbox{\hyperlink{class_matrix_a711f84a1c62832d9d197d78c9855a276}{get\+Nrows(
 \begin{DoxyReturn}{Returns}
 int. number of columns in matrix 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 4
 \mbox{\Hypertarget{class_matrix_a711f84a1c62832d9d197d78c9855a276}\label{class_matrix_a711f84a1c62832d9d197d78c9855a276}} 
 \index{Matrix@{Matrix}!get\+Nrows@{get\+Nrows}}
 \index{get\+Nrows@{get\+Nrows}!Matrix@{Matrix}}
@@ -147,6 +155,8 @@ int \mbox{\hyperlink{class_matrix_ae0a5f2154953b8d129a90b04f91d9079}{get\+Ncols(
 \begin{DoxyReturn}{Returns}
 int. number of rows in matrix 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 5
 \mbox{\Hypertarget{class_matrix_af4d468252f3ecbbcaa5726c76e332b4c}\label{class_matrix_af4d468252f3ecbbcaa5726c76e332b4c}} 
 \index{Matrix@{Matrix}!one\+\_\+norm@{one\+\_\+norm}}
 \index{one\+\_\+norm@{one\+\_\+norm}!Matrix@{Matrix}}
@@ -161,6 +171,10 @@ Normal public method that returns a double. It returns L1 norm of matrix \begin{
 \begin{DoxyReturn}{Returns}
 double. matrix L1 norm 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
 \mbox{\Hypertarget{class_matrix_aaa40c78e6b3bb5bbf572d35612dbf6a7}\label{class_matrix_aaa40c78e6b3bb5bbf572d35612dbf6a7}} 
 \index{Matrix@{Matrix}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Matrix@{Matrix}}
@@ -185,6 +199,8 @@ Overloaded $\ast$operator that returns a \mbox{\hyperlink{class_matrix}{Matrix}}
 {\em a} & \mbox{\hyperlink{class_matrix}{Matrix}}. matrix to multiply by \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 8
 \mbox{\Hypertarget{class_matrix_a2aabf841a4302d528f8b102c0800a263}\label{class_matrix_a2aabf841a4302d528f8b102c0800a263}} 
 \index{Matrix@{Matrix}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Matrix@{Matrix}}
@@ -231,6 +247,8 @@ bool. true or false
 {\em m} & \mbox{\hyperlink{class_matrix}{Matrix}}\&. \mbox{\hyperlink{class_matrix}{Matrix}} to compare to \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 9
 \mbox{\Hypertarget{class_matrix_a759661b75b9681f3a89ff75e27933b3a}\label{class_matrix_a759661b75b9681f3a89ff75e27933b3a}} 
 \index{Matrix@{Matrix}!transpose@{transpose}}
 \index{transpose@{transpose}!Matrix@{Matrix}}
@@ -240,6 +258,8 @@ bool. true or false
 public method that returns the transpose of the matrix. It returns the transpose of matrix \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_matrix}{Matrix}}. matrix transpose 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 10
 \mbox{\Hypertarget{class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66}\label{class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66}} 
 \index{Matrix@{Matrix}!two\+\_\+norm@{two\+\_\+norm}}
 \index{two\+\_\+norm@{two\+\_\+norm}!Matrix@{Matrix}}
@@ -254,6 +274,10 @@ Normal public method that returns a double. It returns L2 norm of matrix \begin{
 \begin{DoxyReturn}{Returns}
 double. matrix L2 norm 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
 \mbox{\Hypertarget{class_matrix_a43066c7fe6418aad40170b85415063e8}\label{class_matrix_a43066c7fe6418aad40170b85415063e8}} 
 \index{Matrix@{Matrix}!uniform\+\_\+norm@{uniform\+\_\+norm}}
 \index{uniform\+\_\+norm@{uniform\+\_\+norm}!Matrix@{Matrix}}
@@ -268,6 +292,10 @@ Normal public method that returns a double. It returns L\+\_\+max norm of matrix
 \begin{DoxyReturn}{Returns}
 double. matrix L\+\_\+max norm 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
 
 
 \subsection{Friends And Related Function Documentation}

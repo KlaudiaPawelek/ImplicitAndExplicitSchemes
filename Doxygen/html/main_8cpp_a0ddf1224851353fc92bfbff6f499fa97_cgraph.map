@@ -1,0 +1,20 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$class_explicit_scheme.html#a52c0d19315a6014f43a9d007c70582d6" title="ExplicitScheme::Explicit\lUpWindFTBS" alt="" coords="119,5,283,47"/>
+<area shape="rect" id="node3" href="$class_scheme.html#af05aa7671d5c080c0cca501cb6717cd0" title="Scheme::GetDeltaT" alt="" coords="133,71,269,98"/>
+<area shape="rect" id="node4" href="$class_scheme.html#ae26048cf5128c6ea6e698a7036f2cc42" title="Scheme::PrintResult" alt="" coords="129,122,272,149"/>
+<area shape="rect" id="node5" href="$class_scheme.html#a7d3e9f8133a955517471eb7a6fea355f" title="Scheme::AnalyticalSolution" alt="" coords="109,173,292,199"/>
+<area shape="rect" id="node6" href="$class_scheme.html#ae098876d0287ac2bf5220608db2a8468" title="Scheme::ComputeNorms" alt="" coords="117,223,285,250"/>
+<area shape="rect" id="node12" href="$class_scheme.html#a14c333d182a6b4e94aa2a346000257ea" title="Scheme::GetMatrix" alt="" coords="133,274,268,301"/>
+<area shape="rect" id="node13" href="$class_scheme.html#ae4512b4c8ead4d8ced95174f0b241f8a" title="Scheme::SaveResultIntoFiles" alt="" coords="105,325,297,351"/>
+<area shape="rect" id="node14" href="$class_explicit_scheme.html#a5eee023f6f9d09609066a50dd620b49a" title="ExplicitScheme::~Explicit\lScheme" alt="" coords="115,376,287,417"/>
+<area shape="rect" id="node15" href="$class_scheme.html#af8f283786d3b27d97c55d92b9ae8b20b" title="Scheme::~Scheme" alt="" coords="133,442,268,469"/>
+<area shape="rect" id="node16" href="$class_explicit_scheme.html#a2698e08e62763c56b972b478d665c34c" title="ExplicitScheme::Explicit\lLaxWandroff" alt="" coords="119,493,283,535"/>
+<area shape="rect" id="node17" href="$class_implicit_scheme.html#ab8311a005d69690622e0ddaa0dcff94d" title="ImplicitScheme::Implicit\lUpWindFTBS" alt="" coords="121,559,281,600"/>
+<area shape="rect" id="node18" href="$class_implicit_scheme.html#aca61347d2335e248678f7f3060785762" title="ImplicitScheme::~Implicit\lScheme" alt="" coords="117,624,285,665"/>
+<area shape="rect" id="node19" href="$class_implicit_scheme.html#afd2b8e73e914a04c326b8cba0d5810ce" title="ImplicitScheme::ImplicitFTCS" alt="" coords="104,690,297,717"/>
+<area shape="rect" id="node7" href="$class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="537,198,657,225"/>
+<area shape="rect" id="node8" href="$class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="539,249,656,275"/>
+<area shape="rect" id="node9" href="$class_matrix.html#af4d468252f3ecbbcaa5726c76e332b4c" title="Matrix::one_norm" alt="" coords="356,173,479,199"/>
+<area shape="rect" id="node10" href="$class_matrix.html#aac496af05ec7aa26afc2b9c6d0ab8b66" title="Matrix::two_norm" alt="" coords="356,223,479,250"/>
+<area shape="rect" id="node11" href="$class_matrix.html#a43066c7fe6418aad40170b85415063e8" title="Matrix::uniform_norm" alt="" coords="345,274,489,301"/>
+</map>
