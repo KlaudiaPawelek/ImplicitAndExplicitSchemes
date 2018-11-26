@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ExplicitScheme">
+    <Position X="1.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAABAAAABAAAA=</HashCode>
+      <FileName>ExplicitScheme.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImplicitScheme">
+    <Position X="1.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAgAAAAAgAAAAAAECAAAAAAAApAEAAAA=</HashCode>
+      <FileName>ImplicitScheme.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix">
+    <Position X="7.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="Matrix::vec" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>matrix.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAhgAAAAAAjAAAAAAA=</HashCode>
+      <FileName>matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scheme">
+    <Position X="4.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAAAAAQABAAiACACDCAEIAAQAAAAAAKAAECIAAA=</HashCode>
+      <FileName>Scheme.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="matrix" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

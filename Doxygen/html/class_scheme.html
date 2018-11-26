@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Cranfield-Logo_Colour-2.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Implicit and Explicit Scheme
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
+   <div id="projectbrief">Program for Compuatational Methods and C++ course (Computational and Software Techniques in Engineering)</div>
   </td>
  </tr>
  </tbody>
@@ -77,14 +80,19 @@ $(function() {
 Inheritance diagram for Scheme:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_scheme__inherit__graph.png" border="0" usemap="#_scheme_inherit__map" alt="Inheritance graph"/></div>
-<!-- MAP 0 -->
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<map name="_scheme_inherit__map" id="_scheme_inherit__map">
+<area shape="rect" id="node2" href="class_explicit_scheme.html" title="{ExplicitScheme\n||+ ExplicitScheme()\l+ ExplicitUpWindFTBS()\l+ ExplicitLaxWandroff()\l+ ~ExplicitScheme()\l}" alt="" coords="5,424,169,545"/>
+<area shape="rect" id="node3" href="class_implicit_scheme.html" title="{ImplicitScheme\n|&#45; A\l&#45; B\l&#45; C\l&#45; D\l|+ ImplicitScheme()\l+ ImplicitUpWindFTBS()\l+ ImplicitFTCS()\l+ ~ImplicitScheme()\l&#45; ThomasAlgorithm()\l}" alt="" coords="194,395,357,575"/>
+</map>
+</div>
 <div class="dynheader">
 Collaboration diagram for Scheme:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_scheme__coll__graph.png" border="0" usemap="#_scheme_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 1 -->
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<map name="_scheme_coll__map" id="_scheme_coll__map">
+<area shape="rect" id="node2" href="class_matrix.html" title="{Matrix\n||+ Matrix()\l+ Matrix()\l+ Matrix()\l+ getNrows()\l+ getNcols()\l+ operator=()\l+ operator&#45;()\l+ one_norm()\l+ two_norm()\l+ uniform_norm()\l}" alt="" coords="33,132,153,341"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -184,12 +192,6 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Destructor for <a class="el" href="class_scheme.html">Scheme</a> class. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_af8f283786d3b27d97c55d92b9ae8b20b_icgraph.png" border="0" usemap="#class_scheme_af8f283786d3b27d97c55d92b9ae8b20b_icgraph" alt=""/></div>
-<!-- MAP 2 -->
-</div>
 
 </div>
 </div>
@@ -217,12 +219,6 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_scheme.html#ac5803e4951dc125b274f543d5037c21d">InsertDeltaT()</a>; </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_a7d3e9f8133a955517471eb7a6fea355f_icgraph.png" border="0" usemap="#class_scheme_a7d3e9f8133a955517471eb7a6fea355f_icgraph" alt=""/></div>
-<!-- MAP 3 -->
-</div>
 
 </div>
 </div>
@@ -303,13 +299,13 @@ double uniform_norm() const; </dd>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_scheme_ae098876d0287ac2bf5220608db2a8468_cgraph.png" border="0" usemap="#class_scheme_ae098876d0287ac2bf5220608db2a8468_cgraph" alt=""/></div>
-<!-- MAP 4 -->
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_ae098876d0287ac2bf5220608db2a8468_icgraph.png" border="0" usemap="#class_scheme_ae098876d0287ac2bf5220608db2a8468_icgraph" alt=""/></div>
-<!-- MAP 5 -->
+<map name="class_scheme_ae098876d0287ac2bf5220608db2a8468_cgraph" id="class_scheme_ae098876d0287ac2bf5220608db2a8468_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="413,54,533,81"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="415,105,532,132"/>
+<area shape="rect" id="node4" href="class_matrix.html#af4d468252f3ecbbcaa5726c76e332b4c" title="Matrix::one_norm" alt="" coords="232,29,355,56"/>
+<area shape="rect" id="node5" href="class_matrix.html#aac496af05ec7aa26afc2b9c6d0ab8b66" title="Matrix::two_norm" alt="" coords="232,80,355,106"/>
+<area shape="rect" id="node6" href="class_matrix.html#a43066c7fe6418aad40170b85415063e8" title="Matrix::uniform_norm" alt="" coords="221,130,365,157"/>
+</map>
 </div>
 
 </div>
@@ -357,7 +353,9 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_scheme_a0364e328d78e84be15d293a66d946008_cgraph.png" border="0" usemap="#class_scheme_a0364e328d78e84be15d293a66d946008_cgraph" alt=""/></div>
-<!-- MAP 6 -->
+<map name="class_scheme_a0364e328d78e84be15d293a66d946008_cgraph" id="class_scheme_a0364e328d78e84be15d293a66d946008_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="259,5,376,32"/>
+</map>
 </div>
 
 </div>
@@ -377,12 +375,6 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Accessor: get double deltaT. </p><dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_af05aa7671d5c080c0cca501cb6717cd0_icgraph.png" border="0" usemap="#class_scheme_af05aa7671d5c080c0cca501cb6717cd0_icgraph" alt=""/></div>
-<!-- MAP 7 -->
-</div>
 
 </div>
 </div>
@@ -401,12 +393,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Accessor: get <a class="el" href="class_matrix.html">Matrix</a> matrix. </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matrix.html">Matrix</a> </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_a14c333d182a6b4e94aa2a346000257ea_icgraph.png" border="0" usemap="#class_scheme_a14c333d182a6b4e94aa2a346000257ea_icgraph" alt=""/></div>
-<!-- MAP 8 -->
-</div>
 
 </div>
 </div>
@@ -467,12 +453,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>User can define value of deltaT in console. </p><dl class="section see"><dt>See also</dt><dd>double <a class="el" href="class_scheme.html#aaaf978f98d30bd96ea56a9387d1b2c5a">deltaT</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_ac5803e4951dc125b274f543d5037c21d_cgraph.png" border="0" usemap="#class_scheme_ac5803e4951dc125b274f543d5037c21d_cgraph" alt=""/></div>
-<!-- MAP 9 -->
-</div>
 
 </div>
 </div>
@@ -492,12 +472,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Print only five rows of result. Use overloaded operator &lt;&lt; from <a class="el" href="class_matrix.html">Matrix</a> class </p><dl class="section see"><dt>See also</dt><dd>friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os,const Vector&amp; v); </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_ae26048cf5128c6ea6e698a7036f2cc42_icgraph.png" border="0" usemap="#class_scheme_ae26048cf5128c6ea6e698a7036f2cc42_icgraph" alt=""/></div>
-<!-- MAP 10 -->
-</div>
 
 </div>
 </div>
@@ -540,12 +514,6 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a_icgraph.png" border="0" usemap="#class_scheme_ae4512b4c8ead4d8ced95174f0b241f8a_icgraph" alt=""/></div>
-<!-- MAP 11 -->
-</div>
 
 </div>
 </div>
@@ -774,7 +742,7 @@ void <a class="el" href="class_scheme.html#ac5803e4951dc125b274f543d5037c21d">In
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_scheme_8h_source.html">Scheme.h</a></li>
-<li><a class="el" href="_scheme_8cpp.html">Scheme.cpp</a></li>
+<li>Scheme.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

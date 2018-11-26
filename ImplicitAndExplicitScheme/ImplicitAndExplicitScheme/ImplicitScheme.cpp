@@ -4,10 +4,12 @@ using namespace std;
 // Default, empty constructor
 ImplicitScheme::ImplicitScheme(){ }
 
-//Implementation of Thomas algorithm used in method string ImplicitScheme::ImplicitUpWindFTBS() and string ImplicitScheme::ImplicitUpWindFTCS()
+/*Implementation of Thomas algorithm used in method string ImplicitScheme::ImplicitUpWindFTBS() 
+and string ImplicitScheme::ImplicitUpWindFTCS()*/
 vector<double> ImplicitScheme::ThomasAlgorithm(double parameter, double parameter2, bool version)
 {
-	//The following algorithm was made considering A the sub-diagonal, B the main diagonal, C the top/upper diagonal
+	/*The following algorithm was made considering 
+	A the sub-diagonal, B the main diagonal, C the top/upper diagonal*/
 	double alpha, m;
 	this->A.resize(this->sizeX);
 	this->B.resize(this->sizeX);
@@ -59,50 +61,50 @@ vector<double> ImplicitScheme::ThomasAlgorithm(double parameter, double paramete
 //Implicit UpWind Forward time Backward space
 string ImplicitScheme::ImplicitUpWindFTBS()
 {
-	//------------------------ Preparig matrix ------------------------------------------//
+	//Preparig matrix ----------------//
 	InsertDeltaT();			// insert deltaT in the console by user, from Scheme class
 	ComputeSizeOfMatrix();	// compute size of matrix, from Scheme class
 	InitialCondition();		// initial condition, from Scheme class
 	BoundryCondition();		// boundry condition, from Scheme class
-	//----------------------------------------------------------------------------------//
+	//--------------------------------//
 
-	//-------------------------Implicit scheme------------------------------------------//
+	//Implicit scheme-----------------//
 	this->D = (*this).matrix[0];
 	vector<double> tmp(this->sizeX);
 
 	for (int t = 1; t < this->sizeT; t++)
 	{
-		tmp = ThomasAlgorithm(-1.0,0.0,1);	//create the vector containing values of the next time step
+		tmp = ThomasAlgorithm(-1.0,0.0,1); //create the vector containing values of the next time step
 		this->matrix[t] = tmp;
-		this->D = tmp;					//prepare the calculus of the following time step
+		this->D = tmp;	//prepare the calculus of the following time step
 	}
-	//----------------------------------------------------------------------------------//
+	//--------------------------------//
 
-	return __func__;					//return name of method -> useful for method SaveResultIntoFiles
+	return __func__; //return name of method -> useful for method SaveResultIntoFiles
 }
 
 //Implicit Forward time, Central space
 string ImplicitScheme::ImplicitFTCS()
 {
-	//------------------------ Preparig matrix ------------------------------------------//
+	//Preparig matrix ------//
 	InsertDeltaT();			// insert deltaT in the console by user, from Scheme class
 	ComputeSizeOfMatrix();	// compute size of matrix, from Scheme class
 	InitialCondition();		// initial condition, from Scheme class
 	BoundryCondition();		// boundry condition, from Scheme class
-	//----------------------------------------------------------------------------------//
+	//----------------------//
 
-	//-------------------------Implicit scheme------------------------------------------//
+	//Implicit scheme-------//
 	this->D = (*this).matrix[0];
 	vector<double> tmp(this->sizeX);
 
 	for (int t = 1; t < this->sizeT; t++)
 	{
-		tmp = ThomasAlgorithm(-0.5, 0.5, 0);		//create the vector containing values of the next time step
+		tmp = ThomasAlgorithm(-0.5, 0.5, 0); //create the vector containing values of the next time step
 		this->matrix[t] = tmp;
-		this->D = tmp;				//prepare the calculus of the following time step
+		this->D = tmp; //prepare the calculus of the following time step
 		
 	}
-	return __func__;				//return name of method -> useful for method SaveResultIntoFiles
+	return __func__; //return name of method -> useful for method SaveResultIntoFiles
 }
 
 // Default, empty destructor

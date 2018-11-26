@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Cranfield-Logo_Colour-2.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Implicit and Explicit Scheme
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
+   <div id="projectbrief">Program for Compuatational Methods and C++ course (Computational and Software Techniques in Engineering)</div>
   </td>
  </tr>
  </tbody>
@@ -76,14 +79,12 @@ $(function() {
 Inheritance diagram for Matrix:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix__inherit__graph.png" border="0" usemap="#_matrix_inherit__map" alt="Inheritance graph"/></div>
-<!-- MAP 0 -->
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Collaboration diagram for Matrix:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix__coll__graph.png" border="0" usemap="#_matrix_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 1 -->
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -99,8 +100,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae0a5f2154953b8d129a90b04f91d9079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea5a06385f646eb4a63929fae6fa3e14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aea5a06385f646eb4a63929fae6fa3e14">operator=</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
 <tr class="separator:aea5a06385f646eb4a63929fae6fa3e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35097c20bcb1495b57d452db0d7b1f53"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a35097c20bcb1495b57d452db0d7b1f53">operator==</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;m) const</td></tr>
-<tr class="separator:a35097c20bcb1495b57d452db0d7b1f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aabf841a4302d528f8b102c0800a263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a2aabf841a4302d528f8b102c0800a263">operator-</a> (<a class="el" href="class_matrix.html">Matrix</a> m)</td></tr>
 <tr class="separator:a2aabf841a4302d528f8b102c0800a263"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4d468252f3ecbbcaa5726c76e332b4c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#af4d468252f3ecbbcaa5726c76e332b4c">one_norm</a> () const</td></tr>
@@ -109,53 +108,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aac496af05ec7aa26afc2b9c6d0ab8b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43066c7fe6418aad40170b85415063e8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a43066c7fe6418aad40170b85415063e8">uniform_norm</a> () const</td></tr>
 <tr class="separator:a43066c7fe6418aad40170b85415063e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa40c78e6b3bb5bbf572d35612dbf6a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aaa40c78e6b3bb5bbf572d35612dbf6a7">operator*</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;a) const</td></tr>
-<tr class="separator:aaa40c78e6b3bb5bbf572d35612dbf6a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a759661b75b9681f3a89ff75e27933b3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a759661b75b9681f3a89ff75e27933b3a">transpose</a> () const</td></tr>
-<tr class="separator:a759661b75b9681f3a89ff75e27933b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:a0027109b5516f852be28259267c6c637"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0027109b5516f852be28259267c6c637">vec</a></td></tr>
-<tr class="separator:a0027109b5516f852be28259267c6c637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816d2806d2a58c99bce03de4640aeb6a"><td class="memItemLeft" align="right" valign="top"><a id="a816d2806d2a58c99bce03de4640aeb6a"></a>
+typedef vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vec</b></td></tr>
+<tr class="separator:a816d2806d2a58c99bce03de4640aeb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a3d6c1dcfc038804f4c08687f4f37f48b"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:a3d6c1dcfc038804f4c08687f4f37f48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a060711074cb5bcaf4e75498bc040c4b7"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:a060711074cb5bcaf4e75498bc040c4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5699a0bdf0ee014f083ff8a76629d21"><td class="memItemLeft" align="right" valign="top">std::ifstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;</a> (std::ifstream &amp;ifs, <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:aa5699a0bdf0ee014f083ff8a76629d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa574249d63b390cf1108d6e82047ef61"><td class="memItemLeft" align="right" valign="top">std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;</a> (std::ofstream &amp;ofs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:aa574249d63b390cf1108d6e82047ef61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed9a90fd6f010e7e9840a17d92d5361"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5ed9a90fd6f010e7e9840a17d92d5361">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
+<tr class="separator:a5ed9a90fd6f010e7e9840a17d92d5361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b243a10c750750eb00e9af787ea4b8"><td class="memItemLeft" align="right" valign="top">ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ae0b243a10c750750eb00e9af787ea4b8">operator&lt;&lt;</a> (ofstream &amp;ofs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
+<tr class="separator:ae0b243a10c750750eb00e9af787ea4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_matrix.html">Matrix</a> class, which use vector container for Standard Template Library. Important class for <a class="el" href="class_scheme.html">Scheme</a>, <a class="el" href="class_explicit_scheme.html">ExplicitScheme</a> and <a class="el" href="class_implicit_scheme.html">ImplicitScheme</a> classes. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a0027109b5516f852be28259267c6c637"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0027109b5516f852be28259267c6c637">&#9670;&nbsp;</a></span>vec</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;std::vector&lt;double&gt; &gt; <a class="el" href="class_matrix.html#a0027109b5516f852be28259267c6c637">Matrix::vec</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p><a class="el" href="class_matrix.html">Matrix</a> class, which use vector container from Standard Template Library. Important class for <a class="el" href="class_scheme.html">Scheme</a>, <a class="el" href="class_explicit_scheme.html">ExplicitScheme</a> and <a class="el" href="class_implicit_scheme.html">ImplicitScheme</a> classes. Important information! This class has been created based on the program available at C ++ classes. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2dba13c45127354c9f75ef576f49269b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2dba13c45127354c9f75ef576f49269b">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/3]</span></h2>
 
@@ -173,12 +142,6 @@ Friends</h2></td></tr>
 <p>Default constructor. Intialize an empty <a class="el" href="class_matrix.html">Matrix</a> object </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a135a15de1126d735bb95fcc839d739d7">Matrix(int Nrows, int Ncols)</a> </dd>
 <dd>
 <a class="el" href="class_matrix.html#a765f4dcb51b6829311cc3e7576388423">Matrix(const Matrix&amp; m)</a> </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_matrix_a2dba13c45127354c9f75ef576f49269b_icgraph.png" border="0" usemap="#class_matrix_a2dba13c45127354c9f75ef576f49269b_icgraph" alt=""/></div>
-<!-- MAP 2 -->
-</div>
 
 </div>
 </div>
@@ -207,19 +170,19 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Alternate constructor. build a matrix Nrows by Ncols </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix()</a> </dd>
+<p>Alternate constructor. User can insert the size of matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>Nrows - number of rows in matrix. </td></tr>
+    <tr><td class="paramname">int</td><td>Ncols - number of columns in matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix()</a> </dd>
 <dd>
 <a class="el" href="class_matrix.html#a765f4dcb51b6829311cc3e7576388423">Matrix(const Matrix&amp; m)</a> </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">invalid_argument</td><td>("matrix size negative or zero") </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Nrows</td><td>int. number of rows in matrix </td></tr>
-    <tr><td class="paramname">Ncols</td><td>int. number of columns in matrix </td></tr>
   </table>
   </dd>
 </dl>
@@ -241,20 +204,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Copy constructor. build a matrix from another matrix </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix()</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#a135a15de1126d735bb95fcc839d739d7">Matrix(int Nrows, int Ncols)</a> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Copy constructor. User can build a matrix from another matrix. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a>&amp;. matrix to copy from </td></tr>
+    <tr><td class="paramname">Matrix&amp;</td><td>m - matrix to copy. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix()</a> </dd>
+<dd>
+<a class="el" href="class_matrix.html#a135a15de1126d735bb95fcc839d739d7">Matrix(int Nrows, int Ncols)</a> </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_a765f4dcb51b6829311cc3e7576388423_cgraph.png" border="0" usemap="#class_matrix_a765f4dcb51b6829311cc3e7576388423_cgraph" alt=""/></div>
-<!-- MAP 3 -->
+<map name="class_matrix_a765f4dcb51b6829311cc3e7576388423_cgraph" id="class_matrix_a765f4dcb51b6829311cc3e7576388423_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="156,5,276,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="157,56,275,83"/>
+</map>
 </div>
 
 </div>
@@ -274,13 +240,20 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Normal public get method. get the number of columns </p><dl class="section see"><dt>See also</dt><dd>int <a class="el" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276">getNrows()const</a> </dd></dl>
+<p>Normal public get method. Get the number of columns </p><dl class="section see"><dt>See also</dt><dd>int <a class="el" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276">getNrows()const</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>int. number of columns in matrix </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_ae0a5f2154953b8d129a90b04f91d9079_icgraph.png" border="0" usemap="#class_matrix_ae0a5f2154953b8d129a90b04f91d9079_icgraph" alt=""/></div>
-<!-- MAP 4 -->
+<map name="class_matrix_ae0a5f2154953b8d129a90b04f91d9079_icgraph" id="class_matrix_ae0a5f2154953b8d129a90b04f91d9079_icgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a765f4dcb51b6829311cc3e7576388423" title="Matrix::Matrix" alt="" coords="222,5,325,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#af4d468252f3ecbbcaa5726c76e332b4c" title="Matrix::one_norm" alt="" coords="212,56,335,83"/>
+<area shape="rect" id="node4" href="class_scheme.html#ae098876d0287ac2bf5220608db2a8468" title="Scheme::ComputeNorms" alt="" coords="424,132,592,159"/>
+<area shape="rect" id="node5" href="class_matrix.html#aac496af05ec7aa26afc2b9c6d0ab8b66" title="Matrix::two_norm" alt="" coords="212,157,335,184"/>
+<area shape="rect" id="node6" href="class_matrix.html#a43066c7fe6418aad40170b85415063e8" title="Matrix::uniform_norm" alt="" coords="201,208,345,235"/>
+<area shape="rect" id="node7" href="class_scheme.html#a0364e328d78e84be15d293a66d946008" title="Scheme::ComputeSizeOfMatrix" alt="" coords="171,259,376,285"/>
+</map>
 </div>
 
 </div>
@@ -299,13 +272,19 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Normal public get method. get the number of rows </p><dl class="section see"><dt>See also</dt><dd>int <a class="el" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079">getNcols()const</a> </dd></dl>
+<p>Normal public get method. Get the number of rows </p><dl class="section see"><dt>See also</dt><dd>int <a class="el" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079">getNcols()const</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>int. number of rows in matrix </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_a711f84a1c62832d9d197d78c9855a276_icgraph.png" border="0" usemap="#class_matrix_a711f84a1c62832d9d197d78c9855a276_icgraph" alt=""/></div>
-<!-- MAP 5 -->
+<map name="class_matrix_a711f84a1c62832d9d197d78c9855a276_icgraph" id="class_matrix_a711f84a1c62832d9d197d78c9855a276_icgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a765f4dcb51b6829311cc3e7576388423" title="Matrix::Matrix" alt="" coords="194,5,297,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#af4d468252f3ecbbcaa5726c76e332b4c" title="Matrix::one_norm" alt="" coords="184,56,307,83"/>
+<area shape="rect" id="node4" href="class_scheme.html#ae098876d0287ac2bf5220608db2a8468" title="Scheme::ComputeNorms" alt="" coords="365,132,533,159"/>
+<area shape="rect" id="node5" href="class_matrix.html#aac496af05ec7aa26afc2b9c6d0ab8b66" title="Matrix::two_norm" alt="" coords="184,157,307,184"/>
+<area shape="rect" id="node6" href="class_matrix.html#a43066c7fe6418aad40170b85415063e8" title="Matrix::uniform_norm" alt="" coords="173,208,317,235"/>
+</map>
 </div>
 
 </div>
@@ -332,52 +311,18 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_cgraph.png" border="0" usemap="#class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_cgraph" alt=""/></div>
-<!-- MAP 6 -->
+<map name="class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_cgraph" id="class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="176,5,296,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="177,56,295,83"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_icgraph.png" border="0" usemap="#class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_icgraph" alt=""/></div>
-<!-- MAP 7 -->
-</div>
-
-</div>
-</div>
-<a id="aaa40c78e6b3bb5bbf572d35612dbf6a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa40c78e6b3bb5bbf572d35612dbf6a7">&#9670;&nbsp;</a></span>operator*()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> Matrix::operator* </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Overloaded *operator that returns a <a class="el" href="class_matrix.html">Matrix</a>. It Performs matrix by matrix multiplication. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#aaa40c78e6b3bb5bbf572d35612dbf6a7">operator*(const Matrix &amp; a) const</a> </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">out_of_range</td><td>("Matrix access error") One or more of the matrix have a zero size </td></tr>
-    <tr><td class="paramname">std::out_of_range</td><td>("uncompatible matrix sizes") Number of columns in first matrix do not match number of columns in second matrix </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matrix.html">Matrix</a>. matrix-matrix product </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><a class="el" href="class_matrix.html">Matrix</a>. matrix to multiply by </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_matrix_aaa40c78e6b3bb5bbf572d35612dbf6a7_cgraph.png" border="0" usemap="#class_matrix_aaa40c78e6b3bb5bbf572d35612dbf6a7_cgraph" alt=""/></div>
-<!-- MAP 8 -->
+<map name="class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_icgraph" id="class_matrix_af4d468252f3ecbbcaa5726c76e332b4c_icgraph">
+<area shape="rect" id="node2" href="class_scheme.html#ae098876d0287ac2bf5220608db2a8468" title="Scheme::ComputeNorms" alt="" coords="176,5,344,32"/>
+</map>
 </div>
 
 </div>
@@ -397,7 +342,13 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloaded subtraction operator returns <a class="el" href="class_matrix.html">Matrix</a> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a2aabf841a4302d528f8b102c0800a263">operator-(Matrix m)</a> </dd></dl>
+<p>Overloaded subtraction operator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_matrix.html">Matrix</a></td><td>m - matrix to subtract </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a2aabf841a4302d528f8b102c0800a263">operator-(Matrix m)</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matrix.html">Matrix</a> </dd></dl>
 
 </div>
@@ -417,70 +368,14 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloaded assignment operator </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#a35097c20bcb1495b57d452db0d7b1f53">operator==(const Matrix&amp; m)const</a> </dd></dl>
+<p>Overloaded assignment operator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Matrix&amp;</td><td>m - matrix to assign </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>operator==(const Matrix&amp; m)const </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matrix.html">Matrix</a>&amp;. the matrix on the left of the assignment </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a>&amp;. <a class="el" href="class_matrix.html">Matrix</a> to assign from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a35097c20bcb1495b57d452db0d7b1f53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35097c20bcb1495b57d452db0d7b1f53">&#9670;&nbsp;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Matrix::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Overloaded comparison operator returns true or false depending on whether the matrices are the same or not </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#aea5a06385f646eb4a63929fae6fa3e14">operator=(const Matrix&amp; m)</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>bool. true or false </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a>&amp;. <a class="el" href="class_matrix.html">Matrix</a> to compare to </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_matrix_a35097c20bcb1495b57d452db0d7b1f53_cgraph.png" border="0" usemap="#class_matrix_a35097c20bcb1495b57d452db0d7b1f53_cgraph" alt=""/></div>
-<!-- MAP 9 -->
-</div>
-
-</div>
-</div>
-<a id="a759661b75b9681f3a89ff75e27933b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a759661b75b9681f3a89ff75e27933b3a">&#9670;&nbsp;</a></span>transpose()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> Matrix::transpose </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>public method that returns the transpose of the matrix. It returns the transpose of matrix </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matrix.html">Matrix</a>. matrix transpose </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_matrix_a759661b75b9681f3a89ff75e27933b3a_cgraph.png" border="0" usemap="#class_matrix_a759661b75b9681f3a89ff75e27933b3a_cgraph" alt=""/></div>
-<!-- MAP 10 -->
-</div>
 
 </div>
 </div>
@@ -506,13 +401,18 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_cgraph.png" border="0" usemap="#class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_cgraph" alt=""/></div>
-<!-- MAP 11 -->
+<map name="class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_cgraph" id="class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="176,5,296,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="177,56,295,83"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_icgraph.png" border="0" usemap="#class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_icgraph" alt=""/></div>
-<!-- MAP 12 -->
+<map name="class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_icgraph" id="class_matrix_aac496af05ec7aa26afc2b9c6d0ab8b66_icgraph">
+<area shape="rect" id="node2" href="class_scheme.html#ae098876d0287ac2bf5220608db2a8468" title="Scheme::ComputeNorms" alt="" coords="176,5,344,32"/>
+</map>
 </div>
 
 </div>
@@ -539,20 +439,25 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_a43066c7fe6418aad40170b85415063e8_cgraph.png" border="0" usemap="#class_matrix_a43066c7fe6418aad40170b85415063e8_cgraph" alt=""/></div>
-<!-- MAP 13 -->
+<map name="class_matrix_a43066c7fe6418aad40170b85415063e8_cgraph" id="class_matrix_a43066c7fe6418aad40170b85415063e8_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="197,5,317,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="199,56,316,83"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_matrix_a43066c7fe6418aad40170b85415063e8_icgraph.png" border="0" usemap="#class_matrix_a43066c7fe6418aad40170b85415063e8_icgraph" alt=""/></div>
-<!-- MAP 14 -->
+<map name="class_matrix_a43066c7fe6418aad40170b85415063e8_icgraph" id="class_matrix_a43066c7fe6418aad40170b85415063e8_icgraph">
+<area shape="rect" id="node2" href="class_scheme.html#ae098876d0287ac2bf5220608db2a8468" title="Scheme::ComputeNorms" alt="" coords="197,5,365,32"/>
+</map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a060711074cb5bcaf4e75498bc040c4b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a060711074cb5bcaf4e75498bc040c4b7">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[1/2]</span></h2>
+<a id="a5ed9a90fd6f010e7e9840a17d92d5361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed9a90fd6f010e7e9840a17d92d5361">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -561,9 +466,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
         </tr>
         <tr>
@@ -584,24 +489,24 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Overloaded ostream &lt;&lt; operator. Display output if matrix has size user will be asked to input only matrix values if matrix was not initialized user can choose matrix size and input it values </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m)</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp;. The ostream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Overloaded ostream &lt;&lt; operator. Display output If matrix has size user will be asked to input only matrix values If matrix was not initialized user can choose matrix size and input it values </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">os</td><td>Display output stream </td></tr>
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to read from </td></tr>
+    <tr><td class="paramname">ostream&amp;</td><td>os - display output stream. </td></tr>
+    <tr><td class="paramname">Matrix&amp;</td><td>m - matrix to read. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m) </dd>
+<dd>
+operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m) </dd>
+<dd>
+operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp;. The ostream object </dd></dl>
 
 </div>
 </div>
-<a id="aa574249d63b390cf1108d6e82047ef61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa574249d63b390cf1108d6e82047ef61">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[2/2]</span></h2>
+<a id="ae0b243a10c750750eb00e9af787ea4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b243a10c750750eb00e9af787ea4b8">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -610,9 +515,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ofstream&amp; operator&lt;&lt; </td>
+          <td class="memname">ofstream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
           <td class="paramname"><em>ofs</em>, </td>
         </tr>
         <tr>
@@ -633,11 +538,18 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Overloaded ofstream &lt;&lt; operator. File output the file output operator is compatible with file input operator, ie. everything written can be read later. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m)</a> </dd>
+<p>Overloaded ofstream &lt;&lt; operator. File output The file output operator is compatible with file input operator, </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ofstream&amp;</td><td>ofs </td></tr>
+    <tr><td class="paramname">Matrix&amp;</td><td>m - matrix to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m) </dd>
 <dd>
-<a class="el" href="class_matrix.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m)</a> </dd>
+operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m) </dd>
 <dd>
-<a class="el" href="class_matrix.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m)</a> </dd></dl>
+operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m) </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::invalid_argument</td><td>("file read error - negative matrix size"); </td></tr>
@@ -645,122 +557,12 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::ofstream&amp;. The ofstream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to read from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3d6c1dcfc038804f4c08687f4f37f48b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d6c1dcfc038804f4c08687f4f37f48b">&#9670;&nbsp;</a></span>operator&gt;&gt; <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Overloaded istream &gt;&gt; operator. Keyboard input if matrix has size user will be asked to input only matrix values if matrix was not initialized user can choose matrix size and input it values </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m)</a> </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>("read error - negative matrix size"); </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::istream&amp;. The istream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">is</td><td>Keyboard input stream </td></tr>
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to write into </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa5699a0bdf0ee014f083ff8a76629d21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5699a0bdf0ee014f083ff8a76629d21">&#9670;&nbsp;</a></span>operator&gt;&gt; <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ifstream&amp; operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ifstream &amp;&#160;</td>
-          <td class="paramname"><em>ifs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Overloaded ifstream &gt;&gt; operator. File input the file output operator is compatible with file input operator, ie. everything written can be read later. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matrix.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="class_matrix.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m)</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>std::ifstream&amp;. The ifstream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ifs</td><td>Input file stream with opened matrix file </td></tr>
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to write into </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="matrix_8h_source.html">matrix.h</a></li>
-<li><a class="el" href="matrix_8cpp.html">matrix.cpp</a></li>
+<li>matrix.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -6,14 +6,20 @@
 #include <stdexcept>//provides exceptions
 #include <vector>	//vector class is used in Matrix class
 
+using namespace std;
+
 /**
-	Matrix class, which use vector container for Standard Template Library.
+	Matrix class, which use vector container from Standard Template Library.
 	Important class for Scheme, ExplicitScheme and ImplicitScheme classes.
+	Important information!
+	This class has been created based on the program available at C ++ classes.
 **/
-class Matrix : private std::vector<std::vector<double>> {
-	typedef std::vector<std::vector<double>> vec;
+class Matrix : private vector<vector<double>> 
+{
+	typedef vector<vector<double>> vec;
+
 public:
-	using vec::operator[];  // make the array access operator public within Matrix
+	using vec::operator[];  //the array access operator public within Matrix
 
 	// CONSTRUCTORS
 
@@ -26,61 +32,55 @@ public:
 
 	/**
 	* Alternate constructor.
-	* build a matrix Nrows by Ncols
+	* User can insert the size of matrix.
+	* @param int Nrows - number of rows in matrix.
+	* @param int Ncols - number of columns in matrix.
 	* @see Matrix()
 	* @see Matrix(const Matrix& m)
 	* @exception invalid_argument ("matrix size negative or zero")
 	*/
-    Matrix(int Nrows /**< int. number of rows in matrix */, int Ncols /**< int. number of columns in matrix  */); 
+    Matrix(int Nrows, int Ncols); 
 
 	/**
 	* Copy constructor.
-	* build a matrix from another matrix
+	* User can build a matrix from another matrix.
+	* @param Matrix& m - matrix to copy.
 	* @see Matrix()
 	* @see Matrix(int Nrows, int Ncols)
 	*/
-	Matrix(const Matrix& m /**< Matrix&. matrix to copy from  */);
+	Matrix(const Matrix& m);
 
 	// ACCESSOR METHODS
 
 	/**
 	* Normal public get method.
-	* get the number of rows
+	* Get the number of rows
 	* @see int getNcols()const
 	* @return int. number of rows in matrix
 	*/
-	int getNrows() const; // get the number of rows
+	int getNrows() const; 
 
 	/**
 	* Normal public get method.
-	* get the number of columns
+	* Get the number of columns
 	* @see int getNrows()const
 	* @return int. number of columns in matrix
 	*/
-	int getNcols() const; // get the number of cols
+	int getNcols() const; 
 
 	// OVERLOADED OPERATOR
 
 	/**
 	* Overloaded assignment operator
+	* @param Matrix& m - matrix to assign
 	* @see operator==(const Matrix& m)const
 	* @return Matrix&. the matrix on the left of the assignment
 	*/
-	Matrix& operator=(const Matrix& m /**< Matrix&. Matrix to assign from */); // overloaded assignment operator
-
-
-	/**
-	* Overloaded comparison operator
-	* returns true or false depending on whether the matrices are the same or not
-	* @see operator=(const Matrix& m)
-	* @return bool. true or false
-	*/
-	bool operator==(const Matrix& m  /**< Matrix&. Matrix to compare to */
-		) const; // overloaded comparison operator
+	Matrix& operator=(const Matrix& m); 
 
 	/**
 	*Overloaded subtraction operator
-	* returns Matrix
+	* @param Matrix m - matrix to subtract
 	* @see operator-(Matrix m)
 	* @return Matrix
 	*/
@@ -116,87 +116,32 @@ public:
 	double uniform_norm() const;
 
 
-	// MULTIPLICATION, COMPARISON METHODS and TRANSPOSE METHODS
-
-	/**
-	* Overloaded *operator that returns a Matrix.
-	* It Performs matrix by matrix multiplication.
-	* @see operator*(const Matrix & a) const
-	* @exception out_of_range ("Matrix access error")
-	* One or more of the matrix have a zero size
-	* @exception std::out_of_range ("uncompatible matrix sizes")
-	* Number of columns in first matrix do not match number of columns in second matrix
-	* @return Matrix. matrix-matrix product
-	*/
-	//
-	Matrix operator*(const Matrix & a /**< Matrix. matrix to multiply by */
-		) const;
-
-	/**
-	* public method that returns the transpose of the matrix.
-	* It returns the transpose of matrix
-	* @return Matrix.  matrix transpose
-	*/
-	Matrix transpose() const;
-
-
-	/**
-	* Overloaded istream >> operator.
-	* Keyboard input
-	* if matrix has size user will be asked to input only matrix values
-	* if matrix was not initialized user can choose matrix size and input it values
-	* @see operator<<(std::ofstream& ofs, const Matrix& m)
-	* @see operator>>(std::istream& is, Matrix& m)
-	* @see operator<<(std::ostream& os, const Matrix& m)
-	* @exception std::invalid_argument ("read error - negative matrix size");
-	* @return std::istream&. The istream object
-	*/
-	 friend std::istream& operator >> (std::istream& is, /**< Keyboard input stream */
-		Matrix& m /**< Matrix to write into */
-		);// keyboard input
-
-
 	/**
 	* Overloaded ostream << operator.
 	* Display output
-	* if matrix has size user will be asked to input only matrix values
-	* if matrix was not initialized user can choose matrix size and input it values
+	* If matrix has size user will be asked to input only matrix values
+	* If matrix was not initialized user can choose matrix size and input it values
+	* @param ostream& os - display output stream.
+	* @param Matrix& m - matrix to read.
 	* @see operator>>(std::ifstream& ifs, Matrix& m)
 	* @see operator>>(std::istream& is, Matrix& m)
 	* @see operator<<(std::ostream& os, const Matrix& m)
 	* @return std::ostream&. The ostream object
 	*/
-	friend std::ostream& operator<<(std::ostream& os, /**< Display output stream */
-		const Matrix& m /**< Matrix to read from*/
-		);// screen output
-
-
-	/**
-	* Overloaded ifstream >> operator. File input
-	* the file output operator is compatible with file input operator,
-	* ie. everything written can be read later.
-	* @see operator>>(std::ifstream& ifs, Matrix& m)
-	* @see operator<<(std::ofstream& ofs, const Matrix& m)
-	* @see operator<<(std::ostream& os, const Matrix& m)
-	* @return std::ifstream&. The ifstream object
-	*/
-	friend std::ifstream& operator >> (std::ifstream& ifs, /**< Input file stream with opened matrix file */
-		Matrix& m /**< Matrix to write into */
-		);// file input
+	friend ostream& operator<<(ostream& os, const Matrix& m);
 
 	/**
 	* Overloaded ofstream << operator. File output
-	* the file output operator is compatible with file input operator,
-	* ie. everything written can be read later.
+	* The file output operator is compatible with file input operator,
+	* @param ofstream& ofs
+	* @param Matrix& m - matrix to read from.
 	* @see operator>>(std::ifstream& ifs, Matrix& m)
 	* @see operator<<(std::ofstream& ofs, const Matrix& m)
 	* @see operator>>(std::istream& is, Matrix& m)
 	* @exception std::invalid_argument ("file read error - negative matrix size");
 	* @return std::ofstream&. The ofstream object
 	*/
-	friend std::ofstream& operator<<(std::ofstream& ofs,
-		const Matrix& m /**< Matrix to read from*/
-		);// file output
+	friend ofstream& operator<<(ofstream& ofs, const Matrix& m );
 };
 
 #endif

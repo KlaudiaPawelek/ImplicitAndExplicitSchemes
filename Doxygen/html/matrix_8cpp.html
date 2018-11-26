@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Cranfield-Logo_Colour-2.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Implicit and Explicit Scheme
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
+   <div id="projectbrief">Program for Compuatational Methods and C++ course (Computational and Software Techniques in Engineering)</div>
   </td>
  </tr>
  </tbody>
@@ -72,31 +75,29 @@ $(function() {
 Include dependency graph for matrix.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="matrix_8cpp__incl.png" border="0" usemap="#matrix_8cpp" alt=""/></div>
-<!-- MAP 0 -->
+<map name="matrix_8cpp" id="matrix_8cpp">
+<area shape="rect" id="node2" href="matrix_8h.html" title="matrix.h" alt="" coords="148,80,217,107"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3d6c1dcfc038804f4c08687f4f37f48b"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8cpp.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:a3d6c1dcfc038804f4c08687f4f37f48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a060711074cb5bcaf4e75498bc040c4b7"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8cpp.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:a060711074cb5bcaf4e75498bc040c4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5699a0bdf0ee014f083ff8a76629d21"><td class="memItemLeft" align="right" valign="top">std::ifstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8cpp.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;</a> (std::ifstream &amp;ifs, <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:aa5699a0bdf0ee014f083ff8a76629d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa574249d63b390cf1108d6e82047ef61"><td class="memItemLeft" align="right" valign="top">std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8cpp.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;</a> (std::ofstream &amp;ofs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr class="separator:aa574249d63b390cf1108d6e82047ef61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed9a90fd6f010e7e9840a17d92d5361"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8cpp.html#a5ed9a90fd6f010e7e9840a17d92d5361">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
+<tr class="separator:a5ed9a90fd6f010e7e9840a17d92d5361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b243a10c750750eb00e9af787ea4b8"><td class="memItemLeft" align="right" valign="top">ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8cpp.html#ae0b243a10c750750eb00e9af787ea4b8">operator&lt;&lt;</a> (ofstream &amp;ofs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
+<tr class="separator:ae0b243a10c750750eb00e9af787ea4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a060711074cb5bcaf4e75498bc040c4b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a060711074cb5bcaf4e75498bc040c4b7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
+<a id="a5ed9a90fd6f010e7e9840a17d92d5361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed9a90fd6f010e7e9840a17d92d5361">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
         </tr>
         <tr>
@@ -112,38 +113,41 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloaded ostream &lt;&lt; operator. Display output if matrix has size user will be asked to input only matrix values if matrix was not initialized user can choose matrix size and input it values </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="matrix_8cpp.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="matrix_8cpp.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="matrix_8cpp.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m)</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp;. The ostream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Overloaded ostream &lt;&lt; operator. Display output If matrix has size user will be asked to input only matrix values If matrix was not initialized user can choose matrix size and input it values </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">os</td><td>Display output stream </td></tr>
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to read from </td></tr>
+    <tr><td class="paramname">ostream&amp;</td><td>os - display output stream. </td></tr>
+    <tr><td class="paramname">Matrix&amp;</td><td>m - matrix to read. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m) </dd>
+<dd>
+operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m) </dd>
+<dd>
+operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp;. The ostream object </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7_cgraph.png" border="0" usemap="#matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7_cgraph" alt=""/></div>
-<!-- MAP 1 -->
+<div class="center"><img src="matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361_cgraph.png" border="0" usemap="#matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361_cgraph" alt=""/></div>
+<map name="matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361_cgraph" id="matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="139,5,259,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="140,56,257,83"/>
+</map>
 </div>
 
 </div>
 </div>
-<a id="aa574249d63b390cf1108d6e82047ef61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa574249d63b390cf1108d6e82047ef61">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
+<a id="ae0b243a10c750750eb00e9af787ea4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b243a10c750750eb00e9af787ea4b8">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::ofstream&amp; operator&lt;&lt; </td>
+          <td class="memname">ofstream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
           <td class="paramname"><em>ofs</em>, </td>
         </tr>
         <tr>
@@ -159,11 +163,18 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Overloaded ofstream &lt;&lt; operator. File output the file output operator is compatible with file input operator, ie. everything written can be read later. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="matrix_8cpp.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m)</a> </dd>
+<p>Overloaded ofstream &lt;&lt; operator. File output The file output operator is compatible with file input operator, </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ofstream&amp;</td><td>ofs </td></tr>
+    <tr><td class="paramname">Matrix&amp;</td><td>m - matrix to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m) </dd>
 <dd>
-<a class="el" href="matrix_8cpp.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m)</a> </dd>
+operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m) </dd>
 <dd>
-<a class="el" href="matrix_8cpp.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m)</a> </dd></dl>
+operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m) </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::invalid_argument</td><td>("file read error - negative matrix size"); </td></tr>
@@ -171,112 +182,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::ofstream&amp;. The ofstream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to read from </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="matrix_8cpp_aa574249d63b390cf1108d6e82047ef61_cgraph.png" border="0" usemap="#matrix_8cpp_aa574249d63b390cf1108d6e82047ef61_cgraph" alt=""/></div>
-<!-- MAP 2 -->
+<div class="center"><img src="matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8_cgraph.png" border="0" usemap="#matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8_cgraph" alt=""/></div>
+<map name="matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8_cgraph" id="matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a711f84a1c62832d9d197d78c9855a276" title="Matrix::getNrows" alt="" coords="139,5,259,32"/>
+<area shape="rect" id="node3" href="class_matrix.html#ae0a5f2154953b8d129a90b04f91d9079" title="Matrix::getNcols" alt="" coords="140,56,257,83"/>
+</map>
 </div>
-
-</div>
-</div>
-<a id="a3d6c1dcfc038804f4c08687f4f37f48b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d6c1dcfc038804f4c08687f4f37f48b">&#9670;&nbsp;</a></span>operator&gt;&gt;() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Overloaded istream &gt;&gt; operator. Keyboard input if matrix has size user will be asked to input only matrix values if matrix was not initialized user can choose matrix size and input it values </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="matrix_8cpp.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="matrix_8cpp.html#a3d6c1dcfc038804f4c08687f4f37f48b">operator&gt;&gt;(std::istream&amp; is, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="matrix_8cpp.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m)</a> </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>("read error - negative matrix size"); </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::istream&amp;. The istream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">is</td><td>Keyboard input stream </td></tr>
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to write into </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b_cgraph.png" border="0" usemap="#matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b_cgraph" alt=""/></div>
-<!-- MAP 3 -->
-</div>
-
-</div>
-</div>
-<a id="aa5699a0bdf0ee014f083ff8a76629d21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5699a0bdf0ee014f083ff8a76629d21">&#9670;&nbsp;</a></span>operator&gt;&gt;() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ifstream&amp; operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ifstream &amp;&#160;</td>
-          <td class="paramname"><em>ifs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Overloaded ifstream &gt;&gt; operator. File input the file output operator is compatible with file input operator, ie. everything written can be read later. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="matrix_8cpp.html#aa5699a0bdf0ee014f083ff8a76629d21">operator&gt;&gt;(std::ifstream&amp; ifs, Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="matrix_8cpp.html#aa574249d63b390cf1108d6e82047ef61">operator&lt;&lt;(std::ofstream&amp; ofs, const Matrix&amp; m)</a> </dd>
-<dd>
-<a class="el" href="matrix_8cpp.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;(std::ostream&amp; os, const Matrix&amp; m)</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>std::ifstream&amp;. The ifstream object </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ifs</td><td>Input file stream with opened matrix file </td></tr>
-    <tr><td class="paramname">m</td><td><a class="el" href="class_matrix.html">Matrix</a> to write into </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

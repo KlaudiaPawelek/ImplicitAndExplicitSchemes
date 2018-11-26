@@ -1,7 +1,7 @@
 #ifndef SCHEME_H	//include guard
 #define SCHEME_H
 
-#include "matrix.h"	//Matrix class implemented in project
+#include "matrix.h"	//matrix class, inspired on c++ course
 #include <math.h>	//numeric library for sin method
 #include <iostream>	//generic IO
 #include <string>	//for string objects and methods
@@ -29,7 +29,7 @@ protected:
 	/**
 	* Aggregation: object from class Matrix.
 	**/
-	Matrix matrix; 
+	Matrix matrix;
 	/**
 	* Size of matrix.
 	**/

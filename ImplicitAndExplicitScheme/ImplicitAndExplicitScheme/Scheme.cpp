@@ -67,10 +67,10 @@ void Scheme::BoundryCondition()
 //Then equation is calculated analyticaly
 string Scheme::AnalyticalSolution(double defaultDeltaT)
 {
-	//------------------------ Preparig matrix -------------------------------------//
+	//Preparig matrix -------------------------------------//
 
-	//If defaultDeltaT is 0 then user will be asked about value of deltaT in console.
-	//This situation occurs when user execute program with parameter -analytical
+	/*If defaultDeltaT is 0 then user will be asked about value of deltaT in console.
+	This situation occurs when user execute program with parameter -analytical*/
 	if (defaultDeltaT == 0)
 	{
 		InsertDeltaT();
@@ -82,9 +82,9 @@ string Scheme::AnalyticalSolution(double defaultDeltaT)
 	ComputeSizeOfMatrix(0);
 	InitialCondition();
 	BoundryCondition();
-	//-----------------------------------------------------------------------------//
+	//------------------------------------------------------//
 
-	//------------------------Analytical solution---------------------------------//
+	//Analytical solution----------------------------------//
 	double T;
 	for (int i = 0; i < this->sizeT; i++)
 	{
@@ -94,11 +94,12 @@ string Scheme::AnalyticalSolution(double defaultDeltaT)
 			double Y = 5 * x;
 			if (Y <= 110 + (250 * T) && Y >= 50 + 250 * T)
 			{
-				this->matrix[i][x] = 100 * (sin((this->PI)*((Y - 50 - (250 * T)) / 60)));
+				this->matrix[i][x] = 100 * (sin((this->PI)*
+					((Y - 50 - (250 * T)) / 60)));
 			}
 		}
 	}
-	//---------------------------------------------------------------------------//
+	//------------------------------------------------------//
 
 	return __func__; //return name of method -> useful for method SaveResultIntoFiles
 }
@@ -151,7 +152,8 @@ void Scheme::InsertDeltaT()
 		cout << "Wrong input! Please input a double value: ";
 		getline(cin, tmpDeltaT);
 	}
-	//stod method parses str interpreting its content as a floating-point number, which is returned as a value of type double.
+	//stod method parses str interpreting its content as a floating-point number, 
+	//which is returned as a value of type double.
 	this->deltaT = stod(tmpDeltaT);
 }
 
@@ -203,17 +205,16 @@ void Scheme::SaveResultIntoFiles(double deltaT, string schemeName)
 		}
 		cout <<"\n"<< schemeName << " - results have been saved as: " << fileName << " in project folder.\n\n";
 	}
-	catch (const std::exception& e)
+	catch (const exception& e)
 	{
-		std::cerr << "std::exception caught" << std::endl;
-		std::cerr << "Type: " << typeid(e).name() << std::endl;
-		std::cerr << "What: " << e.what() << std::endl;
+		cerr << "std::exception caught" << endl;
+		cerr << "Type: " << typeid(e).name() << endl;
+		cerr << "What: " << e.what() << endl;
 	}
 
 }
 
-//-----------------------Accessor---------------------//
-
+//Accessors---------------------//
 //Get Matrix matrix.
 Matrix Scheme::GetMatrix()
 {
@@ -225,5 +226,4 @@ double Scheme::GetDeltaT()
 {
 	return this->deltaT;
 }
-
-//---------------------------------------------------//
+//------------------------------//

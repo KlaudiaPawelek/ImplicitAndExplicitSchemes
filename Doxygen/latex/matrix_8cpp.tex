@@ -1,59 +1,72 @@
 \hypertarget{matrix_8cpp}{}\section{matrix.\+cpp File Reference}
 \label{matrix_8cpp}\index{matrix.\+cpp@{matrix.\+cpp}}
 {\ttfamily \#include \char`\"{}matrix.\+h\char`\"{}}\newline
-Include dependency graph for matrix.\+cpp\+:
-% FIG 0
+Include dependency graph for matrix.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{matrix_8cpp__incl}
+\end{center}
+\end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::istream \& \mbox{\hyperlink{matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
+ostream \& \mbox{\hyperlink{matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
 \item 
-std\+::ostream \& \mbox{\hyperlink{matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
-\item 
-std\+::ifstream \& \mbox{\hyperlink{matrix_8cpp_aa5699a0bdf0ee014f083ff8a76629d21}{operator$>$$>$}} (std\+::ifstream \&ifs, \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
-\item 
-std\+::ofstream \& \mbox{\hyperlink{matrix_8cpp_aa574249d63b390cf1108d6e82047ef61}{operator$<$$<$}} (std\+::ofstream \&ofs, const \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
+ofstream \& \mbox{\hyperlink{matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8}{operator$<$$<$}} (ofstream \&ofs, const \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7}\label{matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7}} 
+\mbox{\Hypertarget{matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361}\label{matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361}} 
 \index{matrix.\+cpp@{matrix.\+cpp}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!matrix.\+cpp@{matrix.\+cpp}}
 \subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m }\end{DoxyParamCaption})}
 
-Overloaded ostream $<$$<$ operator. Display output if matrix has size user will be asked to input only matrix values if matrix was not initialized user can choose matrix size and input it values \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{matrix_8cpp_aa5699a0bdf0ee014f083ff8a76629d21}{operator$>$$>$(std\+::ifstream\& ifs, Matrix\& m)}} 
+Overloaded ostream $<$$<$ operator. Display output If matrix has size user will be asked to input only matrix values If matrix was not initialized user can choose matrix size and input it values 
+\begin{DoxyParams}{Parameters}
+{\em ostream\&} & os -\/ display output stream. \\
+\hline
+{\em Matrix\&} & m -\/ matrix to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+operator$>$$>$(std\+::ifstream\& ifs, Matrix\& m) 
 
-\mbox{\hyperlink{matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b}{operator$>$$>$(std\+::istream\& is, Matrix\& m)}} 
+operator$>$$>$(std\+::istream\& is, Matrix\& m) 
 
-\mbox{\hyperlink{matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7}{operator$<$$<$(std\+::ostream\& os, const Matrix\& m)}} 
+operator$<$$<$(std\+::ostream\& os, const Matrix\& m) 
 \end{DoxySeeAlso}
 \begin{DoxyReturn}{Returns}
 std\+::ostream\&. The ostream object 
 \end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em os} & Display output stream \\
-\hline
-{\em m} & \mbox{\hyperlink{class_matrix}{Matrix}} to read from \\
-\hline
-\end{DoxyParams}
-Here is the call graph for this function\+:
-% FIG 1
-\mbox{\Hypertarget{matrix_8cpp_aa574249d63b390cf1108d6e82047ef61}\label{matrix_8cpp_aa574249d63b390cf1108d6e82047ef61}} 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{matrix_8cpp_a5ed9a90fd6f010e7e9840a17d92d5361_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8}\label{matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8}} 
 \index{matrix.\+cpp@{matrix.\+cpp}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!matrix.\+cpp@{matrix.\+cpp}}
 \subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::ofstream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily ofstream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ofstream \&}]{ofs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m }\end{DoxyParamCaption})}
 
-Overloaded ofstream $<$$<$ operator. File output the file output operator is compatible with file input operator, ie. everything written can be read later. \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{matrix_8cpp_aa5699a0bdf0ee014f083ff8a76629d21}{operator$>$$>$(std\+::ifstream\& ifs, Matrix\& m)}} 
+Overloaded ofstream $<$$<$ operator. File output The file output operator is compatible with file input operator, 
+\begin{DoxyParams}{Parameters}
+{\em ofstream\&} & ofs \\
+\hline
+{\em Matrix\&} & m -\/ matrix to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+operator$>$$>$(std\+::ifstream\& ifs, Matrix\& m) 
 
-\mbox{\hyperlink{matrix_8cpp_aa574249d63b390cf1108d6e82047ef61}{operator$<$$<$(std\+::ofstream\& ofs, const Matrix\& m)}} 
+operator$<$$<$(std\+::ofstream\& ofs, const Matrix\& m) 
 
-\mbox{\hyperlink{matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b}{operator$>$$>$(std\+::istream\& is, Matrix\& m)}} 
+operator$>$$>$(std\+::istream\& is, Matrix\& m) 
 \end{DoxySeeAlso}
 
 \begin{DoxyExceptions}{Exceptions}
@@ -63,63 +76,10 @@ Overloaded ofstream $<$$<$ operator. File output the file output operator is com
 \begin{DoxyReturn}{Returns}
 std\+::ofstream\&. The ofstream object 
 \end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em m} & \mbox{\hyperlink{class_matrix}{Matrix}} to read from \\
-\hline
-\end{DoxyParams}
-Here is the call graph for this function\+:
-% FIG 2
-\mbox{\Hypertarget{matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b}\label{matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b}} 
-\index{matrix.\+cpp@{matrix.\+cpp}!operator$>$$>$@{operator$>$$>$}}
-\index{operator$>$$>$@{operator$>$$>$}!matrix.\+cpp@{matrix.\+cpp}}
-\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m }\end{DoxyParamCaption})}
-
-Overloaded istream $>$$>$ operator. Keyboard input if matrix has size user will be asked to input only matrix values if matrix was not initialized user can choose matrix size and input it values \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{matrix_8cpp_aa574249d63b390cf1108d6e82047ef61}{operator$<$$<$(std\+::ofstream\& ofs, const Matrix\& m)}} 
-
-\mbox{\hyperlink{matrix_8cpp_a3d6c1dcfc038804f4c08687f4f37f48b}{operator$>$$>$(std\+::istream\& is, Matrix\& m)}} 
-
-\mbox{\hyperlink{matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7}{operator$<$$<$(std\+::ostream\& os, const Matrix\& m)}} 
-\end{DoxySeeAlso}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument} & (\char`\"{}read error -\/ negative matrix size\char`\"{}); \\
-\hline
-\end{DoxyExceptions}
-\begin{DoxyReturn}{Returns}
-std\+::istream\&. The istream object 
-\end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em is} & Keyboard input stream \\
-\hline
-{\em m} & \mbox{\hyperlink{class_matrix}{Matrix}} to write into \\
-\hline
-\end{DoxyParams}
-Here is the call graph for this function\+:
-% FIG 3
-\mbox{\Hypertarget{matrix_8cpp_aa5699a0bdf0ee014f083ff8a76629d21}\label{matrix_8cpp_aa5699a0bdf0ee014f083ff8a76629d21}} 
-\index{matrix.\+cpp@{matrix.\+cpp}!operator$>$$>$@{operator$>$$>$}}
-\index{operator$>$$>$@{operator$>$$>$}!matrix.\+cpp@{matrix.\+cpp}}
-\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::ifstream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{ifs,  }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m }\end{DoxyParamCaption})}
-
-Overloaded ifstream $>$$>$ operator. File input the file output operator is compatible with file input operator, ie. everything written can be read later. \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{matrix_8cpp_aa5699a0bdf0ee014f083ff8a76629d21}{operator$>$$>$(std\+::ifstream\& ifs, Matrix\& m)}} 
-
-\mbox{\hyperlink{matrix_8cpp_aa574249d63b390cf1108d6e82047ef61}{operator$<$$<$(std\+::ofstream\& ofs, const Matrix\& m)}} 
-
-\mbox{\hyperlink{matrix_8cpp_a060711074cb5bcaf4e75498bc040c4b7}{operator$<$$<$(std\+::ostream\& os, const Matrix\& m)}} 
-\end{DoxySeeAlso}
-\begin{DoxyReturn}{Returns}
-std\+::ifstream\&. The ifstream object 
-\end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em ifs} & Input file stream with opened matrix file \\
-\hline
-{\em m} & \mbox{\hyperlink{class_matrix}{Matrix}} to write into \\
-\hline
-\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{matrix_8cpp_ae0b243a10c750750eb00e9af787ea4b8_cgraph}
+\end{center}
+\end{figure}

@@ -7,7 +7,8 @@
 
 #pragma once
 /**
-* Inherited class, which includes implicit schemes like Up Wind Forward-Time Backward-Space and Forward-Time Central-Space.
+* Inherited class, which includes implicit schemes like:
+* Up Wind Forward-Time Backward-Space and Forward-Time Central-Space.
 * Additionally, class includes private method with Thomas Algorithm.
 **/
 class ExplicitScheme :

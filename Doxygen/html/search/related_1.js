@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_matrix.html#a060711074cb5bcaf4e75498bc040c4b7',1,'Matrix::operator&lt;&lt;()'],['../class_matrix.html#aa574249d63b390cf1108d6e82047ef61',1,'Matrix::operator&lt;&lt;()']]],
-  ['operator_3e_3e',['operator&gt;&gt;',['../class_matrix.html#a3d6c1dcfc038804f4c08687f4f37f48b',1,'Matrix::operator&gt;&gt;()'],['../class_matrix.html#aa5699a0bdf0ee014f083ff8a76629d21',1,'Matrix::operator&gt;&gt;()']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../class_matrix.html#a5ed9a90fd6f010e7e9840a17d92d5361',1,'Matrix::operator&lt;&lt;()'],['../class_matrix.html#ae0b243a10c750750eb00e9af787ea4b8',1,'Matrix::operator&lt;&lt;()']]]
 ];

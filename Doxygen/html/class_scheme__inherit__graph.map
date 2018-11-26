@@ -1,4 +1,4 @@
 <map id="Scheme" name="Scheme">
-<area shape="rect" id="node2" href="$class_explicit_scheme.html" title="ExplicitScheme" alt="" coords="5,80,119,107"/>
-<area shape="rect" id="node3" href="$class_implicit_scheme.html" title="ImplicitScheme" alt="" coords="143,80,253,107"/>
+<area shape="rect" id="node2" href="$class_explicit_scheme.html" title="{ExplicitScheme\n||+ ExplicitScheme()\l+ ExplicitUpWindFTBS()\l+ ExplicitLaxWandroff()\l+ ~ExplicitScheme()\l}" alt="" coords="5,424,169,545"/>
+<area shape="rect" id="node3" href="$class_implicit_scheme.html" title="{ImplicitScheme\n|&#45; A\l&#45; B\l&#45; C\l&#45; D\l|+ ImplicitScheme()\l+ ImplicitUpWindFTBS()\l+ ImplicitFTCS()\l+ ~ImplicitScheme()\l&#45; ThomasAlgorithm()\l}" alt="" coords="194,395,357,575"/>
 </map>

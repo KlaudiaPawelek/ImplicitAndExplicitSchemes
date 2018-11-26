@@ -1,4 +1,4 @@
 <map id="ExplicitScheme" name="ExplicitScheme">
-<area shape="rect" id="node2" href="$class_scheme.html" title="Scheme" alt="" coords="47,185,118,212"/>
-<area shape="rect" id="node3" href="$class_matrix.html" title="Matrix" alt="" coords="53,96,112,123"/>
+<area shape="rect" id="node2" href="$class_scheme.html" title="{Scheme\n|# sizeOfMatrix\l# sizeT\l# sizeX\l# deltaT\l# deltaX\l# PI\l# u\l|+ Scheme()\l+ SaveResultIntoFiles()\l+ AnalyticalSolution()\l+ ComputeNorms()\l+ PrintResult()\l+ GetMatrix()\l+ GetDeltaT()\l+ ~Scheme()\l# InitialCondition()\l# BoundryCondition()\l# InsertDeltaT()\l# ComputeSizeOfMatrix()\l}" alt="" coords="9,404,177,731"/>
+<area shape="rect" id="node3" href="$class_matrix.html" title="{Matrix\n||+ Matrix()\l+ Matrix()\l+ Matrix()\l+ getNrows()\l+ getNcols()\l+ operator=()\l+ operator&#45;()\l+ one_norm()\l+ two_norm()\l+ uniform_norm()\l}" alt="" coords="33,132,153,341"/>
 </map>

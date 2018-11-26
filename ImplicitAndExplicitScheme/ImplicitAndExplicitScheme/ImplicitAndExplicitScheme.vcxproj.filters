@@ -44,5 +44,6 @@
     <ClInclude Include="ExplicitScheme.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
