@@ -1,0 +1,577 @@
+\documentclass[a4paper,12pt]{article}
+%packages
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabu}
+\usepackage{listings}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{sidecap}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{subfiles}
+\usepackage{newclude}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage[nottoc]{tocbibind} %Adds "References", "List..." to the table of contents
+\usepackage[toc,page]{appendix} %For appendix
+
+%Counter
+\newcommand{\quickwordcount}[1]{Word Count: %
+  \immediate\write18{texcount -1 -sum -merge #1.tex > #1-words.sum 
+  }%
+  \input{#1-words.sum} words%
+}
+
+%Style for Appendix A
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{245,245,245}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+%Style for hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=blue,
+    pdftitle={Sharelatex Example},
+    bookmarks=true,
+    pdfpagemode=FullScreen,
+    }
+
+%
+%Begin of the document
+%
+
+\begin{document}
+    \begin{titlepage} %First, title page.
+        \title{Computational Methods \& C++ Assignment}
+        
+        \author
+        {Authors: Klaudia Pawelek \& Etienne Comborieu\\ 
+        klaudia.pawelek@cranfield.ac.uk \\
+        e.combourieu@cranfield.ac.uk \\
+        Module leaders: Dr. Irene Moulitsas (Computational Methods)\\
+        Dr. Peter Sherar (C++)\\ 
+        Cranfield University}
+        
+        \date
+        {\today}
+        
+        \maketitle
+        \begin{center}
+        \quickwordcount{main}
+        \end{center}
+        \noindent\rule{\textwidth}{0.4pt} %horizontal line
+        
+        \begin{abstract}
+        	To do...
+        \end{abstract}
+        \noindent\rule{\textwidth}{0.4pt} %horizontal line
+    \end{titlepage}
+    
+    %
+    % Contents
+    %
+    
+    \newpage
+    \tableofcontents
+    \newpage
+    \listoffigures
+    \listoftables
+
+    %
+    % Computational Methods part with general introduction
+    %
+     
+    
+    \newpage
+    \section{Introduction}
+    \qquad Partial Differential Equation (PDE) are equations that, of course, involve partial derivatives of a function of at least two variables. PDEs are of utmost importance when it comes to applied mathematics or physics because once solved, they allow to describe a wide variety of physical quantities behaviours at future time steps in many different fields such as Fluid Dynamics, diffusion, sound or even financial modelling and modelling of biological systems. However, in order to find the solution to these equations, Taylor Series need to be used and they are infinite. To make the problem solvable, we need to make this sum finite and thus not calculate the exact real solution. Hence that fact that we can only try to approximate the solution, common examples of PDEs being the heat equation or Navier-Stokes Equations considered one of \textit{“the seven most important open problems in mathematics”}.
+    
+    %double enter means tab (new paragraph)
+    PDEs can be solved by hand, which most of the time is not the case when trying to simulate an environment at many time steps, or they can be used to create a computer model. The computer model depends on the problem itself and on the scheme used to solve this problem. In this report, we focus on the application of numerical schemes to solve a partial differential equation just like we did in the Computational Methods lecture. In order to do so, we use the practices we have seen in the C++ Object Oriented Programming lectures. 
+    We investigate the problem of a sound wave disturbance going through a one-dimensional tube of length L with both ends closed. 
+    
+    We consider the first order wave equation: \newline
+    \begin{equation} \label{firstOrderEq} %this is (1) in text
+        \centering
+        \frac { \partial f } { \partial t } + u \frac { \partial f } { \partial x } = 0
+    \end{equation} %use mathpix for equation
+    \newline
+    With the fact that we are considering:
+    \begin{itemize} %list with dots = itemize, with numbers = enumerate
+        \item u the speed of sound (250 m/s),
+        \item L being 400m,
+        \item The space is discretized with Δx equals 5 meters,
+        \item The time is discretized with values of Δt being 0.02, 0.01 and 0.005 seconds,
+        \item the fact that boundary and initial conditions are provided as follows:
+    \end{itemize}
+    \begin{equation} \label{Init&BoundEq} %this is (1) in text
+        \centering
+        \begin{array} { l l } { f ( x , 0 ) = 0 } & { 0 \leq x \leq 50 } \\ { f ( x , 0 ) = 100 \left\{ \sin \left[ \pi \left( \frac { x - 50 } { 60 } \right) \right] \right\} } & { 50 \leq x \leq 110 } \\ { f ( x , 0 ) = 0 } & { 110 \leq x \leq L } \end{array}
+    \end{equation} %use mathpix for equation
+    \newline
+    \qquad The first objective of this study is to implement and solve this problem using 4 different mathematical schemes, two Explicit schemes (Upwind Forward Time Backward Space and Lax-Wendroff) and 2 Implicit Schemes (Upwind Forward Time Backward Space and Forward Time Central Space).  Then, we realize the numerical analysis of each one of these schemes and their accuracy to be able to, thirdly, compare our results with what was expected and the analytic solution in order to draw conclusions from this study.
+    Finally, we look at the relevance of our C++ code to explain some possible misbehaviour or mistakes in our result and draw general conclusions for the whole assignment.
+
+    
+    \newpage
+    \section{Computational Methods}
+    
+    \newpage
+    \subsection{Methods}
+    
+    \newpage
+    \subsection{Results}
+    How to insert image in \LaTeX. You can use it.
+    
+    % How to insert image (chart)
+    % Ordering of commands is important!
+    
+    %Figure 1
+        \begin{figure}[h!]
+        \includegraphics[width=\textwidth]{Plots/ExplicitLaxWandroff_002.jpg}
+        \caption{Explicit Scheme for Lax-Wandroff, $\triangle$t = 0.01}
+        \label{fig:ex1}
+         \end{figure}
+         
+    %Figure 2     
+        \begin{figure}[h!]
+        \includegraphics[width=\textwidth]{Plots/ExplicitLaxWandroff_002.jpg}
+        \caption{Explicit Scheme for Lax-Wandroff, $\triangle$t = 0.02}
+         \label{fig:ex2}
+         \end{figure}
+        
+    % Example of "how to use \ref in text"  for figures
+        As you can see in the figure \ref{fig:ex1}, the 
+    function... and figure \ref{fig:ex2} shows...
+    
+    %Example of table - useful for norms
+    \begin{table}[h!]
+    \centering
+    \begin{tabular}{ |p{5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|  }
+         \hline
+         \multicolumn{4}{|c|}{One norm for each type of scheme} \\
+         \hline
+         Type of scheme &$\triangle$t = 0.01 &$\triangle$t = 0.02 &$\triangle$t = 0.005\\
+         \hline
+         Explicit UpWind FTBS   &0 &0 &0\\
+         Explicit Lax-Wandroff  &0 &0 &0\\
+         Implicit UpWind FTBS   &0 &0 &0\\
+         Implicit FTCS          &0 &0 &0\\
+         \hline
+    \end{tabular}
+    \caption{One norm}
+    \label{table:norms}
+    \end{table}
+    
+    \begin{table}[h!]
+    \centering
+    \begin{tabular}{ |p{5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|  }
+         \hline
+         \multicolumn{4}{|c|}{Two norm for each type of scheme} \\
+         \hline
+         Type of scheme &$\triangle$t = 0.01 &$\triangle$t = 0.02 &$\triangle$t = 0.005\\
+         \hline
+         Explicit UpWind FTBS   &0 &0 &0\\
+         Explicit Lax-Wandroff  &0 &0 &0\\
+         Implicit UpWind FTBS   &0 &0 &0\\
+         Implicit FTCS          &0 &0 &0\\
+         \hline
+    \end{tabular}
+    \caption{Two norm}
+    \label{table:norms2}
+    \end{table}
+    
+    \begin{table}[h!]
+    \centering
+    \begin{tabular}{ |p{5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|  }
+         \hline
+         \multicolumn{4}{|c|}{Uniform norm for each type of scheme} \\
+         \hline
+         Type of scheme &$\triangle$t = 0.01 &$\triangle$t = 0.02 &$\triangle$t = 0.005\\
+         \hline
+         Explicit UpWind FTBS   &0 &0 &0\\
+         Explicit Lax-Wandroff  &0 &0 &0\\
+         Implicit UpWind FTBS   &0 &0 &0\\
+         Implicit FTCS          &0 &0 &0\\
+         \hline
+    \end{tabular}
+    \caption{Uniform norm}
+    \label{table:norms3}
+    \end{table}
+    
+    \newpage
+    % Example of "how to use \ref in text" for tables   
+        As you can see in the table \ref{table:norms} and in the table \ref{table:norms2} and in the fucking perfect table \ref{table:norms3}...
+        
+    \newpage
+    \subsection{Discussion}
+    
+    %
+    % Object Oriented Programming part
+    %
+    
+    \newpage
+    \section{Object Oriented Programming} %introduction
+    \qquad This part of report presents some elements concern Object Oriented Programming for C++ language. The chapter includes the following themes:
+    \begin{itemize}
+        \item Implemented classes (abstractions).
+        \item The separation of responsibilities into the chosen classes.
+        \item The data/methods encapsulation for each class.
+        \item The relationships between the classes.
+        \item SOLID principles used for effective and simple design.
+        \item Standard Library components.
+        \item Exceptions used in code.
+    \end{itemize}
+    Every section presents way to use object oriented programming in our application.
+    
+    \subsection{General design} %Design with UML class diagram
+    \qquad At the beginning of the writing a code, UML (Unified Modeling Language) is a very useful tool. It helps in describing and designing software before writing code (forward engineering) and also after after implement them to help understand it (reverse engineering) \cite{uml_intro}. The most fundamental diagram in UML is class diagram. It shows relationships between classes, behaviour and responsibilities of each classes \cite{uml_classdiagram}. Class diagram for \textit{ImplicitAndExplicitScheme} is on Figure \ref{fig:classDiagram}. 
+    
+        \begin{figure}[h!]
+            \includegraphics[width=\textwidth]{Pictures/ClassDiagram.PNG}
+            \caption{Class Diagram.}
+            \label{fig:classDiagram}
+        \end{figure}
+        
+    We described some elements concern class diagram in the next sections.
+    
+    \subsubsection{Implemented classes} \label{classes} %About classes
+    \qquad In Math, different schemes are used to compute different equation. However, they have common properties, e.g. the same technique to compute initial and boundary conditions. Of course, these schemes have various way to solve a problem. Thereby, in application has been implemented three important classes.
+    \begin{itemize}
+        \item Scheme, which is mother (core) class.
+        \item ImplicitScheme, which is a class that inherits from class Scheme.
+        \item ExplicitScheme, which is also a class that inherits from class Scheme.
+    \end{itemize}
+    Additionally, program includes Matrix class, which inherits from vector.h (Standard Template Library class \cite{c++_STLvectors}). It is helpful to store data as matrices and use it in simple way. Matrix is used as object inside of Scheme class.
+    
+    \subsubsection{Responsibilities} \label{responsibilites}
+    \qquad The Scheme class contains elements, which are common for every type of scheme available in the exercise. Inherited classes have access to these common elements (methods, variables), so they can be implemented only once in mother class. The Scheme is responsible for compute initial and analytical solution, which are the same for every type of scheme (in this exercise). Additionally, this class includes method, which determines size of matrix and value of $\triangle$t. The Scheme contains also method for analytical solution and other methods, which are helpful to represent results in console or in files. 
+    
+    ImplicitScheme and ExplicitScheme classes are generalization of Scheme class. They includes methods responsible to solve equation in one type of scheme: implicit or explicit.
+    But, every class cannot exists without the Matrix class. It is responsible to storing values in vector containers as matrix and allows to use method specially prepared for matrices.
+    In that, program is more readable and easier to understand.
+    
+    \subsubsection{Encapsulation} \label{encapsulation}
+    \qquad The most important information is some parts of classes shall not be public. In our program, we used three known types of access specifiers – public, private and protected \cite{c++_general}. %add better reference with pages
+    
+    Data members of Scheme class are protected. They can be used only in methods of this class and class derives from Scheme (ImplicitScheme and ExplicitScheme). Other classes shall have access to this data members by public member functions – accessors. The Scheme class includes also protected methods, which are common for every type of scheme, e.g.: boundary or initial condition, compute delta t and size of matrix. They can be also used only inside of class that derive from Scheme class. Additionally, other public methods exist in Scheme class, including friend function.
+    
+    Classes that derived from Scheme class differ from each other. Both - ImplicitScheme and ExplicitScheme - include public method, which can be called in main program. However, it is worth mentioning, that in ImplicitScheme class, vector objects A,B,C,D and ThomasAlgorithm method are private. They are used only inside of the ImplicitFTSC() and ImplicitUpWindFTBS() methods. Access from main program is forbidden.
+    
+    Data members and methods in Matrix class is always public, because different classes need access to containers and methods. However, Matrix class inherits from vector.h and type of inheritance is private.
+    
+    \subsubsection{Relationships}
+    \qquad In Object Oriented Programming different types of relationships exist between classes. Especially, in the UML, they are shown as connection. We can distinguished a few basic types of relationships like: dependency, association, aggregation, composition, generalization and probably also inheritance \cite{uml_classdiagram}.
+    
+    In our implementation, we can observe that Matrix object is a data member inside of Scheme class. In that case, Scheme class (and inheriting from it) has access to the Matrix's methods. Additionally, Scheme class cannot exist without Matrix object. Therefore, in this relationship, we can observe aggregation - the stronger version of association, but weaker than composition. Aggregation is visible on UML class diagram (Figure \ref{fig:classDiagram}) as empty diamond shape next to the owning class with solid line pointing to the owned class \cite{uml_aggregation}.
+    
+    Of course, we can also observe inheritance and generalization \cite{uml_classdiagram} between classes, which has been described in section \ref{classes} and \ref{responsibilites}.
+    
+    \subsection{SOLID principles}
+    \qquad Each software shall be designed using patterns and principles to make it more flexible, readable, easy to maintenance and expand. For Object Oriented Programming language, we can use a lot of useful patters, but the basic way it to use SOLID principle. It is possible to create smart design.
+    
+    Our code qualifies some SOLID principles.
+    \begin{enumerate}
+        \item \textbf{Single Responsibility Principle} \newline
+        Every class has only one responsibility \cite{solidBook7}. Scheme is responsible for computing common elements for every type of implicit and explicit scheme like initial and boundary condition. Additionally, this class includes methods like print result in the console and save into file, which are the same for every type of scheme. Implicit class is responsible for computing FTCS and FTBS schemes with Thomas algorithm. It includes only this methods. Explicit class is responsible for computing Lax-Wandroff and FTBS schemes. Additionally, Matrix class do everything with matrices - no matter, what they contain.
+        \item \textbf{Open closed principle} \newline
+        If implementation of class has been extended to new method, other modules have not been modified \cite{solidBook8}. This principle is respected by our program. If we will add new type of scheme into our program, we have not modify any other part of code.
+        \item \textbf{Liskov's Substitution Principle} \newline
+        \textit{"If S is a sub-type of T, then objects of type T may be replaced with objects of type S, without breaking the program - computer scientist Barbara Liskov"} \cite{solidBook9}. 
+        Inheritance is used properly. Implicit and Explicit schemes are extension of Scheme class in proper way. Matrix class also use vector.h class in proper way.
+        \item \textbf{Interface Segregation Principle} \newline
+        Program shall include small interfaces \cite{solidBook10}. This principle is not very noticeable in our implementation of code. Maybe better way shall be implement additional abstract class (interface) like SchemeUI, which can contain method like Print and Save. Now, these methods are in one class Scheme.
+        \item \textbf{Dependency Inversion Principle} \newline
+        If any method has been changed in low level code like in ExplicitScheme and ImplicitScheme classes, any part of code has not been fixed in high level code like in Scheme class (which is core class). However, this principle concerns to Interfaces, which do not exist in our code \cite{solidBook11}.
+    \end{enumerate}
+    In addition, we can observe that, a major part of these principles have been fulfilled.
+    
+    \subsection{STL components}
+    STL (Standard Template Library) is a library, which includes classes concerns containers, iterators, strings and algorithms. STL significantly affects performance \cite{c++_STL}.
+    
+    Our program uses some elements from STL. 
+    \begin{enumerate}
+        \item Special containers like vector in Matrix class. The big advantages of this type of container are short insertion time (at the end) and access like in array. Additionally, creating matrix from vectors is possible, what is needed in this case. Unfortunately, vector has a few disadvantages, but it is not important in our case. Vectors are not re-sized during the working of program, any value is not searching and only insertion at the end is needed \cite{c++_STLvectors}.
+        \item The string class in main program. It is easier way to work with character array. We use this solution to convert program's parameters (inserted by user in the console) from inconvenient array to user-friendly type string  \cite{c++_STLstring}.
+    \end{enumerate}
+    	
+    \subsection{Exceptions}
+    \qquad Exceptions provide a way to transfer control from one part of a program to another. It occurs, when developer cannot make provision for something unexpected \cite{c++_Exception} The best way is to display message about error than sharply exit program. The best example is saving files. If we do not have enough space to save new file, program displays message instead crashed. 
+    
+    In our program exceptions have been implemented in the same situation - inside SaveResultIntoFiles method. Additionally, method, which concerns with inserting parameter delta T in the console, is checked by another methods isDouble. This solution allows to insert value again. This is better solution instead displaying only message about incorrect value.
+    
+    However, exceptions are very useful and helpful for console program. When users put incorrect parameter in the console, program only returns the information, which is more readable for user. Nothing else shall not happen.
+    
+    \subsection{Conclusion}
+    We implement our application as simple as possible, but effective. Below, a few main information have been listed:
+    \begin{enumerate}
+        \item Vectors are important part in effectiveness.
+        \item Classes enable to division of responsibilities. 
+        \item Code is not repeatable. Each method has unique implementation.
+        \item Some elements of code like keyword ‘friend’ has been added to practise object-oriented programming in C++.
+        \item Program can be execute with parameters, but user has to insert the value of the delta T in the console. It has been implemented to show, that we understand more than one way to communicate with user.
+        \item \underline{The most important information:} application allows to solve difficult and complicated equations in a very short time. If our implemented equations had any issue, we could change source code in a few minutes and did calculations again. Additionally, creating plots is very simple by method, which allows to save results in file.
+    \end{enumerate}
+    
+    \newpage
+    \section{General conclusions}
+    
+    
+    %
+    % References
+    %
+    
+    \newpage
+    \begin{thebibliography}{9} 
+ 
+         \bibitem{c++_general} 
+         Stephen Prata.
+         \textit{C++ primer plus}. 
+         Upper Saddle River, NJ : Addison-Wesley, 2012.
+
+        \bibitem{c++_STL} %general about STL
+         Jesse Liberty. 
+         \textit{Sams teach yourself C++ in one hour a day}.
+         Indianapolis, Ind.: Sams Pub., 2009. \newline
+         Chapter 16, page: 447.        
+        
+         \bibitem{c++_STLvectors} %vectors STL
+         Jesse Liberty. 
+         \textit{Sams teach yourself C++ in one hour a day}.
+         Indianapolis, Ind.: Sams Pub., 2009. \newline
+         Chapter 16, pages: 448-451.
+         
+         \bibitem{c++_STLstring}    %string STL
+         Jesse Liberty. 
+         \textit{Sams teach yourself C++ in one hour a day}.
+         Indianapolis, Ind.: Sams Pub., 2009. \newline
+         Chapter 17, pages: 457-471.
+         
+         \bibitem{c++_Exception}    %exception try-catch, throw
+         Jesse Liberty. 
+         \textit{Sams teach yourself C++ in one hour a day}.
+         Indianapolis, Ind.: Sams Pub., 2009. \newline
+         Chapter 28, pages: 689-723.
+         
+         \bibitem{uml_classdiagram} %about class diagram
+         Dan Pilone.
+         \textit{UML 2.0 : in a nutshell.}
+         Sebastopol, CA : O'Reilly, 2005. \newline
+         Chapter 2, pages: 11-28.
+         
+         \bibitem{uml_intro}  %about UML
+         Martin Fowler.
+         \textit{UML distilled a brief guide to the standard object modeling language.}
+         Boston Addison Wesley, 2004.\newline
+         Chapter 1, pages: 1-3.
+         
+         \bibitem{uml_aggregation}  %class diagram - more about aggregation
+         Martin Fowler.
+         \textit{UML distilled a brief guide to the standard object modeling language.}
+         Boston Addison Wesley, 2004.\newline
+         Chapter 5, pages: 67-68.
+        
+        \bibitem{solidBook7}
+        Gary McLean Hall.
+        \textit{Adaptive Code: Agile coding with design patterns and SOLID principles, Second Edition.}
+        O'Reilly, 2017. \newline
+        Chapter 7.
+        
+        \bibitem{solidBook8}
+        Gary McLean Hall.
+        \textit{Adaptive Code: Agile coding with design patterns and SOLID principles, Second Edition.}
+        O'Reilly, 2017. \newline
+        Chapter 8.
+        
+        \bibitem{solidBook9}
+        Gary McLean Hall.
+        \textit{Adaptive Code: Agile coding with design patterns and SOLID principles, Second Edition.}
+        O'Reilly, 2017. \newline
+        Chapter 9.
+        
+        \bibitem{solidBook10}
+        Gary McLean Hall.
+        \textit{Adaptive Code: Agile coding with design patterns and SOLID principles, Second Edition.}
+        O'Reilly, 2017. \newline
+        Chapter 10.
+        
+        \bibitem{solidBook11}
+        Gary McLean Hall.
+        \textit{Adaptive Code: Agile coding with design patterns and SOLID principles, Second Edition.}
+        O'Reilly, 2017. \newline
+        Chapter 11.
+    
+    
+    \end{thebibliography}
+
+
+    %
+    % Appendix
+    % A - code
+    % B - how to run a program
+    %
+    
+    \newpage
+    \begin{appendices}
+        \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+        \makeatletter
+        \addtocontents{toc}{%
+        \begingroup
+        \let\protect\l@section\protect\l@section
+        \let\protect\l@subsection\protect\l@subsection }%
+        \makeatother
+        \section{Code}
+                \subsection{Main program}
+                    \lstinputlisting[language=C++, caption=Main program (main.cpp) ] {SourceCode/main.cpp}
+        
+                \subsection{Matrix class}
+                    \lstinputlisting[language=C++, caption=Matrix class (matrix.cpp)] {SourceCode/matrix.cpp}
+                    \lstinputlisting[language=C++, caption=Matrix header file (matrix.h)] {SourceCode/matrix.h}
+                    
+                \subsection{Scheme class}
+                    \lstinputlisting[language=C++, caption=Scheme class (Scheme.cpp)] {SourceCode/Scheme.cpp}
+                    \lstinputlisting[language=C++, caption=Scheme header file (Scheme.h)] {SourceCode/Scheme.h}
+                \subsection{Implicit Scheme class}
+                    \lstinputlisting[language=C++, caption=Implicit Scheme class (ImplicitScheme.cpp)] {SourceCode/ImplicitScheme.cpp}
+                    \lstinputlisting[language=C++, caption=Implicit Scheme header file (ImplicitScheme.h)] {SourceCode/ImplicitScheme.h}
+                \subsection{Explicit Scheme class}
+                    \lstinputlisting[language=C++, caption=Explicit Scheme class (ExplicitScheme.cpp)] {SourceCode/ExplicitScheme.cpp}
+                    \lstinputlisting[language=C++, caption=Explicit Scheme header file (ExplicitScheme.h)] {SourceCode/ExplicitScheme.h}
+                    
+        \newpage
+        \section{How to run a program}
+        Program can be run in the console with following parameters:
+        
+        \textbf{-analytical} 
+        
+        Program solves equation in analytical way. 
+        
+        \textbf{-imFTCS} 
+        
+        Program solves equation used Implicit Scheme Forward Time Central Space. 
+        
+        \textbf{-imUpWind} 
+        
+        Program solves equation used Implicit Scheme Up Wind Forward Time Backward Space.
+        
+        \textbf{-exLaxWandroff} 
+        
+        Program solves equation used Explicit Scheme Lax-Wandroff. 
+    	 
+    	 \textbf{-exUpWind} 
+    	 
+    	 Program solves equation used Explicit Scheme Up Wind Forward Time Backward Space.
+    	 
+    	 \textbf{/?} 
+    	 
+    	 Manual for program.
+        \newline \newline
+        \underline{Example:} ImplicitAndExplicitScheme.exe -imFTCS \newline
+        
+        
+        In the next step, user shall insert the proper value of $\triangle$t. Afterwards, results will be displayed in the console with additional information (Figure \ref{fig:console}).
+        
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[height=12cm, width=16cm]{Pictures/console.png}
+            \caption{How to run a program in the console.}
+            \label{fig:console}
+        \end{figure}
+        
+        \newpage
+        \section{Environment and tools}
+        
+        Language: C++ and report: \LaTeX.
+        \newline \newline
+        Application has been created and tested on following systems:
+        \begin{enumerate}
+            \item Windows 10 (64-bit),
+            \item Windows 7 (64-bit),
+            \item Intel's processors.
+        \end{enumerate}
+        List of tools, which have been used to create project and report:
+        \begin{enumerate}
+            \item Visual Studio 2017 Enterprise edition,
+            \item GitHub \href{https://github.com/KlaudiaPawelek/ImplicitAndExplicitSchemes}{Repository: ImplicitAndExplicitScheme},
+            \item GitExtension 2.51.05 and kdiff tools 0.9.98-2,
+            \item Doxygen 1.8.14,
+            \item Overleaf v2 for LaTeX (www.overleaf.com), 
+            \item Microsoft Office Excel 2017.
+        \end{enumerate}
+        
+        \newpage
+        \section{Doxygen}
+        
+        Doxygen documentation has been created in two version: \LaTeX\ and HTML page. However, HTML page is more readable version than \LaTeX\ report. So, HTML page is recommended by us and this is the reason, why doxygen has not been added to appendix. Doxygen's files has been attached to folder with source code. \textit{Doxygen} folder includes two another folders: \textit{html} and \textit{latex}. To open Doxygen's page, find \textit{index.html} file inside of \textit{html} folder and use your browser. On Figure \ref{fig:doxygen} main page has been shown.
+        
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[height=12cm, width=18cm]{Pictures/doxygenPage.png}
+            \caption{Doxygen page.}
+            \label{fig:doxygen}
+        \end{figure}
+        
+        \newpage
+        \section{Individual Contribution}
+        Project has been created by Klaudia Pawelek and Etienne Comborieu. List with individual contribution of each members of group:
+        \begin{enumerate}
+            \item Computational Methods
+                \begin{enumerate}
+                    \item Klaudia Pawelek 30\%
+                    \item Etienne Comborieu 70\%
+                \end{enumerate}
+            \item C++ and Object Oriented Programming
+            \begin{enumerate}
+                    \item Klaudia Pawelek 70\%
+                    \item Etienne Comborieu 30\%
+            \end{enumerate}
+            \item Report
+            \begin{enumerate}
+                    \item Klaudia Pawelek 50\%
+                    \item Etienne Comborieu 50\%
+            \end{enumerate}
+            \item Others (GitHub, Doxygen)
+            \begin{enumerate} 
+                    \item Klaudia Pawelek 50\%
+                    \item Etienne Comborieu 50\%
+                \end{enumerate}
+        \end{enumerate}
+        
+        
+    \end{appendices}
+    
+\end{document}
+%
+% End of the document
+%
