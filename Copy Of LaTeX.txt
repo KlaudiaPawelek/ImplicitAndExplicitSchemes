@@ -12,6 +12,7 @@
 \usepackage{comment}
 \usepackage{graphicx}
 \usepackage{sidecap}
+\usepackage{textgreek}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{subfiles}
@@ -93,7 +94,12 @@
         \noindent\rule{\textwidth}{0.4pt} %horizontal line
         
         \begin{abstract}
-        	To do...
+            Computational methods and Object Oriented Programming are very helpful to solve Partial Differential Equations (PDEs). In our case, equation concerns sound wave. We used four mathematical schemes to solve this problem and simple, but effective application created by us.
+            
+            The purpose of this study is to present a review of different computational methods schemes and their usage in object oriented programming. The report consists of two main part. The first includes knowledge about computational methods (Implicit and Explicit schemes) and the second includes presentation of our program, but also a design and basic knowledge about Object Oriented Programming in C++ language.
+        	
+        	During our work, we saw, that each scheme has a few advantages and disadvantages. Explicit Schemes are easier to implement, but...
+        	%% TO DO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         \end{abstract}
         \noindent\rule{\textwidth}{0.4pt} %horizontal line
     \end{titlepage}
@@ -115,10 +121,10 @@
     
     \newpage
     \section{Introduction}
-    \qquad Partial Differential Equation (PDE) are equations that, of course, involve partial derivatives of a function of at least two variables. PDEs are of utmost importance when it comes to applied mathematics or physics because once solved, they allow to describe a wide variety of physical quantities behaviours at future time steps in many different fields such as Fluid Dynamics, diffusion, sound or even financial modelling and modelling of biological systems. However, in order to find the solution to these equations, Taylor Series need to be used and they are infinite. To make the problem solvable, we need to make this sum finite and thus not calculate the exact real solution. Hence that fact that we can only try to approximate the solution, common examples of PDEs being the heat equation or Navier-Stokes Equations considered one of \textit{“the seven most important open problems in mathematics”}.
+    \qquad Partial Differential Equation (PDE) are equations that, of course, involve partial derivatives of a function of at least two variables. PDEs are of utmost importance when it comes to applied mathematics or physics because once solved, they allow to describe a wide variety of physical quantities behaviours at future time steps in many different fields such as Fluid Dynamics, diffusion, sound or even financial modelling and modelling of biological systems. However, in order to find the solution to these equations, the problem needs to be adapted from a continuous to a discretised one in order to make it solvable. Hence that fact that we can only try to approximate the solution, common examples of PDEs being the heat equation or Navier-Stokes Equations considered one of \textit{“the seven most important open problems in mathematics”}.
     
     %double enter means tab (new paragraph)
-    PDEs can be solved by hand, which most of the time is not the case when trying to simulate an environment at many time steps, or they can be used to create a computer model. The computer model depends on the problem itself and on the scheme used to solve this problem. In this report, we focus on the application of numerical schemes to solve a partial differential equation just like we did in the Computational Methods lecture. In order to do so, we use the practices we have seen in the C++ Object Oriented Programming lectures. 
+    PDEs can be solved by hand, which most of the time is not the case when trying to simulate an environment at many time steps, or they can be used to create a computer model. The computer model depends on the problem itself and on the scheme, that is to say the way discretisation approach used to solve this problem. In this report, we focus on the application of numerical schemes to solve a partial differential equation just like we did in the Computational Methods lecture. In order to do so, we use the practices we have seen in the C++ Object Oriented Programming lectures. 
     We investigate the problem of a sound wave disturbance going through a one-dimensional tube of length L with both ends closed. 
     
     We consider the first order wave equation: \newline
@@ -126,29 +132,173 @@
         \centering
         \frac { \partial f } { \partial t } + u \frac { \partial f } { \partial x } = 0
     \end{equation} %use mathpix for equation
-    \newline
     With the fact that we are considering:
     \begin{itemize} %list with dots = itemize, with numbers = enumerate
         \item u the speed of sound (250 m/s),
         \item L being 400m,
-        \item The space is discretized with Δx equals 5 meters,
-        \item The time is discretized with values of Δt being 0.02, 0.01 and 0.005 seconds,
+        \item the space is discretised with $\triangle$x equals 5 meters,
+        \item the time is discretized with values of $\triangle$t being 0.02, 0.01 and 0.005 seconds,
         \item the fact that boundary and initial conditions are provided as follows:
     \end{itemize}
     \begin{equation} \label{Init&BoundEq} %this is (1) in text
         \centering
-        \begin{array} { l l } { f ( x , 0 ) = 0 } & { 0 \leq x \leq 50 } \\ { f ( x , 0 ) = 100 \left\{ \sin \left[ \pi \left( \frac { x - 50 } { 60 } \right) \right] \right\} } & { 50 \leq x \leq 110 } \\ { f ( x , 0 ) = 0 } & { 110 \leq x \leq L } \end{array}
+        \begin{array} { l l } { f ( x , 0 ) = 0 } & { 0 \leq x \leq 50 + 250t } \\ { f ( x , 0 ) = 100 \left\{ \sin \left[ \pi \left( \frac { x - 50 - 250t } { 60 } \right) \right] \right\} } & { 50 + 250t \leq x \leq 110 + 250t } \\ { f ( x , 0 ) = 0 } & { 110 + 250t \leq x \leq L } \end{array}
     \end{equation} %use mathpix for equation
-    \newline
     \qquad The first objective of this study is to implement and solve this problem using 4 different mathematical schemes, two Explicit schemes (Upwind Forward Time Backward Space and Lax-Wendroff) and 2 Implicit Schemes (Upwind Forward Time Backward Space and Forward Time Central Space).  Then, we realize the numerical analysis of each one of these schemes and their accuracy to be able to, thirdly, compare our results with what was expected and the analytic solution in order to draw conclusions from this study.
     Finally, we look at the relevance of our C++ code to explain some possible misbehaviour or mistakes in our result and draw general conclusions for the whole assignment.
 
     
     \newpage
     \section{Computational Methods}
+    \qquad The method we use is the same that we used in the Computational Methods Class of this semester. Indeed, we were given 4 numerical schemes with 2 explicit and 2 implicit. The detailed Mathematical operations are detailed in Appendix 
+    
+    \subsection{Explicit Scheme Method}
+    \subsubsection{Explicit Upwind FTBS Scheme}
+    \qquad First, we focus on explicit schemes. When trying to evaluate the function at a time step n + 1 for a location in space i, an explicit scheme does not involve anything else than the previous time step n and the points of space i and i - 1. The choice in the discretisation approach is not the same for each one of these schemes. The first one we look into is the Upwind FTBS.
+    
+    
+    Forward in Time, Backward in Space derivatives are involved : : 
+    \begin{equation} \label{ExFTBSEq} %this is (3) in text
+        \centering
+        \frac { f _ { i } ^ { n + 1 } - f _ { i } ^ { n } } { \Delta t } + u \frac { f _ { i } ^ { n } - f _ { i - 1 } ^ { n } } { \Delta x } = 0 
+    \end{equation}
+    
+    
+    The objective starting from this equation is the following : by knowing the values of the function for every point of space i, at a time step n, we want to calculate the value at the same point i for time step n+1. Hence the fact we isolate { f _ { i } ^ { n + 1 }} :
+    
+    
+    \begin{equation} \label{ExFTBSEq} %this is (4) in text
+        \centering { f _ { i } ^ { n + 1 }} = u \frac  {\Delta t}{\Delta x} \left( f _ { i - 1 } ^ { n } - f _ { i } ^{ n } \right) + f _ { i } ^ { n }
+    \end{equation}
+    
+    
+    This is the formula we implement in our C++ code to calculate the Explicit Upwind FTBS scheme and of which we will study the result of.
+    What seems relevant here is to study the characteristics of this scheme, in order to discuss quantitatively and qualitatively about the results we obtain.
+    
+    
+    The first characteristics to study is the stability of the scheme. Indeed, the stability of a scheme is a very important one. A stable scheme will guarantee that, for a small change to the initial conditions of the problem, the result produced by this scheme will be contained within the range of the previous result more or less a constant.
+    
+    
+    The stability of this scheme is linked to the numerical viscosity. In our case, we can isolate the term by using Taylor Series on the equation \ref{ExFTBSEq} which gives us : 
+    
+    
+    \begin{equation} \label{ExFTBStaylor} %this is (5) in text
+        \centering
+        \left( \frac { \partial f } { \partial t } \right) _ { i } ^ { n } + u \left( \frac { \partial f } { \partial x } \right) _ { i } ^ { n } = \frac { u \Delta x } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) _ { i } ^ { n } \left( 1 - u \frac { \Delta t } { \Delta x } \right) + O \left( \Delta x ^ { 2 } , \Delta t ^ { 2 } \right)
+    \end{equation}
+    
+    
+    We can compare this result to the viscous Navier-Stokes equation : 
+        \begin{equation} \label{viscNavier} %this is (6) in text
+        \centering
+        \frac { \partial u } { \partial t } + u \frac { \partial u } { \partial x } = v \frac { \partial ^ { 2 } u } { \partial x ^ { 2 } }
+    \end{equation}
+    
+    Hence we can notice that the numerical viscosity \textnu in our case is equivalent to : 
+    \begin{equation} \label{ExFTBSnu} %this is (7) in text
+        \centering
+        v = \frac { u \Delta x } { 2 } \left( 1 - u \frac { \Delta t } { \Delta x } \right)
+    \end{equation}
+    
+    
+    The relevant characteristics of the numerical viscosity being that the scheme is stable if this viscosity is superior to 0, that is why we finally introduce the Courant-Friedrichs-Lewy Number (CFL) that needs to be inferior or equal to 1 for the scheme to be stable :
+    
+    \begin{equation} \label{CFL} %this is (8) in text
+        \centering
+        C F L = \frac { u \Delta t } { \Delta x }
+    \end{equation}
+    In our case, we fix the value of $\triangle$x to 5 meters and the value of u to 250 m/s. The only parameter changing is $\triangle$t. The different CFL number values are :
+    \begin{itemize} %list with dots = itemize, with numbers = enumerate
+        \item For $\triangle$t = 0.02s, CFL = 1 so \textnu = 0 in that case.
+        \item For $\triangle$t = 0.01s, CFL = 0.5,
+        \item For $\triangle$t = 0.005s, CFL = 0.25.
+    \end{itemize}
+    
+    
+    We see that no matter the value of $\triangle$t chosen, the numerical viscosity is superior or equal to 0. Thus we can say that no matter the time step chosen among the three values, the scheme is stable. With the special case of $\triangle$t = 0.02s resulting in a neutral stability for the scheme.
+    \smallbreak
+    
+    The other characteristic of the scheme to study is its accuracy. A scheme may be stable but not accurate. The order of accuracy of a scheme "quantifies the rate of convergence of a numerical approximation of a differential equation to the exact solution". 
+    For the Explicit Upwind FTBS scheme, we can find the order of accuracy by applying Taylor Series Expansion to f, which gives us :
+    
+    \begin{equation} \label{taylorTime} %this is (19) in text
+        \centering
+       f _ { n + 1 } = f _ { n } + \Delta t \left( \frac { \partial f } { \partial t } \right) _ { n } + \frac { ( \Delta t ) ^ { 2 } } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial t ^ { 2 } } \right) _ { n } + \frac { ( \Delta t ) ^ { 3 } } { 6 } \left( \frac { \partial ^ { 3 } f } { \partial t ^ { 3 } } \right) _ { n } + O ( \Delta t ^ { 3 }) 
+    \end{equation}
+    \begin{equation} \label{taylorSpace} %this is (10) in text
+        \centering
+       f _ { i - 1 } = f _ { i } - \Delta x \left( \frac { \partial f } { \partial x } \right) _ { i } + \frac { ( \Delta x ) ^ { 2 } } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) _ { i } - \frac { ( \Delta x ) ^ { 3 } } { 6 } \left( \frac { \partial ^ { 3 } f } { \partial x ^ { 3 } } \right) _ { i } + O ( \Delta x ^ { 3 })
+    \end{equation}
+    Equation \ref{taylorTime} implies that : 
+    \begin{equation} \label{taylorTime2} %this is (11) in text
+        \centering
+        \left( \frac { \partial f } { \partial t } \right) _ { n } = \frac { f _ { n + 1 } - f _ { n } } { \Delta t } - \frac { \Delta t } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial t ^ { 2 } } \right) _ { n } - \frac { ( \Delta t ) ^ { 2 } } { 6 } \left( \frac { \partial ^ { 3 } f } { \partial t ^ { 3 } } \right) _ { n } + O ( \Delta t^ { 3 })
+    \end{equation}
+    Equation \ref{taylorSpace} implies that : 
+    \begin{equation} \label{taylorSpace2} %this is (12) in text
+        \centering
+        \left( \frac { \partial f } { \partial x } \right) _ { i } = \frac { f _ { i } - f _ { i - 1 } } { \Delta x } + \frac { \Delta x } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) _ { i } - \frac { ( \Delta x ) ^ { 2 } } { 6 } \left( \frac { \partial ^ { 3 } f } { \partial x ^ { 3 } } \right) _ { i } + O ( \Delta x^ { 3 })
+    \end{equation}
+    By doing equations \ref{taylorTime2} + \ref{taylorSpace2} and reducing the Taylor expansion to order 1, we get : 
+    \begin{equation} \label{accExFTBS} %this is (13) in text
+        \centering
+        \frac { f _ { i } ^ { n + 1 } - f _ { i } ^ { n } } { \Delta t } + u \frac { f _ { i } ^ { n } - f _ { i - 1 } ^ { n } } { \Delta x } + O ( \Delta t ) + O( \Delta x ) = 0
+    \end{equation}
+    
+    
+    Hence we can see that the order of accuracy of the explicit upwind FTBS scheme is of order 1 in space and in order 1 in time. The expected effect of the derivative being only 1, a wave accuracy is expected without taking into account dissipation effect.
+    
+    To summarize, the upwind explicit FTBS scheme is expected to be first order accurate in both time and space, stable, with an increasing stability, hence more accurate results, as given values of $\triangle$t increase.
     
     \newpage
-    \subsection{Methods}
+    \subsubsection{Explicit Lax-Wendroff}
+    \qquad The Lax-Wendroff scheme is also an explicit scheme. However, it is a two step method based on the Lax method. It involves a second derivative in time and a central derivative in space. The formulation of the Lax-Wendroff scheme is the following : 
+    \begin{equation} \label{laxWendroff} %this is (14) in text
+        \centering
+        \frac { f _ { i } ^ { n + 1 } - f _ { i } ^ { n } } { \Delta t } + u \frac { f _ { i + 1 } ^ { n } - f _ { i - 1 } ^ { n } } { 2 \Delta x } = \frac { \Delta t u ^ { 2 } } { 2 } \frac { f _ { i + 1 } ^ { n } - 2 f _ { i } ^ { n } + f _ { i - 1 } ^ { n } } { \Delta x ^ { 2 } }
+    \end{equation}
+    
+    The same way than for the Explicit upwind scheme, we need to separate the terms ${ f _ { i } ^ { n + 1 }}$ from the rest, so we have :
+    
+    \begin{equation} \label{laxWendroff2} %this is (15) in text
+        \centering
+        f _ { i } ^ { n + 1 } = f _ { i } ^ { n } + \frac{ \left( f _ { i + 1 } ^ { n } - 2 f _ { i } ^ { n } + f _ { i - 1 } ^ { n } \right)}{2} \frac { \Delta t ^ { 2 } u ^ { 2 } } { \Delta x ^ { 2 } } - \frac{ \left( f _ { i + 1 } ^ { n } - f _ { i - 1 } ^ { n } \right)}{2} \frac { u \Delta t } { \Delta x }
+    \end{equation}
+    
+    Here again, this is the formula we  implemented in our C++ program. The Lax-Wendroff scheme is also a conditionally stable scheme just like the upwind one. Indeed, it relies on the CFL number for stability too, the mathematical calculations to prove that can be found in [\ref{appendices}]. Hence the same value of the CFL and the numerical viscosity are found, and the scheme is stable for every value of $\triangle$t we use in this report : 
+    \begin{itemize} %list with dots = itemize, with numbers = enumerate
+        \item For $\triangle$t = 0.02s, CFL = 1 so \textnu = 0 in that particular case.
+        \item For $\triangle$t = 0.01s, CFL = 0.5,
+        \item For $\triangle$t = 0.005s, CFL = 0.25.
+    \end{itemize}
+    
+    Furthermore, knowing that the Lax-Wendroff scheme involves a second derivative in time and a central derivative in space, we expect to find an order of accuracy of 2 in both time and space. The demonstration is the following :
+    
+    First of all, we calculate the derivative in space. Buy calculating the addition \ref{taylorSpace2}  + \ref{taylorTime2} with both taken to the second order in space we get : 
+    \begin{equation} \label{accLax1} %this is (16) in text
+        \centering
+        \left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) _ { i }^{n} = \frac { f _ { i + 1 }^{n} - 2 f _ { i }^{n} + f _ { i - 1 }^{n} } { ( \Delta x ) ^ { 2 } } +  O  ( \Delta x  ^ { 2 })
+    \end{equation}
+    
+    Then we calculate the derivative in time. We know by definition that $\frac { \partial  f } { \partial t  } = - u \frac{\partial f}{\partial x}$ hence the fact that $\left( \frac { \partial ^ { 2 } f } { \partial t ^ { 2 } } \right)  = u^{2}\left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right)$.
+    Knowing that, we can use equation \ref{taylorTime2} at the second order and replace the second derivative in time with a derivative in space, so we get : 
+    \begin{equation} \label{accLax2} %this is (17) in text
+        \centering
+        \left( \frac { \partial f } { \partial t } \right) ^ { n } _ {i} = \frac { f ^ { n + 1 } _ {i} - f ^ { n } _ {i} } { \Delta t } - u ^{2}\frac { \Delta t } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) ^ { n } _ {i} + O ( \Delta t^ { 2 }, \Delta x ^{2})
+    \end{equation}
+    
+    Replacing the value of $\left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) _ { i }^{n}$ thanks to equation \ref{accLax1} allows to say : 
+    \begin{equation} \label{accLax3} %this is (18) in text
+        \centering
+        \left( \frac { \partial f } { \partial t } \right) ^ { n } _ {i} = \frac { f ^ { n + 1 } _ {i} - f ^ { n } _ {i} } { \Delta t } - u ^{2}\frac { \Delta t } { 2 } \left( \frac {f ^{n} _ {i+1} - 2f^{n}_{i} + f ^{n} _ {i-1}}{\Delta x ^{2}} \right) + O ( \Delta t^ { 2 }, \Delta x ^{2})
+    \end{equation}
+    
+    
+    We can then add the derivative in space and the derivative in time together to obtain : 
+    \begin{equation} \label{accLax4} %this is (19) in text
+        \centering
+        \left( \frac { \partial f } { \partial t } \right) ^ { n } _ {i} = \frac { f ^ { n + 1 } _ {i} - f ^ { n } _ {i} } { \Delta t } - u ^{2}\frac { \Delta t } { 2 } \left( \frac { \partial ^ { 2 } f } { \partial x ^ { 2 } } \right) ^ { n } _ {i} + O ( \Delta t^ { 2 }, \Delta x ^{2})
+    \end{equation}
     
     \newpage
     \subsection{Results}
@@ -267,13 +417,15 @@
     We described some elements concern class diagram in the next sections.
     
     \subsubsection{Implemented classes} \label{classes} %About classes
-    \qquad In Math, different schemes are used to compute different equation. However, they have common properties, e.g. the same technique to compute initial and boundary conditions. Of course, these schemes have various way to solve a problem. Thereby, in application has been implemented three important classes.
+    \qquad In Math, different schemes are used to compute different equation. However, they have common properties, e.g. the same technique to compute initial and boundary conditions. Of course, these schemes have various way to solve a problem. Thereby, in application has been implemented three important classes (source code is in the Appendix \ref{A}).
     \begin{itemize}
-        \item Scheme, which is mother (core) class.
-        \item ImplicitScheme, which is a class that inherits from class Scheme.
-        \item ExplicitScheme, which is also a class that inherits from class Scheme.
+        \item Scheme, which is mother (core) class \ref{main}.
+        \item ImplicitScheme, which is a class that inherits from class Scheme \ref{implicit}.
+        \item ExplicitScheme, which is also a class that inherits from class Scheme \ref{explicit}.
     \end{itemize}
-    Additionally, program includes Matrix class, which inherits from vector.h (Standard Template Library class \cite{c++_STLvectors}). It is helpful to store data as matrices and use it in simple way. Matrix is used as object inside of Scheme class.
+    Additionally, program includes Matrix class \ref{matrix}, which inherits from vector.h (Standard Template Library class \cite{c++_STLvectors}). It is helpful to store data as matrices and use it in simple way. Matrix is used as object inside of Scheme class.
+    
+    It is also important to say that our implementation of Matrix class is based on Matrix class from C++ course. We edited a lot of methods, but some parts of this class are unchanged. Matrix class is the best example of correctly created class, which used another class (vector), so this is the reason, why we were inspired of this implementation.
     
     \subsubsection{Responsibilities} \label{responsibilites}
     \qquad The Scheme class contains elements, which are common for every type of scheme available in the exercise. Inherited classes have access to these common elements (methods, variables), so they can be implemented only once in mother class. The Scheme is responsible for compute initial and analytical solution, which are the same for every type of scheme (in this exercise). Additionally, this class includes method, which determines size of matrix and value of $\triangle$t. The Scheme contains also method for analytical solution and other methods, which are helpful to represent results in console or in files. 
@@ -308,7 +460,7 @@
         \item \textbf{Open closed principle} \newline
         If implementation of class has been extended to new method, other modules have not been modified \cite{solidBook8}. This principle is respected by our program. If we will add new type of scheme into our program, we have not modify any other part of code.
         \item \textbf{Liskov's Substitution Principle} \newline
-        \textit{"If S is a sub-type of T, then objects of type T may be replaced with objects of type S, without breaking the program - computer scientist Barbara Liskov"} \cite{solidBook9}. 
+        \textit{"If S is a sub-type of T, then objects of type T may be replaced with objects of type S, without breaking the program - computer scientist Barbara Liskov"} (from Adaptive Code: Agile coding with design patterns and SOLID principles, 2017 \cite{solidBook9}). 
         Inheritance is used properly. Implicit and Explicit schemes are extension of Scheme class in proper way. Matrix class also use vector.h class in proper way.
         \item \textbf{Interface Segregation Principle} \newline
         Program shall include small interfaces \cite{solidBook10}. This principle is not very noticeable in our implementation of code. Maybe better way shall be implement additional abstract class (interface) like SchemeUI, which can contain method like Print and Save. Now, these methods are in one class Scheme.
@@ -318,7 +470,7 @@
     In addition, we can observe that, a major part of these principles have been fulfilled.
     
     \subsection{STL components}
-    STL (Standard Template Library) is a library, which includes classes concerns containers, iterators, strings and algorithms. STL significantly affects performance \cite{c++_STL}.
+    \qquad STL (Standard Template Library) is a library, which includes classes concerns containers, iterators, strings and algorithms. STL significantly affects performance \cite{c++_STL}.
     
     Our program uses some elements from STL. 
     \begin{enumerate}
@@ -334,7 +486,7 @@
     However, exceptions are very useful and helpful for console program. When users put incorrect parameter in the console, program only returns the information, which is more readable for user. Nothing else shall not happen.
     
     \subsection{Conclusion}
-    We implement our application as simple as possible, but effective. Below, a few main information have been listed:
+    \qquad We implement our application as simple as possible, but effective. Below, a few main information have been listed:
     \begin{enumerate}
         \item Vectors are important part in effectiveness.
         \item Classes enable to division of responsibilities. 
@@ -343,6 +495,8 @@
         \item Program can be execute with parameters, but user has to insert the value of the delta T in the console. It has been implemented to show, that we understand more than one way to communicate with user.
         \item \underline{The most important information:} application allows to solve difficult and complicated equations in a very short time. If our implemented equations had any issue, we could change source code in a few minutes and did calculations again. Additionally, creating plots is very simple by method, which allows to save results in file.
     \end{enumerate}
+    
+    Additionally, it is worth adding that our implementation of problem is not only the one correct implementation. Probably, classes could be designed in the different way, which are correctly too. We tried to use as much object oriented programming elements as possible in our application. After discussion, we observe that, it is possible to convert Scheme class to interface (abstract class in C++ with virtual methods) or create Thomas class, which can be used by ImplicitScheme class instead of private methods. We can observe a lot of different solution for our problem.
     
     \newpage
     \section{General conclusions}
@@ -440,10 +594,11 @@
     % Appendix
     % A - code
     % B - how to run a program
+    % etc.
     %
     
     \newpage
-    \begin{appendices}
+    \begin{appendices} \label{appendices}
         \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
         \makeatletter
         \addtocontents{toc}{%
@@ -451,21 +606,23 @@
         \let\protect\l@section\protect\l@section
         \let\protect\l@subsection\protect\l@subsection }%
         \makeatother
-        \section{Code}
-                \subsection{Main program}
+        \section{Code} \label{A}
+                \subsection{Main program} \label{main}
                     \lstinputlisting[language=C++, caption=Main program (main.cpp) ] {SourceCode/main.cpp}
         
-                \subsection{Matrix class}
+                \subsection{Matrix class} \label{matrix}
                     \lstinputlisting[language=C++, caption=Matrix class (matrix.cpp)] {SourceCode/matrix.cpp}
                     \lstinputlisting[language=C++, caption=Matrix header file (matrix.h)] {SourceCode/matrix.h}
                     
-                \subsection{Scheme class}
+                \subsection{Scheme class} \label{scheme}
                     \lstinputlisting[language=C++, caption=Scheme class (Scheme.cpp)] {SourceCode/Scheme.cpp}
                     \lstinputlisting[language=C++, caption=Scheme header file (Scheme.h)] {SourceCode/Scheme.h}
-                \subsection{Implicit Scheme class}
+                    
+                \subsection{Implicit Scheme class} \label{implicit}
                     \lstinputlisting[language=C++, caption=Implicit Scheme class (ImplicitScheme.cpp)] {SourceCode/ImplicitScheme.cpp}
                     \lstinputlisting[language=C++, caption=Implicit Scheme header file (ImplicitScheme.h)] {SourceCode/ImplicitScheme.h}
-                \subsection{Explicit Scheme class}
+                    
+                \subsection{Explicit Scheme class} \label{explicit}
                     \lstinputlisting[language=C++, caption=Explicit Scheme class (ExplicitScheme.cpp)] {SourceCode/ExplicitScheme.cpp}
                     \lstinputlisting[language=C++, caption=Explicit Scheme header file (ExplicitScheme.h)] {SourceCode/ExplicitScheme.h}
                     
@@ -532,8 +689,7 @@
         
         \newpage
         \section{Doxygen}
-        
-        Doxygen documentation has been created in two version: \LaTeX\ and HTML page. However, HTML page is more readable version than \LaTeX\ report. So, HTML page is recommended by us and this is the reason, why doxygen has not been added to appendix. Doxygen's files has been attached to folder with source code. \textit{Doxygen} folder includes two another folders: \textit{html} and \textit{latex}. To open Doxygen's page, find \textit{index.html} file inside of \textit{html} folder and use your browser. On Figure \ref{fig:doxygen} main page has been shown.
+        \qquad Doxygen documentation has been created in two version: \LaTeX\ and HTML page. However, HTML page is more readable version than \LaTeX\ report. So, HTML page is recommended by us and this is the reason, why doxygen has not been added to appendix. Doxygen's files has been attached to folder with source code. \textit{Doxygen} folder includes two another folders: \textit{html} and \textit{latex}. To open Doxygen's page, find \textit{index.html} file inside of \textit{html} folder and use your browser. On Figure \ref{fig:doxygen} main page has been shown.
         
         \begin{figure}[h!]
             \centering
@@ -544,7 +700,7 @@
         
         \newpage
         \section{Individual Contribution}
-        Project has been created by Klaudia Pawelek and Etienne Comborieu. List with individual contribution of each members of group:
+        \qquad Project has been created by Klaudia Pawelek and Etienne Comborieu. List with individual contribution of each members of group:
         \begin{enumerate}
             \item Computational Methods
                 \begin{enumerate}
