@@ -112,12 +112,12 @@ void Scheme::ComputeNorms(Matrix m1, Matrix m2)
 	//analytical solution - numerical solution
 	Matrix result = Matrix(m1.getNrows(), m2.getNcols());
 	result = m1 - m2;
-
+	double size = m2.getNcols()*m2.getNrows();
 	//Print result
 	cout << "--NORMS--";
-	cout<<"\n One norm: "<<result.one_norm();
-	cout<<"\n Second norm: "<<result.two_norm();
-	cout<<"\n Uniform norm: "<<result.uniform_norm();
+	cout<<"\n One norm: "<<result.one_norm()/size;
+	cout<<"\n Second norm: "<<result.two_norm()/size;
+	cout<<"\n Uniform norm: "<<result.uniform_norm()/size;
 	cout << "\n";
 }
 

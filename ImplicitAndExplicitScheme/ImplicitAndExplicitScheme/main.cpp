@@ -4,6 +4,8 @@
 #include "ExplicitScheme.h" //inherited class
 #include "ImplicitScheme.h" //inherited class
 
+#include <chrono>
+
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -25,7 +27,7 @@ int main(int argc, char* argv[])
 	{
 		arg += argv[i];
 	}
-	arg = "-exUpWind"; //<-use only, when you want to debug 
+	//arg = "-exUpWind"; //<-use only, when you want to debug 
 	
 	//********************* Run program with arguments ***********//
 
@@ -36,12 +38,18 @@ int main(int argc, char* argv[])
 		{
 			//UpWindFTBS
 			cout << "EXPLICIT SCHEME - UP WIND, FTBS \n";
+			std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+
 			schemeName = eS.ExplicitUpWindFTBS();
+
+			std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+			std::cout << "\nTime = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << " microseconds" << std::endl;
+			
 			deltaT = eS.GetDeltaT();
 
 			//Print results
 			eS.PrintResult();
-
+			
 			//Norms
 			s.AnalyticalSolution(deltaT);
 			s.ComputeNorms(s.GetMatrix(), eS.GetMatrix());
@@ -53,10 +61,10 @@ int main(int argc, char* argv[])
 			eS.~ExplicitScheme();
 			s.~Scheme();
 		}
-		else if (arg == "-exLaxWandroff")
+		else if (arg == "-exLaxWendroff")
 		{
 			//Lax-Wandroff
-			cout << "EXPLICIT SCHEME - LAX-WANDROFF \n";
+			cout << "EXPLICIT SCHEME - LAX-WENDROFF \n";
 			schemeName = eS2.ExplicitLaxWandroff();
 			deltaT = eS2.GetDeltaT();
 
@@ -79,12 +87,17 @@ int main(int argc, char* argv[])
 		{
 			//UpWind FTBS
 			cout << "IMPLICIT SCHEME - UP WIND, FTBS \n";
+			std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 			schemeName = iS.ImplicitUpWindFTBS();
+			std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+			std::cout << "\nTime = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << " microseconds" << std::endl;
+
+
 			deltaT = iS.GetDeltaT();
 
 			//Print results
 			iS.PrintResult();
-
+			
 			//Norms
 			s.AnalyticalSolution(deltaT);
 			s.ComputeNorms(s.GetMatrix(), iS.GetMatrix());
